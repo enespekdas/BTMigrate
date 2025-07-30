@@ -1,0 +1,13 @@
+2025-07-30 10:51:37,833 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250730_105137.log
+2025-07-30 10:51:37,833 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250730_105137.log
+2025-07-30 10:51:37,965 [INFO] ✅ Authentication başarılı. Session ID kaydedildi.
+2025-07-30 10:51:38,220 [INFO] 📊 Excel dosyası okundu: templates/data.xlsx (Toplam satır: 2)
+2025-07-30 10:51:38,222 [INFO] 📄 İlk 3 satır:
+    Username              Hostname        IPAdress       OS        Domain Application Safe Name Erişecek Kullanıcılar  Port  DatabaseName
+0  pam118064  server1.quasys.local  192.168.10.125  Windows  quasys.local         RDP   S_OZCAN               S_OZCAN   NaN           NaN
+1  pam118064  server2.quasys.local  192.168.10.126    Linux  quasys.local         RDP   S_OZCAN               S_OZCAN   NaN           NaN
+2025-07-30 10:51:38,316 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (11 kayıt)
+2025-07-30 10:51:38,317 [INFO] Row 1: 🔄 Satır işleniyor
+2025-07-30 10:51:38,317 [INFO] Row 1: [ManagedSystem] Zaten Kayıtlı | Zaten kayıtlı: 192.168.10.125
+2025-07-30 10:51:38,318 [INFO] Row 2: 🔄 Satır işleniyor
+2025-07-30 10:51:38,318 [ERROR] Row 2: [Processor] Kod: 2 Message: Satır işleme hatası: cannot unpack non-iterable NoneType object
