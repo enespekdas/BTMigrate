@@ -1,15 +1,21 @@
 Manage System:
 EXCEL1 - Device Inventory Report
-Kullanılacak sütunlar
+EXCEL2 - Pam Accounts
+Kullanılacak sütunlar(EXCEL1)
 -> Hostname -> Tek bir hostname gelecek
 -> IP -> Tek bir IP adresi gelecek
 -> OS -> Platform seçimi
 -> Domain -> functional account seçimi
  
+Kullanılacak sütunlar(EXCEL2)
+-> RemoteMachine -> RemoteMachine ";" ile parse edilerek bulunan her değer Excel1 içerisinde IP veya Hostname sütununda aranacak.
+ 
+NOT: Kaybak veri excel2 olacak, excel2 üzerinde bulunan makinelerin bilgileri Excel1 üzerinden alınacak
 NOT: IP, OS boş olanları ignore et
 NOT: Excel içerisindeki tüm domain'ler için functional account yaratıldığını kontrol et
 NOT: IP dolu fakat hostname boş ise nslookup ile hostname bakılır, var ise hostname kayıt edilir yok ise hostname alanına IP adresi girilir
 NOT: IP bilgisinin IP formatına uygun olduğunu kontrol et, uygun değilse logla ve ignore et
+NOT: Network cihazları için ayrı bir liste verilecek
  
  
 Domain Manage Account:
@@ -36,8 +42,9 @@ Database Manage System(MSSQL):
 EXCEL2 - Pam Accounts
 Kullanılacak sütunlar
 -> RemoteMachine  -> DNS ve IP olacak
-NOT: RemoteMachine "com" ile bitiyorsa MSSQL Manage System olarak ekle. Bu konu netleştirilecek.
-NOT: MSSQL platformlarının hepsi 1433 kullandığını varsayıcaz.
+NOT: RemoteMachine "thynet.thy.com" ile bitiyorsa MSSQL Manage System olarak ekle. Bu konu netleştirilecek.
+NOT: MSSQL platformlarının hepsi 1433 kullandığını varsayıcaz. 
+NOT: MSSQL sistemleri için ayrı bir liste verilecek
  
 Database Manage System(ORACLE):
 EXCEL2 - Pam Accounts
@@ -52,7 +59,7 @@ NOT: Excel üzerinde sadece hostname bilgisi var, bu hostname bilgisi nslookup i
 NOT: "oracle*" prefix ile başlayan platform'lar için oracle seçilecek.
  
  
-Database Manage Account:
+Database Manage Account(ORACLE):
 EXCEL2 - Pam Accounts
 Kullanılacak sütunlar
 -> userName
@@ -63,6 +70,15 @@ Kullanılacak sütunlar
 NOT: "database" sütunu mutlaka dolu olmalı. Database hesaplarını filtrelerken bu alanların dolu olanlarını alacağız.
 NOT: sadece "PAM*" prefix ile başlayan hesaplar filtrelenecek
  
+ 
+Database Manage Account(MSSQL):
+EXCEL2 - Pam Accounts
+Kullanılacak sütunlar
+-> RemoteMachine
+-> userName
+ 
+NOT: RemoteMachine içerisinde "thynet.thy.com" var ise buradaki account MSSQL link accountudur.
+NOT: userName alanındaki AD heasabını manage system'e linkle
  
  
 Local  Manage Account:

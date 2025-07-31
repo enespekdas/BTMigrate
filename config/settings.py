@@ -14,7 +14,10 @@ WORKGROUP_ID = 2
 
 VERIFY_SSL = False  # Local test ortamı için
 
-EXCEL_FILE_PATH = os.path.join("templates", "data.xlsx")
+
+# Excel dosya yolları
+OS_ENVANTER_FILE_PATH = "data/OsEnvanter.xlsx"
+PAM_ENVANTER_FILE_PATH = "data/PamEnvanter.xlsx"
 
 SHOW_EXCEL_SAMPLE_ROWS = True  # Geliştirme ortamında True, prod'da False yapılabilir
 
@@ -43,3 +46,62 @@ EXCEL_COLUMN_MAP = {
     "port": "Port",
     "databaseName": "DatabaseName",
 }
+
+# Windows Managed System create template
+WINDOWS_MANAGED_SYSTEM_TEMPLATE = {
+    "PlatformID": "1",
+    "EntityTypeID": 1,
+    "AssetID": None,
+    "DatabaseID": None,
+    "DirectoryID": None,
+    "CloudID": None,
+    "FunctionalAccountID": "",
+    "HostName": "",      # Buraya IP adresi gelecek
+    "DnsName": "",       # Buraya DNS adı gelecek
+    "IPAddress": "",     # Buraya IP adresi gelecek
+    "Port": "3389",
+    "Timeout": "30",
+    "SshKeyEnforcementMode": "0",
+    "PasswordRuleID": "0",
+    "ReleaseDuration": "120",
+    "MaxReleaseDuration": "10079",
+    "ISAReleaseDuration": "120",
+    "AutoManagementFlag": "true",
+    "CheckPasswordFlag": "false",
+    "ChangePasswordAfterAnyReleaseFlag": "false",
+    "ResetPasswordOnMismatchFlag": "false",
+    "ChangeFrequencyType": "first",
+    "ChangeFrequencyDays": "30",
+    "ChangeTime": "23:30",
+    "RemoteClientType": "None",
+    "IsApplicationHost": "false"
+}
+
+# Linux Managed System create template
+
+LINUX_MANAGED_SYSTEM_TEMPLATE = {
+    "EntityTypeID": 1,
+    "WorkgroupID": 2,
+    "HostName": "",
+    "DnsName": "",
+    "IPAddress": "",
+    "SystemName": "",
+    "PlatformID": 2,
+    "Port": 22,
+    "Timeout": 30,
+    "ReleaseDuration": 120,
+    "MaxReleaseDuration": 10079,
+    "ISAReleaseDuration": 120,
+    "AutoManagementFlag": "false",
+    "FunctionalAccountID": "",
+    "LoginAccountID": "null",
+    "ElevationCommand": "null",
+    "SshKeyEnforcementMode": 0,
+    "CheckPasswordFlag": "false",
+    "ChangePasswordAfterAnyReleaseFlag": "false",
+    "ResetPasswordOnMismatchFlag": "false",
+    "ChangeFrequencyType": "first",
+    "ChangeFrequencyDays": 30,
+    "ChangeTime": "23:30",
+    "AccountNameFormat": 0,
+    }

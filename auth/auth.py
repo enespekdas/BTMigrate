@@ -1,6 +1,6 @@
 import requests
 from config.settings import API_BASE_URL, AUTH_HEADERS, AUTH_BODY, VERIFY_SSL
-from core.logger import log_message, log_error
+from utils.logger import log_message, log_error
 from core.env import set_env_variable
 from core.exceptions import AuthenticationError
 

@@ -1,3 +1,0 @@
-Satır No,Genel Durum,ManagedSystem Durum,ManagedSystem Açıklama,ManagedAccount Durum,ManagedAccount Açıklama,Application Durum,Application Açıklama,SmartRule Durum,SmartRule Açıklama,UserGroup Durum,UserGroup Açıklama,User Durum,User Açıklama,RolePermission Durum,RolePermission Açıklama
-1,⛔,Zaten Kayıtlı,Zaten kayıtlı: 192.168.10.125,,,,,,,,,,,,
-2,❌,❌,cannot unpack non-iterable NoneType object,,,,,,,,,,,,

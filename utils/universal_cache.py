@@ -24,3 +24,7 @@ class UniversalCache:
     def clear(self):
         self._raw_data.clear()
         self._indexes.clear()
+
+
+# ✅ Global cache nesnesi (tüm projede ortak kullanılmalı)
+GLOBAL_CACHE = UniversalCache()
