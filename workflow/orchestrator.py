@@ -5,6 +5,7 @@ from excel.excel_loader import read_btmigrate_workbook
 from dispatcher.managed_system_dispatcher import dispatch_managed_system
 from dispatcher.managed_account_dispatcher import dispatch_managed_account_create
 from dispatcher.smart_rule_dispatcher import dispatch_smart_rule
+from dispatcher.application_dispatcher import dispatch_application_assignment  # ✅ Application dispatcher eklendi
 from utils.universal_cache import UniversalCache
 
 def start_orchestration(cache: UniversalCache):
@@ -24,3 +25,6 @@ def start_orchestration(cache: UniversalCache):
         # ✅ Smart Rule oluştur (eğer Account oluştuysa)
         if managed_account_id:
             dispatch_smart_rule(row, managed_account_id, cache)
+
+            # ✅ Application ataması (account oluşmuşsa)
+            dispatch_application_assignment(row, managed_account_id, cache)

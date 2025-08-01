@@ -3,6 +3,7 @@
 from api.managed_system import get_all_managed_systems
 from api.functional_account import get_all_functional_accounts
 from api.smart_rule import get_all_smart_rules  # ✅ SmartRule eklendi
+from api.application import get_all_applications  # ✅ Application eklendi
 from utils.universal_cache import UniversalCache
 from utils.logger import log_message, log_error
 
@@ -33,5 +34,12 @@ def initialize_cache() -> UniversalCache:
         log_message(f"✅ SmartRule cache yüklendi. ({len(smart_rules)} kayıt)")
     except Exception as e:
         log_error(-3, f"❌ SmartRule cache yüklenirken hata: {str(e)}", error_type="Cache")
+
+    # ✅ Applications
+    try:
+        applications = get_all_applications(cache)
+        log_message(f"✅ Application cache yüklendi. ({len(applications)} kayıt)")
+    except Exception as e:
+        log_error(-4, f"❌ Application cache yüklenirken hata: {str(e)}", error_type="Cache")
 
     return cache

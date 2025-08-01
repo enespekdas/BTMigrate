@@ -1,0 +1,204 @@
+2025-08-01 21:32:31,379 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250801_213231.log
+2025-08-01 21:32:31,379 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250801_213231.log
+2025-08-01 21:32:31,380 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:31,468 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 9324
+2025-08-01 21:32:31,469 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 21:32:31,469 [INFO] ✅ ManagedSystem cache yüklendi. (9 kayıt)
+2025-08-01 21:32:31,471 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:31,572 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-01 21:32:31,573 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 21:32:31,574 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-01 21:32:31,575 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:31,609 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/SmartRules HTTP/1.1" 200 10220
+2025-08-01 21:32:31,611 [INFO] ✅ SmartRule cache yüklendi. (35 kayıt)
+2025-08-01 21:32:31,612 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:31,633 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Applications HTTP/1.1" 200 1645
+2025-08-01 21:32:31,634 [INFO] 📥 Application listesi API'den alındı ve cache'e yazıldı. (4 kayıt)
+2025-08-01 21:32:31,634 [INFO] ✅ Application cache yüklendi. (4 kayıt)
+2025-08-01 21:32:31,642 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-01 21:32:31,642 [DEBUG] [Row 1] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.com, Username: pam118064
+2025-08-01 21:32:31,643 [DEBUG] [Row 1] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-01 21:32:31,643 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller bulunamadı. Domain: quasys.com
+2025-08-01 21:32:31,643 [INFO] Row 2: ✅ Zaten mevcut → None
+2025-08-01 21:32:31,643 [DEBUG] [Row 1] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam118065
+2025-08-01 21:32:31,643 [DEBUG] [Row 1] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-01 21:32:31,643 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:31,719 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 3369
+2025-08-01 21:32:31,720 [DEBUG] [Row 1] 🔄 Mevcut managed account sayısı: 3
+2025-08-01 21:32:31,721 [INFO] [Row 1] ✅ AD managed account zaten var: pam118065
+2025-08-01 21:32:31,721 [INFO] [Row 1] 🔗 Linkleme işlemi başlatıldı → SystemID: 181, AccountID: 91
+2025-08-01 21:32:31,722 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:31,754 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/181/LinkedAccounts/91 HTTP/1.1" 200 1122
+2025-08-01 21:32:31,754 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 181, AccountID: 91
+2025-08-01 21:32:31,756 [DEBUG] [Row 1] 🔍 Smart Rule adı oluşturuldu: THY_MA_E_PEKDAS
+2025-08-01 21:32:31,756 [INFO] [Row 1] ✅ Smart Rule zaten mevcut: THY_MA_E_PEKDAS (ID: 10037)
+2025-08-01 21:32:31,757 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:31,799 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10037/ManagedAccounts HTTP/1.1" 200 3347
+2025-08-01 21:32:31,801 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:31,924 [DEBUG] https://bt.quasys.local:443 "PUT /BeyondTrust/api/public/v3/QuickRules/10037/ManagedAccounts HTTP/1.1" 200 3347
+2025-08-01 21:32:31,925 [INFO] [SmartRuleAPI] 🔁 SmartRule güncellendi. ID=10037, AccountIDs=[96, 91, 93]
+2025-08-01 21:32:31,926 [INFO] [Row 1] 📎 Smart Rule account listesi güncellendi: [91, 93, 96, 91]
+2025-08-01 21:32:31,926 [INFO] 🚀 Application atama başlatıldı. (AccountID: 91)
+2025-08-01 21:32:31,926 [INFO] Row 3: ✅ Zaten mevcut → None
+2025-08-01 21:32:31,926 [DEBUG] [Row 1] 🔍 MSSQL Managed Account işlemi başlatıldı. IP: 10.59.76.112, Username: pam118064
+2025-08-01 21:32:31,926 [DEBUG] [Row 1] 🆔 Bulunan managed system ID: 182
+2025-08-01 21:32:31,927 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,000 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/182/ManagedAccounts HTTP/1.1" 200 1102
+2025-08-01 21:32:32,001 [INFO] [Row 1] ✅ MSSQL managed account zaten var: pam118064
+2025-08-01 21:32:32,002 [DEBUG] [Row 1] 🔍 Smart Rule adı oluşturuldu: THY_MA_S_OZCAN
+2025-08-01 21:32:32,002 [INFO] [Row 1] ✅ Smart Rule zaten mevcut: THY_MA_S_OZCAN (ID: 10038)
+2025-08-01 21:32:32,003 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,047 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10038/ManagedAccounts HTTP/1.1" 200 2202
+2025-08-01 21:32:32,050 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,201 [DEBUG] https://bt.quasys.local:443 "PUT /BeyondTrust/api/public/v3/QuickRules/10038/ManagedAccounts HTTP/1.1" 200 2202
+2025-08-01 21:32:32,201 [INFO] [SmartRuleAPI] 🔁 SmartRule güncellendi. ID=10038, AccountIDs=[92, 95]
+2025-08-01 21:32:32,202 [INFO] [Row 1] 📎 Smart Rule account listesi güncellendi: [92, 95, 92]
+2025-08-01 21:32:32,203 [INFO] 🚀 Application atama başlatıldı. (AccountID: 92)
+2025-08-01 21:32:32,203 [INFO] 🔁 Application eşleşti: 'mssql' → ID: 3
+2025-08-01 21:32:32,203 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,240 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedAccounts/92/Applications/3 HTTP/1.1" 201 447
+2025-08-01 21:32:32,241 [INFO] ✅ ApplicationID 3 → ManagedAccountID 92 ataması başarılı.
+2025-08-01 21:32:32,241 [INFO] Row 4: ✅ Zaten mevcut → None
+2025-08-01 21:32:32,242 [DEBUG] [Row 2] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam100887
+2025-08-01 21:32:32,242 [DEBUG] [Row 2] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-01 21:32:32,243 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,311 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 3369
+2025-08-01 21:32:32,312 [DEBUG] [Row 2] 🔄 Mevcut managed account sayısı: 3
+2025-08-01 21:32:32,313 [INFO] [Row 2] ✅ AD managed account zaten var: pam100887
+2025-08-01 21:32:32,313 [INFO] [Row 2] 🔗 Linkleme işlemi başlatıldı → SystemID: 183, AccountID: 93
+2025-08-01 21:32:32,313 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,345 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/183/LinkedAccounts/93 HTTP/1.1" 200 1122
+2025-08-01 21:32:32,345 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 183, AccountID: 93
+2025-08-01 21:32:32,346 [DEBUG] [Row 2] 🔍 Smart Rule adı oluşturuldu: THY_MA_Y_UCUNCUOGLU
+2025-08-01 21:32:32,346 [INFO] [Row 2] ✅ Smart Rule zaten mevcut: THY_MA_Y_UCUNCUOGLU (ID: 10039)
+2025-08-01 21:32:32,347 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,392 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10039/ManagedAccounts HTTP/1.1" 200 1124
+2025-08-01 21:32:32,394 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,485 [DEBUG] https://bt.quasys.local:443 "PUT /BeyondTrust/api/public/v3/QuickRules/10039/ManagedAccounts HTTP/1.1" 200 1124
+2025-08-01 21:32:32,486 [INFO] [SmartRuleAPI] 🔁 SmartRule güncellendi. ID=10039, AccountIDs=[93]
+2025-08-01 21:32:32,487 [INFO] [Row 2] 📎 Smart Rule account listesi güncellendi: [93, 93]
+2025-08-01 21:32:32,487 [INFO] 🚀 Application atama başlatıldı. (AccountID: 93)
+2025-08-01 21:32:32,487 [INFO] Row 5: ✅ Zaten mevcut → None
+2025-08-01 21:32:32,487 [DEBUG] [Row 2] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam100888
+2025-08-01 21:32:32,487 [DEBUG] [Row 2] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-01 21:32:32,488 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,573 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 3369
+2025-08-01 21:32:32,575 [DEBUG] [Row 2] 🔄 Mevcut managed account sayısı: 3
+2025-08-01 21:32:32,575 [INFO] [Row 2] ✅ AD managed account zaten var: pam100888
+2025-08-01 21:32:32,575 [INFO] [Row 2] 🔗 Linkleme işlemi başlatıldı → SystemID: 181, AccountID: 94
+2025-08-01 21:32:32,576 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,608 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/181/LinkedAccounts/94 HTTP/1.1" 200 1121
+2025-08-01 21:32:32,608 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 181, AccountID: 94
+2025-08-01 21:32:32,610 [DEBUG] [Row 2] 🔍 Smart Rule adı oluşturuldu: THY_MA_E_YARDIMCI
+2025-08-01 21:32:32,610 [INFO] [Row 2] ✅ Smart Rule zaten mevcut: THY_MA_E_YARDIMCI (ID: 10040)
+2025-08-01 21:32:32,611 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,660 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10040/ManagedAccounts HTTP/1.1" 200 1123
+2025-08-01 21:32:32,662 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,805 [DEBUG] https://bt.quasys.local:443 "PUT /BeyondTrust/api/public/v3/QuickRules/10040/ManagedAccounts HTTP/1.1" 200 1123
+2025-08-01 21:32:32,806 [INFO] [SmartRuleAPI] 🔁 SmartRule güncellendi. ID=10040, AccountIDs=[94]
+2025-08-01 21:32:32,807 [INFO] [Row 2] 📎 Smart Rule account listesi güncellendi: [94, 94]
+2025-08-01 21:32:32,807 [INFO] 🚀 Application atama başlatıldı. (AccountID: 94)
+2025-08-01 21:32:32,807 [INFO] Row 6: ✅ Zaten mevcut → None
+2025-08-01 21:32:32,807 [DEBUG] [Row 3] 🔍 Oracle Managed Account işlemi başlatıldı. IP: 10.59.76.111, Username: PAM100545
+2025-08-01 21:32:32,807 [DEBUG] [Row 3] 🆔 Bulunan managed system ID: 184
+2025-08-01 21:32:32,808 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,879 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/184/ManagedAccounts HTTP/1.1" 200 2201
+2025-08-01 21:32:32,881 [INFO] [Row 3] ✅ Oracle managed account zaten var: PAM100545
+2025-08-01 21:32:32,881 [DEBUG] [Row 3] 🔍 Smart Rule adı oluşturuldu: THY_MA_E_MISIR
+2025-08-01 21:32:32,881 [INFO] [Row 3] ✅ Smart Rule zaten mevcut: THY_MA_E_MISIR (ID: 10041)
+2025-08-01 21:32:32,882 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:32,924 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10041/ManagedAccounts HTTP/1.1" 200 1101
+2025-08-01 21:32:32,926 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,018 [DEBUG] https://bt.quasys.local:443 "PUT /BeyondTrust/api/public/v3/QuickRules/10041/ManagedAccounts HTTP/1.1" 200 1101
+2025-08-01 21:32:33,019 [INFO] [SmartRuleAPI] 🔁 SmartRule güncellendi. ID=10041, AccountIDs=[95]
+2025-08-01 21:32:33,019 [INFO] [Row 3] 📎 Smart Rule account listesi güncellendi: [95, 95]
+2025-08-01 21:32:33,020 [INFO] 🚀 Application atama başlatıldı. (AccountID: 95)
+2025-08-01 21:32:33,020 [INFO] 🔁 Application eşleşti: 'oracle' → ID: 6
+2025-08-01 21:32:33,020 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,051 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedAccounts/95/Applications/6 HTTP/1.1" 400 50
+2025-08-01 21:32:33,051 [ERROR] [ApplicationAPI] Kod: 95 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/95/Applications/6
+2025-08-01 21:32:33,052 [INFO] 🔁 Application eşleşti: 'winscp' → ID: 4
+2025-08-01 21:32:33,053 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,083 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedAccounts/95/Applications/4 HTTP/1.1" 400 50
+2025-08-01 21:32:33,084 [ERROR] [ApplicationAPI] Kod: 95 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/95/Applications/4
+2025-08-01 21:32:33,086 [INFO] Row 7: ✅ Zaten mevcut → None
+2025-08-01 21:32:33,086 [DEBUG] [Row 3] 🔍 Oracle Managed Account işlemi başlatıldı. IP: 10.59.76.111, Username: admin
+2025-08-01 21:32:33,086 [INFO] [Row 3] ℹ️ Atlandı: 'pam' ile başlamayan Oracle username: admin
+2025-08-01 21:32:33,086 [INFO] Row 8: ✅ Zaten mevcut → None
+2025-08-01 21:32:33,086 [DEBUG] [Row 4] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam100887
+2025-08-01 21:32:33,086 [DEBUG] [Row 4] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-01 21:32:33,087 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,155 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 3369
+2025-08-01 21:32:33,156 [DEBUG] [Row 4] 🔄 Mevcut managed account sayısı: 3
+2025-08-01 21:32:33,157 [INFO] [Row 4] ✅ AD managed account zaten var: pam100887
+2025-08-01 21:32:33,157 [INFO] [Row 4] 🔗 Linkleme işlemi başlatıldı → SystemID: 183, AccountID: 93
+2025-08-01 21:32:33,158 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,187 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/183/LinkedAccounts/93 HTTP/1.1" 200 1122
+2025-08-01 21:32:33,188 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 183, AccountID: 93
+2025-08-01 21:32:33,189 [DEBUG] [Row 4] 🔍 Smart Rule adı oluşturuldu: THY_MA_E_PEKDAS
+2025-08-01 21:32:33,189 [INFO] [Row 4] ✅ Smart Rule zaten mevcut: THY_MA_E_PEKDAS (ID: 10037)
+2025-08-01 21:32:33,190 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,233 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10037/ManagedAccounts HTTP/1.1" 200 3347
+2025-08-01 21:32:33,235 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,338 [DEBUG] https://bt.quasys.local:443 "PUT /BeyondTrust/api/public/v3/QuickRules/10037/ManagedAccounts HTTP/1.1" 200 3347
+2025-08-01 21:32:33,338 [INFO] [SmartRuleAPI] 🔁 SmartRule güncellendi. ID=10037, AccountIDs=[96, 91, 93]
+2025-08-01 21:32:33,339 [INFO] [Row 4] 📎 Smart Rule account listesi güncellendi: [91, 93, 96, 93]
+2025-08-01 21:32:33,340 [INFO] 🚀 Application atama başlatıldı. (AccountID: 93)
+2025-08-01 21:32:33,340 [INFO] Row 9: ✅ Zaten mevcut → None
+2025-08-01 21:32:33,340 [DEBUG] [Row 4] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam100888
+2025-08-01 21:32:33,340 [DEBUG] [Row 4] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-01 21:32:33,341 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,421 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 3369
+2025-08-01 21:32:33,422 [DEBUG] [Row 4] 🔄 Mevcut managed account sayısı: 3
+2025-08-01 21:32:33,422 [INFO] [Row 4] ✅ AD managed account zaten var: pam100888
+2025-08-01 21:32:33,422 [INFO] [Row 4] 🔗 Linkleme işlemi başlatıldı → SystemID: 181, AccountID: 94
+2025-08-01 21:32:33,423 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,455 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/181/LinkedAccounts/94 HTTP/1.1" 200 1121
+2025-08-01 21:32:33,455 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 181, AccountID: 94
+2025-08-01 21:32:33,456 [DEBUG] [Row 4] 🔍 Smart Rule adı oluşturuldu: THY_MA_E_YARDIMCI
+2025-08-01 21:32:33,456 [INFO] [Row 4] ✅ Smart Rule zaten mevcut: THY_MA_E_YARDIMCI (ID: 10040)
+2025-08-01 21:32:33,457 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,502 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10040/ManagedAccounts HTTP/1.1" 200 1123
+2025-08-01 21:32:33,504 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,620 [DEBUG] https://bt.quasys.local:443 "PUT /BeyondTrust/api/public/v3/QuickRules/10040/ManagedAccounts HTTP/1.1" 200 1123
+2025-08-01 21:32:33,620 [INFO] [SmartRuleAPI] 🔁 SmartRule güncellendi. ID=10040, AccountIDs=[94]
+2025-08-01 21:32:33,621 [INFO] [Row 4] 📎 Smart Rule account listesi güncellendi: [94, 94]
+2025-08-01 21:32:33,621 [INFO] 🚀 Application atama başlatıldı. (AccountID: 94)
+2025-08-01 21:32:33,621 [INFO] Row 10: ✅ Zaten mevcut → None
+2025-08-01 21:32:33,622 [DEBUG] [Row 5] 🔍 Oracle Managed Account işlemi başlatıldı. IP: 10.59.76.111, Username: PAM100545
+2025-08-01 21:32:33,622 [DEBUG] [Row 5] 🆔 Bulunan managed system ID: 184
+2025-08-01 21:32:33,622 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,693 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/184/ManagedAccounts HTTP/1.1" 200 2201
+2025-08-01 21:32:33,694 [INFO] [Row 5] ✅ Oracle managed account zaten var: PAM100545
+2025-08-01 21:32:33,695 [DEBUG] [Row 5] 🔍 Smart Rule adı oluşturuldu: THY_MA_S_OZCAN
+2025-08-01 21:32:33,695 [INFO] [Row 5] ✅ Smart Rule zaten mevcut: THY_MA_S_OZCAN (ID: 10038)
+2025-08-01 21:32:33,695 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,738 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10038/ManagedAccounts HTTP/1.1" 200 2202
+2025-08-01 21:32:33,740 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,834 [DEBUG] https://bt.quasys.local:443 "PUT /BeyondTrust/api/public/v3/QuickRules/10038/ManagedAccounts HTTP/1.1" 200 2202
+2025-08-01 21:32:33,834 [INFO] [SmartRuleAPI] 🔁 SmartRule güncellendi. ID=10038, AccountIDs=[92, 95]
+2025-08-01 21:32:33,835 [INFO] [Row 5] 📎 Smart Rule account listesi güncellendi: [92, 95, 95]
+2025-08-01 21:32:33,835 [INFO] 🚀 Application atama başlatıldı. (AccountID: 95)
+2025-08-01 21:32:33,835 [INFO] 🔁 Application eşleşti: 'oracle' → ID: 6
+2025-08-01 21:32:33,836 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,865 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedAccounts/95/Applications/6 HTTP/1.1" 400 50
+2025-08-01 21:32:33,865 [ERROR] [ApplicationAPI] Kod: 95 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/95/Applications/6
+2025-08-01 21:32:33,866 [INFO] Row 11: ✅ Zaten mevcut → None
+2025-08-01 21:32:33,867 [DEBUG] [Row 5] 🔍 Oracle Managed Account işlemi başlatıldı. IP: 10.59.76.111, Username: pam100888
+2025-08-01 21:32:33,867 [DEBUG] [Row 5] 🆔 Bulunan managed system ID: 184
+2025-08-01 21:32:33,867 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,935 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/184/ManagedAccounts HTTP/1.1" 200 2201
+2025-08-01 21:32:33,936 [INFO] [Row 5] ✅ Oracle managed account zaten var: pam100888
+2025-08-01 21:32:33,936 [DEBUG] [Row 5] 🔍 Smart Rule adı oluşturuldu: THY_MA_E_PEKDAS
+2025-08-01 21:32:33,936 [INFO] [Row 5] ✅ Smart Rule zaten mevcut: THY_MA_E_PEKDAS (ID: 10037)
+2025-08-01 21:32:33,937 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:33,981 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10037/ManagedAccounts HTTP/1.1" 200 3347
+2025-08-01 21:32:33,983 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:34,080 [DEBUG] https://bt.quasys.local:443 "PUT /BeyondTrust/api/public/v3/QuickRules/10037/ManagedAccounts HTTP/1.1" 200 3347
+2025-08-01 21:32:34,080 [INFO] [SmartRuleAPI] 🔁 SmartRule güncellendi. ID=10037, AccountIDs=[96, 91, 93]
+2025-08-01 21:32:34,081 [INFO] [Row 5] 📎 Smart Rule account listesi güncellendi: [91, 93, 96, 96]
+2025-08-01 21:32:34,082 [INFO] 🚀 Application atama başlatıldı. (AccountID: 96)
+2025-08-01 21:32:34,082 [INFO] 🔁 Application eşleşti: 'oracle' → ID: 6
+2025-08-01 21:32:34,082 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 21:32:34,126 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedAccounts/96/Applications/6 HTTP/1.1" 400 50
+2025-08-01 21:32:34,126 [ERROR] [ApplicationAPI] Kod: 96 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/96/Applications/6

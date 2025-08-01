@@ -1,0 +1,8 @@
+2025-08-01 21:21:47,588 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller bulunamadı. Domain: quasys.com
+2025-08-01 21:21:48,105 [ERROR] [ApplicationAPI] Kod: 92 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/92/Applications/3
+2025-08-01 21:21:48,834 [ERROR] [ApplicationAPI] Kod: 95 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/95/Applications/6
+2025-08-01 21:21:48,886 [ERROR] [ApplicationAPI] Kod: 95 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/95/Applications/4
+2025-08-01 21:21:49,124 [ERROR] [ApplicationAPI] Kod: 92 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/92/Applications/3
+2025-08-01 21:21:49,155 [ERROR] [ApplicationAPI] Kod: 92 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/92/Applications/6
+2025-08-01 21:21:49,916 [ERROR] [ApplicationAPI] Kod: 95 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/95/Applications/6
+2025-08-01 21:21:50,202 [ERROR] [ApplicationAPI] Kod: 96 Message: Application ataması başarısız: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/ManagedAccounts/96/Applications/6
