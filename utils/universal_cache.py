@@ -40,7 +40,11 @@ class UniversalCache:
     def clear(self):
         self._raw_data.clear()
         self._indexes.clear()
-        
+
     def get_all_by_key(self, category: str) -> List[Dict]:
         """Belirtilen kategoriye ait tüm ham veriyi getirir"""
         return self._raw_data.get(category, [])
+        
+    def append_to_cache(self, category: str, new_item: Dict):
+        """Var olan kategoriye yeni bir kayıt ekle"""
+        self._raw_data.setdefault(category, []).append(new_item)

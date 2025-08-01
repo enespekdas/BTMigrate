@@ -38,6 +38,7 @@ OS_ENVANTER_FILE_PATH = "data/OsEnvanter.xlsx"
 SAFE_USER_FILE_PATH = "data/PamSafeUser.xlsx"
 BTMIGRATE_WORK_FILE_PATH = "data/btmigrate_work.xlsx"
 
+SMART_GROUP_PREFIX="THY_MA_"
 
 IGNORED_ROW_COLUMNS  = [
     "PamEnvar", "username", "remote", "reason", "os_type"
