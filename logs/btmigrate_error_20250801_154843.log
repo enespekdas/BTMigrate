@@ -1,6 +1,0 @@
-2025-08-01 15:48:43,303 [ERROR] [ADManagedAccount] Kod: 1 Message: 💥 Hata (AD managed account): log_message() takes 1 positional argument but 2 were given
-2025-08-01 15:48:43,304 [ERROR] [ADManagedAccount] Kod: 1 Message: 💥 Hata (AD managed account): log_message() takes 1 positional argument but 2 were given
-2025-08-01 15:48:43,304 [ERROR] [ManagedAccountDispatcher] Kod: 1 Message: 🚫 Desteklenmeyen managed account tipi. type='mssql', username='pam118064'
-2025-08-01 15:48:43,304 [ERROR] [ADManagedAccount] Kod: 2 Message: 💥 Hata (AD managed account): log_message() takes 1 positional argument but 2 were given
-2025-08-01 15:48:43,304 [ERROR] [ADManagedAccount] Kod: 2 Message: 💥 Hata (AD managed account): log_message() takes 1 positional argument but 2 were given
-2025-08-01 15:48:43,304 [ERROR] [ManagedAccountDispatcher] Kod: 3 Message: 🚫 Desteklenmeyen managed account tipi. type='oracle', username='pam100545'
