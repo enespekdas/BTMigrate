@@ -1,2 +1,0 @@
-2025-08-01 08:57:09,856 [ERROR] Row 3: [Dispatcher] Kod: -100 Message: Tanımsız OS tipi: mssql
-2025-08-01 08:57:09,931 [ERROR] Row 6: [OracleHandler] Kod: -201 Message: Oluşturma hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/Workgroups/2/ManagedSystems

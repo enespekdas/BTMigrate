@@ -25,6 +25,10 @@ def get_all_functional_accounts(cache: UniversalCache):
         accounts = response.json()
         cache.cache_data(FUNCTIONAL_ACCOUNTS_KEY, accounts)
 
+        # 🔍 Dump FA'ları loga basalım
+        for acc in accounts:
+            log_debug(f"[FA Dump] {acc}")
+
         log_message(f"📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. ({len(accounts)} kayıt)")
         return accounts
 
@@ -47,7 +51,14 @@ def get_functional_account_id(cache: UniversalCache, domain: str, os_info: str) 
         acc_domain = (acc.get("DomainName") or "").lower()
         acc_desc = (acc.get("Description") or "").lower()
 
-        if domain == acc_domain and os_info in acc_desc:
+        # 🎯 MSSQL için sadece os_info kontrolü
+        if os_info == "mssql":
+            if "mssql" in acc_desc:
+                log_debug(f"[FA Lookup] MSSQL FA eşleşti: {acc}")
+                return acc.get("FunctionalAccountID")
+
+        # 🔁 Diğer platformlar için domain + os_info kontrolü
+        elif domain == acc_domain and os_info in acc_desc:
             log_debug(f"[FA Lookup] Eşleşen FA: {acc}")
             return acc.get("FunctionalAccountID")
 

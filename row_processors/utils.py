@@ -13,7 +13,7 @@ def resolve_functional_account_id(cache, row: dict):
         elif "mssql" in database.lower():
             os_info = "mssql"
 
-    # 🧼 String dönüşümleri
+    # 🧼 Normalize string dönüşümleri
     domain_str = str(domain).strip().lower() if domain and isinstance(domain, str) else ""
     os_info_str = str(os_info).strip().lower() if os_info and isinstance(os_info, str) else ""
 

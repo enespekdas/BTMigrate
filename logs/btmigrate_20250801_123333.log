@@ -1,8 +1,0 @@
-2025-08-01 12:33:33,287 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250801_123333.log
-2025-08-01 12:33:33,287 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250801_123333.log
-2025-08-01 12:33:33,371 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (8 kayıt)
-2025-08-01 12:33:33,372 [INFO] ✅ ManagedSystem cache yüklendi. (8 kayıt)
-2025-08-01 12:33:33,466 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
-2025-08-01 12:33:33,467 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
-2025-08-01 12:33:33,476 [INFO] Row 1: ✅ Zaten mevcut → None
-2025-08-01 12:33:33,476 [INFO] Row 2: ✅ Zaten mevcut → None

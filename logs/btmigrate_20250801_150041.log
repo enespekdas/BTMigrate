@@ -1,0 +1,31 @@
+2025-08-01 15:00:41,070 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250801_150041.log
+2025-08-01 15:00:41,070 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250801_150041.log
+2025-08-01 15:00:41,071 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:00:41,208 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 8205
+2025-08-01 15:00:41,209 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (8 kayıt)
+2025-08-01 15:00:41,210 [INFO] ✅ ManagedSystem cache yüklendi. (8 kayıt)
+2025-08-01 15:00:41,211 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:00:41,401 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-01 15:00:41,401 [DEBUG] [FA Dump] {'FunctionalAccountID': 1, 'PlatformID': 25, 'DomainName': 'quasys.local', 'AccountName': 'admin', 'DisplayName': 'admin', 'Description': '', 'ElevationCommand': None, 'SystemReferenceCount': 4, 'TenantID': None, 'ObjectID': None, 'AzureInstance': '', 'TestObjectID': ''}
+2025-08-01 15:00:41,401 [DEBUG] [FA Dump] {'FunctionalAccountID': 2, 'PlatformID': 1000, 'DomainName': None, 'AccountName': 'vagrant', 'DisplayName': 'custom-linux-vagrant', 'Description': '', 'ElevationCommand': 'sudo', 'SystemReferenceCount': 0, 'TenantID': None, 'ObjectID': None, 'AzureInstance': '', 'TestObjectID': ''}
+2025-08-01 15:00:41,402 [DEBUG] [FA Dump] {'FunctionalAccountID': 3, 'PlatformID': 25, 'DomainName': 'thynet.thy.com', 'AccountName': 'T_ISTINYE', 'DisplayName': 'T_ISTINYE', 'Description': '', 'ElevationCommand': None, 'SystemReferenceCount': 0, 'TenantID': None, 'ObjectID': None, 'AzureInstance': '', 'TestObjectID': ''}
+2025-08-01 15:00:41,402 [DEBUG] [FA Dump] {'FunctionalAccountID': 4, 'PlatformID': 25, 'DomainName': 'quasys.local', 'AccountName': 'WIN_USER', 'DisplayName': 'WIN_USER', 'Description': 'windows', 'ElevationCommand': None, 'SystemReferenceCount': 1, 'TenantID': None, 'ObjectID': None, 'AzureInstance': '', 'TestObjectID': ''}
+2025-08-01 15:00:41,402 [DEBUG] [FA Dump] {'FunctionalAccountID': 5, 'PlatformID': 25, 'DomainName': 'quasys.local', 'AccountName': 'LIN_USER', 'DisplayName': 'LIN_USER', 'Description': 'linux', 'ElevationCommand': None, 'SystemReferenceCount': 0, 'TenantID': None, 'ObjectID': None, 'AzureInstance': '', 'TestObjectID': ''}
+2025-08-01 15:00:41,402 [DEBUG] [FA Dump] {'FunctionalAccountID': 6, 'PlatformID': 25, 'DomainName': 'quasys.com', 'AccountName': 'COM_WIN_USER', 'DisplayName': 'COM_WIN_USER', 'Description': 'windows', 'ElevationCommand': None, 'SystemReferenceCount': 2, 'TenantID': None, 'ObjectID': None, 'AzureInstance': '', 'TestObjectID': ''}
+2025-08-01 15:00:41,402 [DEBUG] [FA Dump] {'FunctionalAccountID': 7, 'PlatformID': 25, 'DomainName': 'quasys.com', 'AccountName': 'COM_LIN_USER', 'DisplayName': 'COM_LIN_USER', 'Description': 'linux', 'ElevationCommand': None, 'SystemReferenceCount': 0, 'TenantID': None, 'ObjectID': None, 'AzureInstance': '', 'TestObjectID': ''}
+2025-08-01 15:00:41,402 [DEBUG] [FA Dump] {'FunctionalAccountID': 8, 'PlatformID': 8, 'DomainName': None, 'AccountName': 'oracle', 'DisplayName': 'oracle', 'Description': 'oracle', 'ElevationCommand': None, 'SystemReferenceCount': 0, 'TenantID': None, 'ObjectID': None, 'AzureInstance': '', 'TestObjectID': ''}
+2025-08-01 15:00:41,402 [DEBUG] [FA Dump] {'FunctionalAccountID': 9, 'PlatformID': 11, 'DomainName': None, 'AccountName': 'mssql', 'DisplayName': 'mssql', 'Description': 'mssql', 'ElevationCommand': None, 'SystemReferenceCount': 0, 'TenantID': None, 'ObjectID': None, 'AzureInstance': '', 'TestObjectID': ''}
+2025-08-01 15:00:41,402 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 15:00:41,403 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-01 15:00:41,416 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-01 15:00:41,416 [INFO] Row 2: ✅ Zaten mevcut → None
+2025-08-01 15:00:41,416 [DEBUG] [FA Lookup] Gelen domain: quasys.local, OS: mssql
+2025-08-01 15:00:41,416 [DEBUG] [FA Lookup] Gelen domain: quasys.local, OS: mssql
+2025-08-01 15:00:41,417 [DEBUG] [FA Lookup] MSSQL FA eşleşti: {'FunctionalAccountID': 9, 'PlatformID': 11, 'DomainName': None, 'AccountName': 'mssql', 'DisplayName': 'mssql', 'Description': 'mssql', 'ElevationCommand': None, 'SystemReferenceCount': 0, 'TenantID': None, 'ObjectID': None, 'AzureInstance': '', 'TestObjectID': ''}
+2025-08-01 15:00:41,417 [DEBUG] [FA Lookup] Eşleşen FA ID: 9
+2025-08-01 15:00:41,418 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:00:41,677 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Workgroups/2/ManagedSystems HTTP/1.1" 201 1123
+2025-08-01 15:00:41,679 [INFO] Row 3: ✅ MSSQL Managed System oluşturuldu: None
+2025-08-01 15:00:41,680 [INFO] Row 4: ✅ Zaten mevcut → None
+2025-08-01 15:00:41,680 [INFO] Row 5: ✅ Zaten mevcut → None
+2025-08-01 15:00:41,680 [INFO] Row 6: ✅ Zaten mevcut → None

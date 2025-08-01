@@ -16,17 +16,15 @@ def setup_logging():
 
     formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
 
-    # INFO log handler
+    # ✅ DEBUG seviyesine çekildi
     info_handler = logging.FileHandler(log_file_path, encoding='utf-8')
-    info_handler.setLevel(logging.INFO)
+    info_handler.setLevel(logging.DEBUG)
     info_handler.setFormatter(formatter)
 
-    # ERROR log handler
     error_handler = logging.FileHandler(error_log_file, encoding='utf-8')
     error_handler.setLevel(logging.ERROR)
     error_handler.setFormatter(formatter)
 
-    # Console log handler
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
     console_handler.setFormatter(formatter)
@@ -38,7 +36,6 @@ def setup_logging():
     # Başlangıç log'ları
     logging.info(f"🚀 Loglama başlatıldı: {log_file_path}")
     logging.info(f"🚨 Hatalar ayrıca burada: {error_log_file}")
-
 
 # Standart log fonksiyonları
 def log_message(msg):
