@@ -1,0 +1,7 @@
+2025-08-01 14:39:15,530 [ERROR] Row 1: [Validation] Kod: -21 Message: IP/Hostname eşleşmesi yapılamadı (remote=10.58.59.110)
+2025-08-01 14:39:15,530 [ERROR] Row 1: [Validation] Kod: -22 Message: OS bilgisi bulunamadı (ip=10.58.59.135, hostname=host-059)
+2025-08-01 14:39:25,612 [ERROR] Row 2: [MSSQL] Kod: -24 Message: IP/Hostname eşleşmesi yapılamadı (remote=test.thynet.thy.com)
+2025-08-01 14:39:25,613 [ERROR] Row 5: [Oracle] Kod: -31 Message: DB port bilgisi boş
+2025-08-01 14:39:25,614 [ERROR] Row 6: [Oracle] Kod: -33 Message: Address alanı boş
+2025-08-01 14:39:25,614 [ERROR] Row 7: [Oracle] Kod: -32 Message: Platform tipi Oracle olarak tespit edildi fakat database alanı boş
+2025-08-01 14:39:35,668 [ERROR] Row 8: [Oracle] Kod: -34 Message: IP/Hostname eşleşmesi yapılamadı (address=ens13.thy.com)

@@ -1,5 +1,6 @@
 from utils.logger import log_error_row
 from utils.network_utils import resolve_ip, resolve_hostname, is_ip
+from config.settings import EXCLUDED_SAFE_MEMBERS  # ✅ exclude listesi
 
 def process_oracle_row(index, pam_row, safe_user_list) -> tuple[list[list], list[list]]:
     result_rows = []
@@ -18,32 +19,27 @@ def process_oracle_row(index, pam_row, safe_user_list) -> tuple[list[list], list
     username = str(pam_row.get("userName") or "").strip()
     safe_name = str(pam_row.get("safeName") or "").strip()
 
-    # Oracle ile başlamıyorsa işlem yapılmaz
     if not platform_id.lower().startswith("oracle"):
         return [], []
 
-    # Port boşsa → ignore
     if not port or port.lower() in ["nan", "none", "null", ""]:
         reason = "DB port bilgisi boş"
         log_error_row(index, -31, reason, error_type="Oracle")
         ignored_rows.append([index, username, address or "-", reason, "oracle"])
         return [], ignored_rows
 
-    # Database boşsa → ignore
     if not database or database.lower() in ["nan", "none", "null", ""]:
         reason = "Platform tipi Oracle olarak tespit edildi fakat database alanı boş"
         log_error_row(index, -32, reason, error_type="Oracle")
         ignored_rows.append([index, username, address or "-", reason, "oracle"])
         return [], ignored_rows
 
-    # Address boşsa → ignore
     if not address or address.lower() in ["nan", "none", "null", ""]:
         reason = "Address alanı boş"
         log_error_row(index, -33, reason, error_type="Oracle")
         ignored_rows.append([index, username, "-", reason, "oracle"])
         return [], ignored_rows
 
-    # 🔍 Hostname ve IP çözümleme
     ip_address = ""
     hostname = address
 
@@ -54,7 +50,6 @@ def process_oracle_row(index, pam_row, safe_user_list) -> tuple[list[list], list
         hostname = address
         ip_address = resolve_ip(hostname)
 
-    # ❗ IP veya hostname çözümlenememişse → ignore
     if not ip_address or not hostname:
         reason = "IP/Hostname eşleşmesi yapılamadı"
         log_error_row(index, -34, f"{reason} (address={address})", error_type="Oracle")
@@ -65,6 +60,10 @@ def process_oracle_row(index, pam_row, safe_user_list) -> tuple[list[list], list
         str(m.get("memberName") or "").strip()
         for m in safe_user_list
         if str(m.get("safeName") or "").strip() == safe_name
+        and (
+            str(m.get("memberName") or "").strip().lower() not in [x.lower() for x in EXCLUDED_SAFE_MEMBERS]
+            or str(m.get("memberName") or "").strip().lower() == safe_name.strip().lower()
+        )
     ])
 
     row_data = [

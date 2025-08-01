@@ -46,6 +46,19 @@ RESULT_ROW_COLUMNS = [
     "safe name", "members", "database", "port", "type", "domain"
 ]
 
+EXCLUDED_SAFE_MEMBERS = [
+    "SGOM",
+    "PasswordManager",
+    "Y_UCUNCUOGLU",
+    "Uploader",
+    "PSMAppUsers",
+    "OZCAN",
+    "API_USR",
+    "E_YILDIZ41",
+    "S_OZCAN"
+    # 👆 exclude etmek istediğin kullanıcıları buraya ekle
+]
+
 # Windows Managed System create template
 WINDOWS_MANAGED_SYSTEM_TEMPLATE = {
     "PlatformID": "1",
@@ -76,7 +89,6 @@ WINDOWS_MANAGED_SYSTEM_TEMPLATE = {
     "IsApplicationHost": "false"
 }
 
-
 # # Linux Managed System create template
 LINUX_MANAGED_SYSTEM_TEMPLATE = {
     "EntityTypeID": 1,
@@ -103,9 +115,6 @@ LINUX_MANAGED_SYSTEM_TEMPLATE = {
     "ChangeTime": "23:30",
     "AccountNameFormat": 0,
     }
-
-
-
 
 ## Oracle Managed System template
 ORACLE_MANAGED_SYSTEM_TEMPLATE = {
@@ -154,9 +163,7 @@ ORACLE_MANAGED_SYSTEM_TEMPLATE = {
     "AccessURL": None
 }
 
-
-
-
+## MSSQL Managed System template
 
 MSSQL_MANAGED_SYSTEM_TEMPLATE = {
     "EntityTypeID": 2,

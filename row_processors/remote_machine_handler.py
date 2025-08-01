@@ -1,6 +1,7 @@
 from utils.validators import is_valid_ip
 from utils.logger import log_error_row
 from utils.network_utils import resolve_hostname, resolve_ip, is_ip
+from config.settings import EXCLUDED_SAFE_MEMBERS  # ✅ exclude listesi
 
 def is_empty(val: str) -> bool:
     val = (val or "").strip().lower()
@@ -32,10 +33,13 @@ def process_remote_machine_row(index, pam_row, os_envanter, safe_user_list) -> t
         str(m.get("memberName") or "").strip()
         for m in safe_user_list
         if str(m.get("safeName") or "").strip() == safe_name
+        and (
+            str(m.get("memberName") or "").strip().lower() not in [x.lower() for x in EXCLUDED_SAFE_MEMBERS]
+            or str(m.get("memberName") or "").strip().lower() == safe_name.strip().lower()
+        )
     ])
 
     for remote in remote_list:
-        # ✅ MSSQL BLOĞU — "thynet" içeren remote satırları
         if "thynet.thy.com" in remote.lower():
             ip_address = ""
             hostname = remote
@@ -47,14 +51,12 @@ def process_remote_machine_row(index, pam_row, os_envanter, safe_user_list) -> t
                 hostname = remote
                 ip_address = resolve_ip(remote)
 
-            # ❗IP veya hostname bulunamazsa ignore
             if is_empty(ip_address) or is_empty(hostname):
                 reason = "IP/Hostname eşleşmesi yapılamadı"
                 log_error_row(index, -24, f"{reason} (remote={remote})", error_type="MSSQL")
                 ignored_rows.append([index, username, remote, reason, "mssql"])
                 continue
 
-            # ✅ Port boşsa default MSSQL portu 1433 atanır
             final_port = port if not is_empty(port) else "1433"
 
             row_data = [
@@ -62,19 +64,18 @@ def process_remote_machine_row(index, pam_row, os_envanter, safe_user_list) -> t
                 username,
                 ip_address,
                 hostname,
-                "mssql",        # ✅ application
-                "mssql",        # ✅ OS
+                "mssql",
+                "mssql",
                 safe_name,
                 members,
                 database,
                 final_port,
-                "mssql",        # ✅ type
-                ""
+                "mssql",
+                "quasys.local"
             ]
             result_rows.append(row_data)
             continue
 
-        # 🔍 OS envanter eşleşmesi yapılan kısım (diğer OS'ler)
         matched_row = next(
             (r for r in os_envanter
              if str(r.get("IP Address") or "").strip() == remote
@@ -87,28 +88,24 @@ def process_remote_machine_row(index, pam_row, os_envanter, safe_user_list) -> t
         os_name = str(matched_row.get("OS") or "").strip() if matched_row else ""
         domain = str(matched_row.get("Domain") or "").strip() if matched_row else ""
 
-        # nslookup fallback
         if is_empty(ip_address) and not is_valid_ip(remote):
             ip_address = resolve_ip(remote)
 
         if is_empty(hostname) and is_valid_ip(remote):
             hostname = resolve_hostname(remote)
 
-        # ❌ IP veya hostname boşsa → ignore
         if is_empty(ip_address) or is_empty(hostname):
             reason = "IP/Hostname eşleşmesi yapılamadı"
             log_error_row(index, -21, f"{reason} (remote={remote})", error_type="Validation")
             ignored_rows.append([index, username, remote, reason, os_name or "-"])
             continue
 
-        # ❌ OS bilgisi yoksa → ignore
         if is_empty(os_name):
             reason = "OS bilgisi bulunamadı"
             log_error_row(index, -22, f"{reason} (ip={ip_address}, hostname={hostname})", error_type="Validation")
             ignored_rows.append([index, username, remote, reason, os_name or "-"])
             continue
 
-        # ❌ Geçersiz IP → ignore
         if not is_valid_ip(ip_address):
             reason = f"Geçersiz IP adresi: {ip_address}"
             log_error_row(index, -23, reason, error_type="Validation")
@@ -123,7 +120,7 @@ def process_remote_machine_row(index, pam_row, os_envanter, safe_user_list) -> t
             username,
             ip_address,
             hostname,
-            application,     # ✅ linux → winscp
+            application,
             os_name,
             safe_name,
             members,
