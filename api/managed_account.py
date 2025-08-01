@@ -1,14 +1,9 @@
-# api/managed_account.py
-
 import requests
 import os
 from config.settings import API_BASE_URL, VERIFY_SSL
 from utils.logger import log_error, log_message
 
 def get_managed_accounts_by_system_id(system_id: int):
-    """
-    Belirtilen ManagedSystem ID'ye ait mevcut managed account'ları getirir.
-    """
     session_id = os.getenv("ASP_NET_SESSION_ID")
     if not session_id:
         log_error(-1, "Session ID bulunamadı (get_managed_accounts_by_system_id).", error_type="ADManagedAccountAPI")
@@ -29,9 +24,6 @@ def get_managed_accounts_by_system_id(system_id: int):
         return []
 
 def create_ad_managed_account_api_call(system_id: int, payload: dict):
-    """
-    Yeni bir AD managed account oluşturur.
-    """
     session_id = os.getenv("ASP_NET_SESSION_ID")
     if not session_id:
         log_error(-1, "Session ID bulunamadı (create_ad_managed_account_api_call).", error_type="ADManagedAccountAPI")
@@ -46,16 +38,13 @@ def create_ad_managed_account_api_call(system_id: int, payload: dict):
     try:
         response = requests.post(url, json=payload, headers=headers, verify=VERIFY_SSL)
         response.raise_for_status()
-
         log_message(f"[ManagedAccountAPI] ✅ AD Managed Account oluşturuldu: {payload.get('AccountName')}")
-
+        return response.json()
     except requests.exceptions.RequestException as e:
         log_error(-1, f"POST ManagedAccount hata: {str(e)}", error_type="ADManagedAccountAPI")
+        return None
 
 def link_managed_account_to_system(system_id: int, account_id: int):
-    """
-    Managed Account → Managed System linkleme çağrısı
-    """
     session_id = os.getenv("ASP_NET_SESSION_ID")
     if not session_id:
         log_error(-1, "Session ID bulunamadı (link_managed_account_to_system).", error_type="ADManagedAccountAPI")
@@ -72,3 +61,47 @@ def link_managed_account_to_system(system_id: int, account_id: int):
         log_message(f"[ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: {system_id}, AccountID: {account_id}")
     except requests.exceptions.RequestException as e:
         log_error(-1, f"🔗 Linkleme API hatası: {str(e)}", error_type="ADManagedAccountAPI")
+
+def create_oracle_managed_account_api_call(system_id: int, payload: dict):
+    session_id = os.getenv("ASP_NET_SESSION_ID")
+    if not session_id:
+        log_error(-1, "Session ID bulunamadı (create_oracle_managed_account_api_call).", error_type="ManagedAccountAPI")
+        return
+
+    url = f"{API_BASE_URL}/ManagedSystems/{system_id}/ManagedAccounts"
+    headers = {
+        "Content-Type": "application/json",
+        "Cookie": f"ASP.NET_SessionId={session_id}"
+    }
+
+    try:
+        response = requests.post(url, json=payload, headers=headers, verify=VERIFY_SSL)
+        response.raise_for_status()
+        log_message(f"✅ Oracle Managed Account oluşturuldu: {payload.get('AccountName')}")
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        log_error(-1, f"POST Oracle ManagedAccount hata: {str(e)}", error_type="ManagedAccountAPI")
+        return None
+def create_mssql_managed_account_api_call(system_id: int, payload: dict):
+    """
+    Yeni bir MSSQL managed account oluşturur.
+    """
+    session_id = os.getenv("ASP_NET_SESSION_ID")
+    if not session_id:
+        log_error(-1, "Session ID bulunamadı (create_mssql_managed_account_api_call).", error_type="ManagedAccountAPI")
+        return
+
+    url = f"{API_BASE_URL}/ManagedSystems/{system_id}/ManagedAccounts"
+    headers = {
+        "Content-Type": "application/json",
+        "Cookie": f"ASP.NET_SessionId={session_id}"
+    }
+
+    try:
+        response = requests.post(url, json=payload, headers=headers, verify=VERIFY_SSL)
+        response.raise_for_status()
+        log_message(f"[ManagedAccountAPI] ✅ MSSQL Managed Account oluşturuldu: {payload.get('AccountName')}")
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        log_error(-1, f"POST MSSQL ManagedAccount hata: {str(e)}", error_type="ManagedAccountAPI")
+        return None

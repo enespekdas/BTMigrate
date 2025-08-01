@@ -1,0 +1,2 @@
+2025-08-01 18:50:06,815 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller bulunamadı. Domain: quasys.com
+2025-08-01 18:50:07,606 [ERROR] [OracleManagedAccount] Kod: 3 Message: 💥 Hata (Oracle managed account): log_message() takes 1 positional argument but 2 were given
