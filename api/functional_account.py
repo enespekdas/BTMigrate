@@ -2,12 +2,12 @@ import requests
 import os
 from typing import Optional
 from config.settings import API_BASE_URL, VERIFY_SSL
-from utils.logger import log_error, log_message
+from utils.logger import log_error, log_message, log_debug
 from utils.universal_cache import UniversalCache
 
 FUNCTIONAL_ACCOUNTS_KEY = "FunctionalAccount"  # ✅ Key normalize edildi
 
-def get_all_functional_accounts():
+def get_all_functional_accounts(cache: UniversalCache):
     session_id = os.getenv("ASP_NET_SESSION_ID")
     if not session_id:
         log_error(-1, "Session ID bulunamadı (functional accounts).", error_type="FunctionalAccountAPI")
@@ -21,37 +21,35 @@ def get_all_functional_accounts():
     try:
         response = requests.get(url, headers=headers, verify=VERIFY_SSL)
         response.raise_for_status()
+
         accounts = response.json()
+        cache.cache_data(FUNCTIONAL_ACCOUNTS_KEY, accounts)
 
-        # ✅ UniversalCache'e yaz
-        UniversalCache().cache_data(FUNCTIONAL_ACCOUNTS_KEY, accounts)
-
-        log_message(f"[DEBUG] Functional Account cache'e yazıldı. ({len(accounts)} kayıt)")
+        log_message(f"📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. ({len(accounts)} kayıt)")
         return accounts
 
+    except requests.exceptions.RequestException as req_err:
+        log_error(-2, f"HTTP Hatası (FA): {str(req_err)}", error_type="FunctionalAccountAPI")
     except Exception as e:
-        log_error(-1, f"Functional Account listesi alınamadı: {str(e)}", error_type="FunctionalAccountAPI")
-        return []
+        log_error(-3, f"Genel Hata (FA): {str(e)}", error_type="FunctionalAccountAPI")
 
-def get_functional_account_id(domain: str, os_name: str) -> Optional[int]:
+    return []
+
+def get_functional_account_id(cache: UniversalCache, domain: str, os_info: str) -> Optional[int]:
+    accounts = cache.get_cached_data(FUNCTIONAL_ACCOUNTS_KEY)
+
     domain = (domain or "").lower()
-    os_name = (os_name or "").lower()
+    os_info = (os_info or "").lower()
 
-    accounts = UniversalCache().get_cached_data(FUNCTIONAL_ACCOUNTS_KEY)
+    log_debug(f"[FA Lookup] Gelen domain: {domain}, OS: {os_info}")
 
-    if not accounts:
-        log_error(-1, "[DEBUG] Functional account listesi cache'te bulunamadı veya boş.", error_type="FunctionalAccountLookup")
-        return None
+    for acc in accounts:
+        acc_domain = (acc.get("DomainName") or "").lower()
+        acc_desc = (acc.get("Description") or "").lower()
 
-    for fa in accounts:
-        fa_domain = (fa.get("DomainName") or "").lower()
-        fa_description = (fa.get("Description") or "").lower()
+        if domain == acc_domain and os_info in acc_desc:
+            log_debug(f"[FA Lookup] Eşleşen FA: {acc}")
+            return acc.get("FunctionalAccountID")
 
-        log_message(f"[DEBUG] FA kontrol → domain='{fa_domain}', desc='{fa_description}', hedef domain='{domain}', os='{os_name}'")
-
-        if fa_domain == domain and os_name in fa_description:
-            log_message(f"[DEBUG] ✅ Eşleşme bulundu → FA_ID={fa.get('FunctionalAccountID')}")
-            return fa.get("FunctionalAccountID")
-
-    log_message(f"[DEBUG] ❌ Eşleşme bulunamadı → Domain: '{domain}', OS: '{os_name}'")
+    log_debug(f"[FA Lookup] Eşleşme yok. Aranan Domain: '{domain}', OS içinde: '{os_info}'")
     return None

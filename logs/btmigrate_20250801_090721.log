@@ -1,0 +1,12 @@
+2025-08-01 09:07:21,934 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250801_090721.log
+2025-08-01 09:07:21,934 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250801_090721.log
+2025-08-01 09:07:22,009 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (4 kayıt)
+2025-08-01 09:07:22,010 [INFO] ✅ ManagedSystem cache yüklendi. (4 kayıt)
+2025-08-01 09:07:22,089 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (8 kayıt)
+2025-08-01 09:07:22,090 [INFO] ✅ FunctionalAccount cache yüklendi. (8 kayıt)
+2025-08-01 09:07:22,228 [INFO] Row 1: ✅ Managed System oluşturuldu: None
+2025-08-01 09:07:22,380 [INFO] Row 2: ✅ Linux Managed System oluşturuldu: None
+2025-08-01 09:07:22,381 [ERROR] Row 3: [Dispatcher] Kod: -100 Message: Tanımsız OS tipi: mssql
+2025-08-01 09:07:22,538 [INFO] Row 4: ✅ Managed System oluşturuldu: None
+2025-08-01 09:07:22,538 [INFO] Row 5: ✅ Zaten mevcut → None
+2025-08-01 09:07:22,667 [INFO] Row 6: ✅ Oracle Managed System oluşturuldu: None

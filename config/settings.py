@@ -46,93 +46,160 @@ RESULT_ROW_COLUMNS = [
     "safe name", "members", "database", "port", "type", "domain"
 ]
 
-# # Excel dosya yolları
-# OS_ENVANTER_FILE_PATH = "data/OsEnvanter.xlsx"
-# PAM_ENVANTER_FILE_PATH = "data/PamEnvanter.xlsx"
+# Windows Managed System create template
+WINDOWS_MANAGED_SYSTEM_TEMPLATE = {
+    "PlatformID": "1",
+    "EntityTypeID": 1,
+    "AssetID": None,
+    "DatabaseID": None,
+    "DirectoryID": None,
+    "CloudID": None,
+    "FunctionalAccountID": "",#buraya Functional Account id si gelecek
+    "HostName": "",      # Buraya hostname adı gelecek
+    "DnsName": "",       # Buraya hostname adı gelecek
+    "IPAddress": "",     # Buraya IP adresi gelecek
+    "Port": "3389",
+    "Timeout": "30",
+    "SshKeyEnforcementMode": "0",
+    "PasswordRuleID": "0",
+    "ReleaseDuration": "120",
+    "MaxReleaseDuration": "10079",
+    "ISAReleaseDuration": "120",
+    "AutoManagementFlag": "true",
+    "CheckPasswordFlag": "false",
+    "ChangePasswordAfterAnyReleaseFlag": "false",
+    "ResetPasswordOnMismatchFlag": "false",
+    "ChangeFrequencyType": "first",
+    "ChangeFrequencyDays": "30",
+    "ChangeTime": "23:30",
+    "RemoteClientType": "None",
+    "IsApplicationHost": "false"
+}
 
-# SHOW_EXCEL_SAMPLE_ROWS = True  # Geliştirme ortamında True, prod'da False yapılabilir
-
-
-# # STEP bazlı işlem adımları -> Output da çıkan csv için gerekli olan kolon isimleri.
-# MIGRATION_STEPS = [
-#     "ManagedSystem",
-#     "ManagedAccount",
-#     "Application",
-#     "SmartRule",
-#     "UserGroup",
-#     "User",
-#     "RolePermission"
-# ]
-
-
-# EXCEL_COLUMN_MAP = {
-#     "ip": "IPAdress",
-#     "hostname": "Hostname",
-#     "username": "Username",
-#     "os": "OS",
-#     "domain": "Domain",
-#     "application": "Application",
-#     "safeName": "Safe Name",
-#     "users": "Erişecek Kullanıcılar",
-#     "port": "Port",
-#     "databaseName": "DatabaseName",
-# }
-
-# # Windows Managed System create template
-# WINDOWS_MANAGED_SYSTEM_TEMPLATE = {
-#     "PlatformID": "1",
-#     "EntityTypeID": 1,
-#     "AssetID": None,
-#     "DatabaseID": None,
-#     "DirectoryID": None,
-#     "CloudID": None,
-#     "FunctionalAccountID": "",
-#     "HostName": "",      # Buraya IP adresi gelecek
-#     "DnsName": "",       # Buraya DNS adı gelecek
-#     "IPAddress": "",     # Buraya IP adresi gelecek
-#     "Port": "3389",
-#     "Timeout": "30",
-#     "SshKeyEnforcementMode": "0",
-#     "PasswordRuleID": "0",
-#     "ReleaseDuration": "120",
-#     "MaxReleaseDuration": "10079",
-#     "ISAReleaseDuration": "120",
-#     "AutoManagementFlag": "true",
-#     "CheckPasswordFlag": "false",
-#     "ChangePasswordAfterAnyReleaseFlag": "false",
-#     "ResetPasswordOnMismatchFlag": "false",
-#     "ChangeFrequencyType": "first",
-#     "ChangeFrequencyDays": "30",
-#     "ChangeTime": "23:30",
-#     "RemoteClientType": "None",
-#     "IsApplicationHost": "false"
-# }
 
 # # Linux Managed System create template
+LINUX_MANAGED_SYSTEM_TEMPLATE = {
+    "EntityTypeID": 1,
+    "HostName": "",
+    "DnsName": "",
+    "IPAddress": "",
+    "SystemName": "",
+    "PlatformID": 2,
+    "Port": 22,
+    "Timeout": 30,
+    "ReleaseDuration": 120,
+    "MaxReleaseDuration": 10079,
+    "ISAReleaseDuration": 120,
+    "AutoManagementFlag": "",
+    "FunctionalAccountID": "",
+    "LoginAccountID": "null",
+    "ElevationCommand": "null",
+    "SshKeyEnforcementMode": 0,
+    "CheckPasswordFlag": "false",
+    "ChangePasswordAfterAnyReleaseFlag": "false",
+    "ResetPasswordOnMismatchFlag": "false",
+    "ChangeFrequencyType": "first",
+    "ChangeFrequencyDays": 30,
+    "ChangeTime": "23:30",
+    "AccountNameFormat": 0,
+    }
 
-# LINUX_MANAGED_SYSTEM_TEMPLATE = {
-#     "EntityTypeID": 1,
-#     "WorkgroupID": 2,
-#     "HostName": "",
-#     "DnsName": "",
-#     "IPAddress": "",
-#     "SystemName": "",
-#     "PlatformID": 2,
-#     "Port": 22,
-#     "Timeout": 30,
-#     "ReleaseDuration": 120,
-#     "MaxReleaseDuration": 10079,
-#     "ISAReleaseDuration": 120,
-#     "AutoManagementFlag": "false",
-#     "FunctionalAccountID": "",
-#     "LoginAccountID": "null",
-#     "ElevationCommand": "null",
-#     "SshKeyEnforcementMode": 0,
-#     "CheckPasswordFlag": "false",
-#     "ChangePasswordAfterAnyReleaseFlag": "false",
-#     "ResetPasswordOnMismatchFlag": "false",
-#     "ChangeFrequencyType": "first",
-#     "ChangeFrequencyDays": 30,
-#     "ChangeTime": "23:30",
-#     "AccountNameFormat": 0,
-#     }
+
+
+
+## Oracle Managed System template
+ORACLE_MANAGED_SYSTEM_TEMPLATE = {
+    "EntityTypeID": 2,
+    "AssetID": None,
+    "DatabaseID": None,
+    "DirectoryID": None,
+    "CloudID": None,
+    "HostName": "",
+    "DnsName": "",
+    "IPAddress": "",
+    "InstanceName": "",
+    "IsDefaultInstance": False,
+    "Template": None,
+    "ForestName": None,
+    "UseSSL": None,
+    "OracleInternetDirectoryID": None,
+    "OracleInternetDirectoryServiceName": None,
+    "SystemName": "",
+    "PlatformID": 8,
+    "NetBiosName": None,
+    "Port": 0,
+    "Timeout": 30,
+    "Description": "",
+    "ContactEmail": None,
+    "PasswordRuleID": 0,
+    "DSSKeyRuleID": 0,
+    "ReleaseDuration": 120,
+    "MaxReleaseDuration": 10079,
+    "ISAReleaseDuration": 120,
+    "AutoManagementFlag": False,
+    "FunctionalAccountID": None,
+    "LoginAccountID": None,
+    "ElevationCommand": None,
+    "SshKeyEnforcementMode": 0,
+    "CheckPasswordFlag": False,
+    "ChangePasswordAfterAnyReleaseFlag": False,
+    "ResetPasswordOnMismatchFlag": False,
+    "ChangeFrequencyType": "first",
+    "ChangeFrequencyDays": 30,
+    "ChangeTime": "23:30",
+    "AccountNameFormat": 0,
+    "RemoteClientType": "None",  # ✅ bu özel enum, string olmalı!
+    "ApplicationHostID": None,
+    "IsApplicationHost": False,
+    "AccessURL": None
+}
+
+
+
+
+
+MSSQL_MANAGED_SYSTEM_TEMPLATE = {
+    "EntityTypeID": 2,
+    "AssetID": None,
+    "DatabaseID": None,
+    "DirectoryID": None,
+    "CloudID": None,
+    "HostName": "",
+    "DnsName": "",
+    "IPAddress": "",
+    "InstanceName": "",
+    "IsDefaultInstance": False,
+    "Template": None,
+    "ForestName": None,
+    "UseSSL": None,
+    "OracleInternetDirectoryID": None,
+    "OracleInternetDirectoryServiceName": None,
+    "SystemName": "",
+    "PlatformID": 11,
+    "NetBiosName": None,
+    "Port": 1433,
+    "Timeout": 30,
+    "Description": None,
+    "ContactEmail": None,
+    "PasswordRuleID": 0,
+    "DSSKeyRuleID": 0,
+    "ReleaseDuration": 120,
+    "MaxReleaseDuration": 10079,
+    "ISAReleaseDuration": 120,
+    "AutoManagementFlag": False,
+    "FunctionalAccountID": 0,
+    "LoginAccountID": None,
+    "ElevationCommand": None,
+    "SshKeyEnforcementMode": 0,
+    "CheckPasswordFlag": False,
+    "ChangePasswordAfterAnyReleaseFlag": False,
+    "ResetPasswordOnMismatchFlag": False,
+    "ChangeFrequencyType": "first",
+    "ChangeFrequencyDays": 30,
+    "ChangeTime": "23:30",
+    "AccountNameFormat": 0,
+    "RemoteClientType": "None",
+    "ApplicationHostID": None,
+    "IsApplicationHost": False,
+    "AccessURL": None
+}

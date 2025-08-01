@@ -56,3 +56,7 @@ def log_message_row(row_number, msg):
 
 def log_error_row(row_number, code, msg, error_type="General"):
     logging.error(f"Row {row_number}: [{error_type}] Kod: {code} Message: {msg}")
+
+def log_debug_row(row_number: int, message: str):
+    log_prefix = f"🔍 [DEBUG] Row {row_number}:"
+    print(f"{log_prefix} {message}")

@@ -57,3 +57,25 @@ def add_managed_system_to_cache(cache: UniversalCache, system_obj: dict):
     cache.cache_data("ManagedSystem", existing_data)  # Güncel listeyi yeniden set et
     cache.build_index("ManagedSystem", "Name")
     cache.build_index("ManagedSystem", "IPAddress")
+
+def create_managed_system(payload: dict, workgroup_id: int):
+    try:
+        session_id = get_env_variable("ASP_NET_SESSION_ID")
+        if not session_id:
+            raise Exception("Session ID ortam değişkeninde bulunamadı.")
+
+        headers = {
+            "Content-Type": "application/json",
+            "Cookie": f"ASP.NET_SessionId={session_id}"
+        }
+
+        url = f"{API_BASE_URL}/Workgroups/{workgroup_id}/ManagedSystems"
+        response = requests.post(url, json=payload, headers=headers, verify=VERIFY_SSL)
+        response.raise_for_status()
+
+        return True, response.json()
+
+    except requests.exceptions.RequestException as req_err:
+        return False, str(req_err)
+    except Exception as e:
+        return False, str(e)

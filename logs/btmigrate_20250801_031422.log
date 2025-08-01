@@ -1,5 +1,0 @@
-2025-08-01 03:14:22,968 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250801_031422.log
-2025-08-01 03:14:22,968 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250801_031422.log
-2025-08-01 03:14:23,056 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (5 kayıt)
-2025-08-01 03:14:23,057 [INFO] ✅ ManagedSystem cache yüklendi. (5 kayıt)
-2025-08-01 03:14:23,065 [INFO] 🆕 Satır 1: Yeni Managed System oluşturulmalı. (IP: 10.58.59.100)

@@ -1,0 +1,1 @@
+2025-08-01 12:40:43,367 [ERROR] [Handler] Kod: -1 Message: MSSQL managed system oluşturulurken hata: 'float' object has no attribute 'strip'

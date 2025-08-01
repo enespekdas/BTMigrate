@@ -1,2 +1,0 @@
-2025-08-01 03:12:23,526 [ERROR] [Cache] Kod: -1 Message: ❌ ManagedSystem cache yüklenirken hata: get_all_managed_systems() missing 1 required positional argument: 'cache'
-2025-08-01 03:12:23,526 [ERROR] [ExcelRead] Kod: -20 Message: btmigrate_work.xlsx okunamadı: name 'BTMIGRATE_WORK_FILE_PATH' is not defined
