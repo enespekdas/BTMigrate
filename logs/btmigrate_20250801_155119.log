@@ -1,0 +1,22 @@
+2025-08-01 15:51:19,327 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250801_155119.log
+2025-08-01 15:51:19,327 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250801_155119.log
+2025-08-01 15:51:19,328 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:51:19,407 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 9324
+2025-08-01 15:51:19,408 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 15:51:19,409 [INFO] ✅ ManagedSystem cache yüklendi. (9 kayıt)
+2025-08-01 15:51:19,410 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:51:19,500 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-01 15:51:19,501 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 15:51:19,501 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-01 15:51:19,509 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-01 15:51:19,509 [ERROR] [ADManagedAccount] Kod: 1 Message: 💥 Hata (AD managed account): log_message() takes 1 positional argument but 2 were given
+2025-08-01 15:51:19,510 [INFO] Row 2: ✅ Zaten mevcut → None
+2025-08-01 15:51:19,510 [ERROR] [ADManagedAccount] Kod: 1 Message: 💥 Hata (AD managed account): log_message() takes 1 positional argument but 2 were given
+2025-08-01 15:51:19,510 [INFO] Row 3: ✅ Zaten mevcut → None
+2025-08-01 15:51:19,510 [ERROR] [ManagedAccountDispatcher] Kod: 1 Message: 🚫 Desteklenmeyen managed account tipi. type='mssql', username='pam118064'
+2025-08-01 15:51:19,510 [INFO] Row 4: ✅ Zaten mevcut → None
+2025-08-01 15:51:19,510 [ERROR] [ADManagedAccount] Kod: 2 Message: 💥 Hata (AD managed account): log_message() takes 1 positional argument but 2 were given
+2025-08-01 15:51:19,510 [INFO] Row 5: ✅ Zaten mevcut → None
+2025-08-01 15:51:19,510 [ERROR] [ADManagedAccount] Kod: 2 Message: 💥 Hata (AD managed account): log_message() takes 1 positional argument but 2 were given
+2025-08-01 15:51:19,510 [INFO] Row 6: ✅ Zaten mevcut → None
+2025-08-01 15:51:19,510 [ERROR] [ManagedAccountDispatcher] Kod: 3 Message: 🚫 Desteklenmeyen managed account tipi. type='oracle', username='pam100545'

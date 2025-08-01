@@ -40,3 +40,7 @@ class UniversalCache:
     def clear(self):
         self._raw_data.clear()
         self._indexes.clear()
+        
+    def get_all_by_key(self, category: str) -> List[Dict]:
+        """Belirtilen kategoriye ait tüm ham veriyi getirir"""
+        return self._raw_data.get(category, [])

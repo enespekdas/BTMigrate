@@ -29,6 +29,8 @@ AUTH_HEADERS = {
 AUTH_BODY = {}  # Eğer JSON body gerekiyorsa
 WORKGROUP_ID = 2 
 
+DEFAULT_PASSWORD ="QWEQWEQWE"
+
 VERIFY_SSL = False  # Local test ortamı için
 
 PAM_ENVANTER_FILE_PATH = "data/PamEnvanter.xlsx"

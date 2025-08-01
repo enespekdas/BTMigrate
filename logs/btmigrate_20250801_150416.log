@@ -1,0 +1,36 @@
+2025-08-01 15:04:16,577 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250801_150416.log
+2025-08-01 15:04:16,578 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250801_150416.log
+2025-08-01 15:04:16,579 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:04:16,716 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 4096
+2025-08-01 15:04:16,717 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (4 kayıt)
+2025-08-01 15:04:16,718 [INFO] ✅ ManagedSystem cache yüklendi. (4 kayıt)
+2025-08-01 15:04:16,719 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:04:16,891 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-01 15:04:16,892 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 15:04:16,893 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-01 15:04:16,907 [DEBUG] [FA Lookup] Gelen domain: quasys.com, OS: linux
+2025-08-01 15:04:16,907 [DEBUG] [FA Lookup] Eşleşen FA ID: 7
+2025-08-01 15:04:16,908 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:04:17,272 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Workgroups/2/ManagedSystems HTTP/1.1" 201 1006
+2025-08-01 15:04:17,273 [INFO] Row 1: ✅ Linux Managed System oluşturuldu: None
+2025-08-01 15:04:17,274 [DEBUG] [FA Lookup] Gelen domain: quasys.local, OS: windows
+2025-08-01 15:04:17,274 [DEBUG] [FA Lookup] Eşleşen FA ID: 4
+2025-08-01 15:04:17,275 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:04:17,502 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Workgroups/2/ManagedSystems HTTP/1.1" 201 1011
+2025-08-01 15:04:17,504 [INFO] Row 2: ✅ Managed System oluşturuldu: None
+2025-08-01 15:04:17,504 [DEBUG] [FA Lookup] Gelen domain: quasys.local, OS: mssql
+2025-08-01 15:04:17,504 [DEBUG] [FA Lookup] Eşleşen FA ID: 9
+2025-08-01 15:04:17,506 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:04:17,750 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Workgroups/2/ManagedSystems HTTP/1.1" 201 1123
+2025-08-01 15:04:17,752 [INFO] Row 3: ✅ MSSQL Managed System oluşturuldu: None
+2025-08-01 15:04:17,752 [DEBUG] [FA Lookup] Gelen domain: quasys.com, OS: windows
+2025-08-01 15:04:17,753 [DEBUG] [FA Lookup] Eşleşen FA ID: 6
+2025-08-01 15:04:17,754 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:04:17,974 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Workgroups/2/ManagedSystems HTTP/1.1" 201 1011
+2025-08-01 15:04:17,975 [INFO] Row 4: ✅ Managed System oluşturuldu: None
+2025-08-01 15:04:17,978 [INFO] Row 5: ✅ Zaten mevcut → None
+2025-08-01 15:04:17,978 [DEBUG] [FA Lookup] Gelen domain: , OS: oracle
+2025-08-01 15:04:17,978 [DEBUG] [FA Lookup] Eşleşen FA ID: 8
+2025-08-01 15:04:17,980 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:04:18,192 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Workgroups/2/ManagedSystems HTTP/1.1" 201 1072
+2025-08-01 15:04:18,193 [INFO] Row 6: ✅ Oracle Managed System oluşturuldu: None

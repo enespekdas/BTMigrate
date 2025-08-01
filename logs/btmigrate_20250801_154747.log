@@ -1,0 +1,22 @@
+2025-08-01 15:47:47,692 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250801_154747.log
+2025-08-01 15:47:47,693 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250801_154747.log
+2025-08-01 15:47:47,693 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:47:47,774 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 9324
+2025-08-01 15:47:47,775 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 15:47:47,776 [INFO] ✅ ManagedSystem cache yüklendi. (9 kayıt)
+2025-08-01 15:47:47,777 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:47:47,857 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-01 15:47:47,858 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 15:47:47,858 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-01 15:47:47,866 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-01 15:47:47,866 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller ID boş geldi.
+2025-08-01 15:47:47,866 [INFO] Row 2: ✅ Zaten mevcut → None
+2025-08-01 15:47:47,866 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller ID boş geldi.
+2025-08-01 15:47:47,866 [INFO] Row 3: ✅ Zaten mevcut → None
+2025-08-01 15:47:47,867 [ERROR] [ManagedAccountDispatcher] Kod: 1 Message: 🚫 Desteklenmeyen managed account tipi. type='mssql', username='pam118064'
+2025-08-01 15:47:47,867 [INFO] Row 4: ✅ Zaten mevcut → None
+2025-08-01 15:47:47,867 [ERROR] [ADManagedAccount] Kod: 2 Message: ❌ Domain controller ID boş geldi.
+2025-08-01 15:47:47,867 [INFO] Row 5: ✅ Zaten mevcut → None
+2025-08-01 15:47:47,867 [ERROR] [ADManagedAccount] Kod: 2 Message: ❌ Domain controller ID boş geldi.
+2025-08-01 15:47:47,867 [INFO] Row 6: ✅ Zaten mevcut → None
+2025-08-01 15:47:47,867 [ERROR] [ManagedAccountDispatcher] Kod: 3 Message: 🚫 Desteklenmeyen managed account tipi. type='oracle', username='pam100545'

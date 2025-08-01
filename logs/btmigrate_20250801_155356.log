@@ -1,0 +1,54 @@
+2025-08-01 15:53:56,306 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250801_155356.log
+2025-08-01 15:53:56,306 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250801_155356.log
+2025-08-01 15:53:56,307 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:53:56,381 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 9324
+2025-08-01 15:53:56,381 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 15:53:56,382 [INFO] ✅ ManagedSystem cache yüklendi. (9 kayıt)
+2025-08-01 15:53:56,383 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:53:56,465 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-01 15:53:56,465 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 15:53:56,466 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-01 15:53:56,474 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-01 15:53:56,474 [DEBUG] [Row 1] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam118064
+2025-08-01 15:53:56,474 [DEBUG] [Row 1] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-01 15:53:56,474 [DEBUG] [Row 1] 🔍 Bulunan domain controller: {'ManagedSystemID': 2, 'EntityTypeID': 3, 'AssetID': None, 'DatabaseID': None, 'DirectoryID': 1, 'CloudID': None, 'WorkgroupID': 2, 'HostName': 'quasys.local', 'DnsName': None, 'IPAddress': None, 'InstanceName': None, 'IsDefaultInstance': None, 'Template': None, 'ForestName': None, 'UseSSL': False, 'OracleInternetDirectoryID': None, 'OracleInternetDirectoryServiceName': None, 'SystemName': 'quasys.local', 'PlatformID': 25, 'NetBiosName': None, 'Port': 389, 'Timeout': 30, 'Description': None, 'ContactEmail': None, 'PasswordRuleID': 0, 'DSSKeyRuleID': 0, 'ReleaseDuration': 120, 'MaxReleaseDuration': 10079, 'ISAReleaseDuration': 120, 'AutoManagementFlag': True, 'FunctionalAccountID': 1, 'LoginAccountID': None, 'ElevationCommand': None, 'SshKeyEnforcementMode': 0, 'CheckPasswordFlag': False, 'ChangePasswordAfterAnyReleaseFlag': False, 'ResetPasswordOnMismatchFlag': False, 'ChangeFrequencyType': 'first', 'ChangeFrequencyDays': 30, 'ChangeTime': '23:30', 'AccountNameFormat': 0, 'RemoteClientType': 'None', 'ApplicationHostID': None, 'IsApplicationHost': False, 'AccessURL': None}
+2025-08-01 15:53:56,475 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:53:56,543 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 1131
+2025-08-01 15:53:56,544 [DEBUG] [Row 1] 🔄 Mevcut managed account sayısı: 1
+2025-08-01 15:53:56,545 [DEBUG] [Row 1] 📦 Payload hazırlandı: {'DomainName': 'quasys.local', 'AccountName': 'pam118064', 'DistinguishedName': 'None', 'PasswordRuleID': 0, 'Password': 'QWEQWEQWE', 'WorkgroupID': 2, 'ObjectID': 'None', 'UserPrincipalName': 'pam118064', 'SAMAccountName': 'pam118064'}
+2025-08-01 15:53:56,545 [INFO] [Row 1] 🚀 AD managed account oluşturuluyor: pam118064
+2025-08-01 15:53:56,545 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:53:56,680 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 201 1121
+2025-08-01 15:53:56,680 [ERROR] [ADManagedAccount] Kod: 1 Message: 💥 Hata (AD managed account): log_message() takes 1 positional argument but 2 were given
+2025-08-01 15:53:56,682 [INFO] Row 2: ✅ Zaten mevcut → None
+2025-08-01 15:53:56,682 [DEBUG] [Row 1] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam118064
+2025-08-01 15:53:56,682 [DEBUG] [Row 1] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-01 15:53:56,682 [DEBUG] [Row 1] 🔍 Bulunan domain controller: {'ManagedSystemID': 2, 'EntityTypeID': 3, 'AssetID': None, 'DatabaseID': None, 'DirectoryID': 1, 'CloudID': None, 'WorkgroupID': 2, 'HostName': 'quasys.local', 'DnsName': None, 'IPAddress': None, 'InstanceName': None, 'IsDefaultInstance': None, 'Template': None, 'ForestName': None, 'UseSSL': False, 'OracleInternetDirectoryID': None, 'OracleInternetDirectoryServiceName': None, 'SystemName': 'quasys.local', 'PlatformID': 25, 'NetBiosName': None, 'Port': 389, 'Timeout': 30, 'Description': None, 'ContactEmail': None, 'PasswordRuleID': 0, 'DSSKeyRuleID': 0, 'ReleaseDuration': 120, 'MaxReleaseDuration': 10079, 'ISAReleaseDuration': 120, 'AutoManagementFlag': True, 'FunctionalAccountID': 1, 'LoginAccountID': None, 'ElevationCommand': None, 'SshKeyEnforcementMode': 0, 'CheckPasswordFlag': False, 'ChangePasswordAfterAnyReleaseFlag': False, 'ResetPasswordOnMismatchFlag': False, 'ChangeFrequencyType': 'first', 'ChangeFrequencyDays': 30, 'ChangeTime': '23:30', 'AccountNameFormat': 0, 'RemoteClientType': 'None', 'ApplicationHostID': None, 'IsApplicationHost': False, 'AccessURL': None}
+2025-08-01 15:53:56,683 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:53:56,743 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 2253
+2025-08-01 15:53:56,744 [DEBUG] [Row 1] 🔄 Mevcut managed account sayısı: 2
+2025-08-01 15:53:56,744 [INFO] [Row 1] ✅ AD managed account zaten var: pam118064
+2025-08-01 15:53:56,744 [INFO] Row 3: ✅ Zaten mevcut → None
+2025-08-01 15:53:56,745 [ERROR] [ManagedAccountDispatcher] Kod: 1 Message: 🚫 Desteklenmeyen managed account tipi. type='mssql', username='pam118064'
+2025-08-01 15:53:56,745 [INFO] Row 4: ✅ Zaten mevcut → None
+2025-08-01 15:53:56,745 [DEBUG] [Row 2] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam100887
+2025-08-01 15:53:56,745 [DEBUG] [Row 2] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-01 15:53:56,745 [DEBUG] [Row 2] 🔍 Bulunan domain controller: {'ManagedSystemID': 2, 'EntityTypeID': 3, 'AssetID': None, 'DatabaseID': None, 'DirectoryID': 1, 'CloudID': None, 'WorkgroupID': 2, 'HostName': 'quasys.local', 'DnsName': None, 'IPAddress': None, 'InstanceName': None, 'IsDefaultInstance': None, 'Template': None, 'ForestName': None, 'UseSSL': False, 'OracleInternetDirectoryID': None, 'OracleInternetDirectoryServiceName': None, 'SystemName': 'quasys.local', 'PlatformID': 25, 'NetBiosName': None, 'Port': 389, 'Timeout': 30, 'Description': None, 'ContactEmail': None, 'PasswordRuleID': 0, 'DSSKeyRuleID': 0, 'ReleaseDuration': 120, 'MaxReleaseDuration': 10079, 'ISAReleaseDuration': 120, 'AutoManagementFlag': True, 'FunctionalAccountID': 1, 'LoginAccountID': None, 'ElevationCommand': None, 'SshKeyEnforcementMode': 0, 'CheckPasswordFlag': False, 'ChangePasswordAfterAnyReleaseFlag': False, 'ResetPasswordOnMismatchFlag': False, 'ChangeFrequencyType': 'first', 'ChangeFrequencyDays': 30, 'ChangeTime': '23:30', 'AccountNameFormat': 0, 'RemoteClientType': 'None', 'ApplicationHostID': None, 'IsApplicationHost': False, 'AccessURL': None}
+2025-08-01 15:53:56,745 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:53:56,815 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 2253
+2025-08-01 15:53:56,816 [DEBUG] [Row 2] 🔄 Mevcut managed account sayısı: 2
+2025-08-01 15:53:56,816 [DEBUG] [Row 2] 📦 Payload hazırlandı: {'DomainName': 'quasys.local', 'AccountName': 'pam100887', 'DistinguishedName': 'None', 'PasswordRuleID': 0, 'Password': 'QWEQWEQWE', 'WorkgroupID': 2, 'ObjectID': 'None', 'UserPrincipalName': 'pam100887', 'SAMAccountName': 'pam100887'}
+2025-08-01 15:53:56,816 [INFO] [Row 2] 🚀 AD managed account oluşturuluyor: pam100887
+2025-08-01 15:53:56,817 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:53:56,948 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 201 1122
+2025-08-01 15:53:56,949 [ERROR] [ADManagedAccount] Kod: 2 Message: 💥 Hata (AD managed account): log_message() takes 1 positional argument but 2 were given
+2025-08-01 15:53:56,950 [INFO] Row 5: ✅ Zaten mevcut → None
+2025-08-01 15:53:56,950 [DEBUG] [Row 2] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam100887
+2025-08-01 15:53:56,950 [DEBUG] [Row 2] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-01 15:53:56,950 [DEBUG] [Row 2] 🔍 Bulunan domain controller: {'ManagedSystemID': 2, 'EntityTypeID': 3, 'AssetID': None, 'DatabaseID': None, 'DirectoryID': 1, 'CloudID': None, 'WorkgroupID': 2, 'HostName': 'quasys.local', 'DnsName': None, 'IPAddress': None, 'InstanceName': None, 'IsDefaultInstance': None, 'Template': None, 'ForestName': None, 'UseSSL': False, 'OracleInternetDirectoryID': None, 'OracleInternetDirectoryServiceName': None, 'SystemName': 'quasys.local', 'PlatformID': 25, 'NetBiosName': None, 'Port': 389, 'Timeout': 30, 'Description': None, 'ContactEmail': None, 'PasswordRuleID': 0, 'DSSKeyRuleID': 0, 'ReleaseDuration': 120, 'MaxReleaseDuration': 10079, 'ISAReleaseDuration': 120, 'AutoManagementFlag': True, 'FunctionalAccountID': 1, 'LoginAccountID': None, 'ElevationCommand': None, 'SshKeyEnforcementMode': 0, 'CheckPasswordFlag': False, 'ChangePasswordAfterAnyReleaseFlag': False, 'ResetPasswordOnMismatchFlag': False, 'ChangeFrequencyType': 'first', 'ChangeFrequencyDays': 30, 'ChangeTime': '23:30', 'AccountNameFormat': 0, 'RemoteClientType': 'None', 'ApplicationHostID': None, 'IsApplicationHost': False, 'AccessURL': None}
+2025-08-01 15:53:56,951 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:53:57,020 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 3376
+2025-08-01 15:53:57,021 [DEBUG] [Row 2] 🔄 Mevcut managed account sayısı: 3
+2025-08-01 15:53:57,022 [INFO] [Row 2] ✅ AD managed account zaten var: pam100887
+2025-08-01 15:53:57,022 [INFO] Row 6: ✅ Zaten mevcut → None
+2025-08-01 15:53:57,022 [ERROR] [ManagedAccountDispatcher] Kod: 3 Message: 🚫 Desteklenmeyen managed account tipi. type='oracle', username='pam100545'

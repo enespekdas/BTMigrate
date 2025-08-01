@@ -1,0 +1,6 @@
+2025-08-01 15:47:13,295 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller bulunamadı. Domain: quasys.com
+2025-08-01 15:47:13,295 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller ID boş geldi.
+2025-08-01 15:47:13,295 [ERROR] [ManagedAccountDispatcher] Kod: 1 Message: 🚫 Desteklenmeyen managed account tipi. type='mssql', username='pam118064'
+2025-08-01 15:47:13,296 [ERROR] [ADManagedAccount] Kod: 2 Message: ❌ Domain controller bulunamadı. Domain: quasys.com
+2025-08-01 15:47:13,296 [ERROR] [ADManagedAccount] Kod: 2 Message: ❌ Domain controller ID boş geldi.
+2025-08-01 15:47:13,296 [ERROR] [ManagedAccountDispatcher] Kod: 3 Message: 🚫 Desteklenmeyen managed account tipi. type='oracle', username='pam100545'

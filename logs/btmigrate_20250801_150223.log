@@ -1,0 +1,16 @@
+2025-08-01 15:02:23,496 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250801_150223.log
+2025-08-01 15:02:23,496 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250801_150223.log
+2025-08-01 15:02:23,497 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:02:23,651 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 9329
+2025-08-01 15:02:23,652 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 15:02:23,653 [INFO] ✅ ManagedSystem cache yüklendi. (9 kayıt)
+2025-08-01 15:02:23,654 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-01 15:02:23,818 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-01 15:02:23,818 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-01 15:02:23,820 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-01 15:02:23,832 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-01 15:02:23,832 [INFO] Row 2: ✅ Zaten mevcut → None
+2025-08-01 15:02:23,833 [INFO] Row 3: ✅ Zaten mevcut → None
+2025-08-01 15:02:23,833 [INFO] Row 4: ✅ Zaten mevcut → None
+2025-08-01 15:02:23,833 [INFO] Row 5: ✅ Zaten mevcut → None
+2025-08-01 15:02:23,833 [INFO] Row 6: ✅ Zaten mevcut → None
