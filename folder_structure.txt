@@ -1,0 +1,40 @@
+.
+├── api
+│   ├── functional_account.py
+│   └── managed_system.py
+├── auth
+│   └── login.py
+├── config
+│   └── settings.py
+├── core
+│   ├── env.py
+│   └── exceptions.py
+├── data
+│   ├── btmigrate_work.xlsx
+│   ├── OsEnvanter.xlsx
+│   ├── PamEnvanter.xlsx
+│   └── PamSafeUser.xlsx
+├── excel
+│   ├── excel_loader.py
+│   └── __init__.py
+├── folder_structure.txt
+├── generator
+│   ├── __init__.py
+│   └── prepare_workbook.py
+├── logs
+├── main.py
+├── README.md
+├── row_processors
+│   ├── __init__.py
+│   ├── oracle_handler.py
+│   ├── remote_machine_handler.py
+│   └── utils.py
+├── tree.md
+└── utils
+    ├── logger.py
+    ├── network_utils.py
+    ├── string_utils.py
+    ├── universal_cache.py
+    └── validators.py
+
+10 directories, 27 files

@@ -2,15 +2,14 @@ import logging
 import os
 from datetime import datetime
 
-# Log dizini ve dosya yolları
 LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-LOG_FILE_PATH = os.path.join(LOG_DIR, f"btmigrate_{timestamp}.log")
-ERROR_FILE_PATH = os.path.join(LOG_DIR, f"btmigrate_error_{timestamp}.log")
+def setup_logging():
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_file_path = os.path.join(LOG_DIR, f"btmigrate_{timestamp}.log")
+    error_log_file = os.path.join(LOG_DIR, f"btmigrate_error_{timestamp}.log")
 
-def _initialize_logger():
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
     logger.handlers.clear()
@@ -18,12 +17,12 @@ def _initialize_logger():
     formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
 
     # INFO log handler
-    info_handler = logging.FileHandler(LOG_FILE_PATH, encoding='utf-8')
+    info_handler = logging.FileHandler(log_file_path, encoding='utf-8')
     info_handler.setLevel(logging.INFO)
     info_handler.setFormatter(formatter)
 
     # ERROR log handler
-    error_handler = logging.FileHandler(ERROR_FILE_PATH, encoding='utf-8')
+    error_handler = logging.FileHandler(error_log_file, encoding='utf-8')
     error_handler.setLevel(logging.ERROR)
     error_handler.setFormatter(formatter)
 
@@ -32,19 +31,16 @@ def _initialize_logger():
     console_handler.setLevel(logging.INFO)
     console_handler.setFormatter(formatter)
 
-    # Handler'ları ekle
     logger.addHandler(info_handler)
     logger.addHandler(error_handler)
     logger.addHandler(console_handler)
 
     # Başlangıç log'ları
-    logging.info(f"🚀 Loglama başlatıldı: {LOG_FILE_PATH}")
-    logging.info(f"🚨 Hatalar ayrıca burada: {ERROR_FILE_PATH}")
+    logging.info(f"🚀 Loglama başlatıldı: {log_file_path}")
+    logging.info(f"🚨 Hatalar ayrıca burada: {error_log_file}")
 
-# Self-executing
-_initialize_logger()
 
-# Fonksiyonlar (standart)
+# Standart log fonksiyonları
 def log_message(msg):
     logging.info(msg)
 
@@ -54,7 +50,7 @@ def log_error(code, msg, error_type="General"):
 def log_debug(msg):
     logging.debug(msg)
 
-# Fonksiyonlar (satır özel)
+# Satıra özel log fonksiyonları
 def log_message_row(row_number, msg):
     logging.info(f"Row {row_number}: {msg}")
 
