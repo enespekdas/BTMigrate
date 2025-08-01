@@ -5,7 +5,7 @@ from config.settings import API_BASE_URL, VERIFY_SSL
 from utils.logger import log_error, log_message, log_debug
 from utils.universal_cache import UniversalCache
 
-FUNCTIONAL_ACCOUNTS_KEY = "FunctionalAccount"  # ✅ Key normalize edildi
+FUNCTIONAL_ACCOUNTS_KEY = "FunctionalAccount"
 
 def get_all_functional_accounts(cache: UniversalCache):
     session_id = os.getenv("ASP_NET_SESSION_ID")
@@ -25,10 +25,6 @@ def get_all_functional_accounts(cache: UniversalCache):
         accounts = response.json()
         cache.cache_data(FUNCTIONAL_ACCOUNTS_KEY, accounts)
 
-        # 🔍 Dump FA'ları loga basalım
-        for acc in accounts:
-            log_debug(f"[FA Dump] {acc}")
-
         log_message(f"📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. ({len(accounts)} kayıt)")
         return accounts
 
@@ -45,8 +41,6 @@ def get_functional_account_id(cache: UniversalCache, domain: str, os_info: str) 
     domain = (domain or "").lower()
     os_info = (os_info or "").lower()
 
-    log_debug(f"[FA Lookup] Gelen domain: {domain}, OS: {os_info}")
-
     for acc in accounts:
         acc_domain = (acc.get("DomainName") or "").lower()
         acc_desc = (acc.get("Description") or "").lower()
@@ -54,13 +48,10 @@ def get_functional_account_id(cache: UniversalCache, domain: str, os_info: str) 
         # 🎯 MSSQL için sadece os_info kontrolü
         if os_info == "mssql":
             if "mssql" in acc_desc:
-                log_debug(f"[FA Lookup] MSSQL FA eşleşti: {acc}")
                 return acc.get("FunctionalAccountID")
 
         # 🔁 Diğer platformlar için domain + os_info kontrolü
         elif domain == acc_domain and os_info in acc_desc:
-            log_debug(f"[FA Lookup] Eşleşen FA: {acc}")
             return acc.get("FunctionalAccountID")
 
-    log_debug(f"[FA Lookup] Eşleşme yok. Aranan Domain: '{domain}', OS içinde: '{os_info}'")
     return None
