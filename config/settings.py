@@ -30,7 +30,8 @@ AUTH_BODY = {}  # Eğer JSON body gerekiyorsa
 WORKGROUP_ID = 2 
 
 DEFAULT_PASSWORD ="QWEQWEQWE"
-
+AD_BIND_USER = "admin"
+AD_BIND_PASSWORD="CyberArk123!"
 VERIFY_SSL = False  # Local test ortamı için
 
 PAM_ENVANTER_FILE_PATH = "data/PamEnvanter.xlsx"
@@ -39,6 +40,12 @@ SAFE_USER_FILE_PATH = "data/PamSafeUser.xlsx"
 BTMIGRATE_WORK_FILE_PATH = "data/btmigrate_work.xlsx"
 
 SMART_GROUP_PREFIX="THY_MA_"
+
+USER_GROUP_DEFAULT_PERMISSIONS = [
+    { "PermissionID": 52, "AccessLevelID": 1 },
+    { "PermissionID": 76, "AccessLevelID": 3 },
+    { "PermissionID": 77, "AccessLevelID": 1 }
+]
 
 IGNORED_ROW_COLUMNS  = [
     "PamEnvar", "username", "remote", "reason", "os_type"

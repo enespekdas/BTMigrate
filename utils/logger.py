@@ -16,7 +16,6 @@ def setup_logging():
 
     formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
 
-    # ✅ DEBUG seviyesine çekildi
     info_handler = logging.FileHandler(log_file_path, encoding='utf-8')
     info_handler.setLevel(logging.DEBUG)
     info_handler.setFormatter(formatter)
@@ -33,7 +32,6 @@ def setup_logging():
     logger.addHandler(error_handler)
     logger.addHandler(console_handler)
 
-    # Başlangıç log'ları
     logging.info(f"🚀 Loglama başlatıldı: {log_file_path}")
     logging.info(f"🚨 Hatalar ayrıca burada: {error_log_file}")
 
@@ -55,5 +53,4 @@ def log_error_row(row_number, code, msg, error_type="General"):
     logging.error(f"Row {row_number}: [{error_type}] Kod: {code} Message: {msg}")
 
 def log_debug_row(row_number: int, message: str):
-    log_prefix = f"🔍 [DEBUG] Row {row_number}:"
-    print(f"{log_prefix} {message}")
+    logging.debug(f"[DEBUG] Row {row_number}: {message}")

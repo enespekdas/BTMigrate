@@ -1,5 +1,6 @@
-# ✅ handlers/smart_rule/smart_rule_handler.py
+# handlers/smart_rule/smart_rule_handler.py
 
+from typing import Optional
 from config.settings import SMART_GROUP_PREFIX
 from utils.logger import log_message, log_error, log_debug
 from api.smart_rule import (
@@ -11,12 +12,12 @@ from utils.universal_cache import UniversalCache
 
 SMART_RULE_CATEGORY = "SmartRule"
 
-def handle_smart_rule(row: dict, managed_account_id: int, cache: UniversalCache) -> None:
+def handle_smart_rule(row: dict, managed_account_id: int, cache: UniversalCache) -> Optional[int]:
     row_number = row.get("PamEnvanterSatır", -1)
     safe_name = (row.get("safe name") or "").strip()
     if not safe_name:
         log_error(row_number, "❌ safe name alanı boş. Smart Rule oluşturulamaz.", error_type="SmartRule")
-        return
+        return None
 
     group_name = f"{SMART_GROUP_PREFIX}{safe_name}"
     log_debug(f"[Row {row_number}] 🔍 Smart Rule adı oluşturuldu: {group_name}")
@@ -38,7 +39,7 @@ def handle_smart_rule(row: dict, managed_account_id: int, cache: UniversalCache)
             log_message(f"[Row {row_number}] 📎 Smart Rule account listesi güncellendi: {combined_ids}")
         else:
             log_error(row_number, f"Smart Rule account güncelleme başarısız: {group_name}", error_type="SmartRule")
-        return
+        return smart_rule_id
 
     payload = {
         "IDs": [managed_account_id],
@@ -54,6 +55,9 @@ def handle_smart_rule(row: dict, managed_account_id: int, cache: UniversalCache)
     response = create_smart_rule(payload)
     if response:
         cache.get_all_by_key(SMART_RULE_CATEGORY).append(response)
+        smart_rule_id = response.get("SmartRuleID")
         log_message(f"[Row {row_number}] ✅ Smart Rule başarıyla oluşturuldu: {group_name}")
+        return smart_rule_id
     else:
         log_error(row_number, f"Smart Rule oluşturulamadı: {group_name}", error_type="SmartRule")
+        return None

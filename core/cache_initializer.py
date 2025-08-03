@@ -2,8 +2,11 @@
 
 from api.managed_system import get_all_managed_systems
 from api.functional_account import get_all_functional_accounts
-from api.smart_rule import get_all_smart_rules  # ✅ SmartRule eklendi
-from api.application import get_all_applications  # ✅ Application eklendi
+from api.smart_rule import get_all_smart_rules
+from api.application import get_all_applications
+from api.user_group import get_all_user_groups
+from api.user import get_all_users  # ✅ Yeni eklendi
+
 from utils.universal_cache import UniversalCache
 from utils.logger import log_message, log_error
 
@@ -41,5 +44,19 @@ def initialize_cache() -> UniversalCache:
         log_message(f"✅ Application cache yüklendi. ({len(applications)} kayıt)")
     except Exception as e:
         log_error(-4, f"❌ Application cache yüklenirken hata: {str(e)}", error_type="Cache")
+
+    # ✅ User Groups
+    try:
+        user_groups = get_all_user_groups(cache)
+        log_message(f"✅ UserGroup cache yüklendi. ({len(user_groups)} kayıt)")
+    except Exception as e:
+        log_error(-5, f"❌ UserGroup cache yüklenirken hata: {str(e)}", error_type="Cache")
+
+    # ✅ Users
+    try:
+        users = get_all_users(cache)
+        log_message(f"✅ User cache yüklendi. ({len(users)} kayıt)")
+    except Exception as e:
+        log_error(-6, f"❌ User cache yüklenirken hata: {str(e)}", error_type="Cache")
 
     return cache

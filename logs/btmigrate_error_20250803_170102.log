@@ -1,0 +1,6 @@
+2025-08-03 17:01:02,383 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller bulunamadı. Domain: quasys.com
+2025-08-03 17:01:02,770 [ERROR] [UserGroupMember] Kod: 1 Message: ❌ User group üyeleri eklenemedi: name 'parse_member_list' is not defined
+2025-08-03 17:01:03,127 [ERROR] [UserGroupMember] Kod: 1 Message: ❌ User group üyeleri eklenemedi: name 'parse_member_list' is not defined
+2025-08-03 17:01:03,497 [ERROR] [UserGroupMember] Kod: 2 Message: ❌ User group üyeleri eklenemedi: name 'parse_member_list' is not defined
+2025-08-03 17:01:03,849 [ERROR] [UserGroupMember] Kod: 2 Message: ❌ User group üyeleri eklenemedi: name 'parse_member_list' is not defined
+2025-08-03 17:01:04,231 [ERROR] [UserGroupMember] Kod: 3 Message: ❌ User group üyeleri eklenemedi: 'float' object has no attribute 'strip'

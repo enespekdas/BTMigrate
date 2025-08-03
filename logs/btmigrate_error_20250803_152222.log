@@ -1,0 +1,10 @@
+2025-08-03 15:22:23,227 [ERROR] [UserGroupAPI] Kod: -1 Message: User group oluşturuldu ama ID bilgisi alınamadı.
+2025-08-03 15:22:23,594 [ERROR] [UserGroupAPI] Kod: -1 Message: User group oluşturuldu ama ID bilgisi alınamadı.
+2025-08-03 15:22:23,927 [ERROR] [UserGroupAPI] Kod: -1 Message: User group oluşturma hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups
+2025-08-03 15:22:24,318 [ERROR] [UserGroupAPI] Kod: -1 Message: User group oluşturuldu ama ID bilgisi alınamadı.
+2025-08-03 15:22:24,668 [ERROR] [UserGroupAPI] Kod: -1 Message: User group oluşturuldu ama ID bilgisi alınamadı.
+2025-08-03 15:22:25,080 [ERROR] [UserGroupAPI] Kod: -1 Message: User group oluşturuldu ama ID bilgisi alınamadı.
+2025-08-03 15:22:25,391 [ERROR] [UserGroupAPI] Kod: -1 Message: User group oluşturma hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups
+2025-08-03 15:22:25,675 [ERROR] [UserGroupAPI] Kod: -1 Message: User group oluşturma hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups
+2025-08-03 15:22:26,008 [ERROR] [UserGroupAPI] Kod: -1 Message: User group oluşturma hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups
+2025-08-03 15:22:26,354 [ERROR] [UserGroupAPI] Kod: -1 Message: User group oluşturma hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups
