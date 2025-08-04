@@ -38,6 +38,7 @@ PAM_ENVANTER_FILE_PATH = "data/PamEnvanter.xlsx"
 OS_ENVANTER_FILE_PATH = "data/OsEnvanter.xlsx"
 SAFE_USER_FILE_PATH = "data/PamSafeUser.xlsx"
 BTMIGRATE_WORK_FILE_PATH = "data/btmigrate_work.xlsx"
+OUTPUT_EXCEL_PATH = "data/btmigrate_output.xlsx"
 
 SMART_GROUP_PREFIX="THY_MA_"
 
@@ -69,6 +70,17 @@ EXCLUDED_SAFE_MEMBERS = [
     # 👆 exclude etmek istediğin kullanıcıları buraya ekle
 ]
 
+OUTPUT_HEADERS = [
+    "Satır No", "Genel Durum", "Kullanıcı Adı", "IP Adresi", "Hostname", "İşletim Sistemi", "Domain",
+    "MS - Genel Durum", "MS - Zaten Var mı?", "MS - Oluşturuldu mu?", "MS - Tür",
+    "MA - Genel Durum", "MA - Zaten Var mı?", "MA - Oluşturuldu mu?", "MA - Tür",
+    "MA - Kullanılan Account", "MA - AutoChange Durumu", "MA - Linkleme Durumu",
+    "SR - Genel Durum", "SR - Zaten Var mı?", "SR - Oluşturuldu mu?", "SR - Account Ataması Yapıldı mı?",
+    "App - Genel Durum", "App - Atanamayan Uygulama Var mı?",
+    "UG - Genel Durum", "UG - Zaten Var mı?", "UG - Oluşturuldu mu?", "UG - SmartRule Ataması Yapıldı mı?", "UG - Role Ataması Yapıldı mı?",
+    "User - Genel Durum", "User - Zaten Var mı?", "User - Oluşturuldu mu?", "User - Gruba Eklendi mi?",
+    "Hata Detayı"
+]
 # Windows Managed System create template
 WINDOWS_MANAGED_SYSTEM_TEMPLATE = {
     "PlatformID": "1",

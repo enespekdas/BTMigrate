@@ -49,6 +49,7 @@ def process_mssql_managed_system(row: dict, cache, row_number: int):
     success, response = create_managed_system(payload, WORKGROUP_ID)
     if success:
         add_managed_system_to_cache(cache, response)
+        row["MS - Oluşturuldu mu?"] = "Evet"  # 🔍 Output için
         log_message_row(row_number, f"✅ MSSQL Managed System oluşturuldu: {response.get('Name')}")
     else:
         log_error_row(row_number, -203, f"Oluşturma hatası: {response}", "MssqlHandler")

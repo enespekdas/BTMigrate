@@ -1,7 +1,9 @@
+# handlers/managed_system/linux.py
+
 from copy import deepcopy
 from config.settings import LINUX_MANAGED_SYSTEM_TEMPLATE, WORKGROUP_ID
 from row_processors.utils import resolve_functional_account_id
-from utils.logger import log_message_row, log_error_row, log_debug_row
+from utils.logger import log_message_row, log_error_row
 from api.managed_system import create_managed_system, add_managed_system_to_cache
 
 def process_linux_managed_system(row: dict, cache, row_number: int):
@@ -25,11 +27,10 @@ def process_linux_managed_system(row: dict, cache, row_number: int):
     payload["SystemName"] = hostname
     payload["ElevationCommand"] = None
 
-    #log_debug_row(row_number, f"[Payload] {payload}")  # 🔍
-
     success, response = create_managed_system(payload, WORKGROUP_ID)
     if success:
         add_managed_system_to_cache(cache, response)
+        row["MS - Oluşturuldu mu?"] = "Evet"  # 🔍 Output Excel için
         log_message_row(row_number, f"✅ Linux Managed System oluşturuldu: {response.get('Name')}")
     else:
         log_error_row(row_number, -201, f"Oluşturma hatası: {response}", "LinuxHandler")

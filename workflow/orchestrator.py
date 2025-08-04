@@ -9,6 +9,7 @@ from dispatcher.application_dispatcher import dispatch_application_assignment
 from dispatcher.user_group_dispatcher import dispatch_user_group
 from dispatcher.user_member_dispatcher import dispatch_user_members
 from utils.universal_cache import UniversalCache
+from excel.output_writer import append_row_to_output
 
 def start_orchestration(cache: UniversalCache):
     records = read_btmigrate_workbook()
@@ -18,27 +19,67 @@ def start_orchestration(cache: UniversalCache):
         return
 
     for i, row in enumerate(records, start=1):
-        # ✅ Managed System oluştur
-        dispatch_managed_system(row, cache, row_number=i)
+        row["Satır No"] = i
+        row["Kullanıcı Adı"] = row.get("username", "")
+        row["IP Adresi"] = row.get("ip address", "")
+        row["Hostname"] = row.get("hostname", "")
+        row["İşletim Sistemi"] = row.get("OS", "")
+        row["Domain"] = row.get("domain", "")
 
-        # ✅ Managed Account oluştur
-        managed_account_id = dispatch_managed_account_create(row, cache)
+        try:
+            # ✅ Managed System
+            dispatch_managed_system(row, cache, row_number=i)
+        except Exception as e:
+            row["MS - Genel Durum"] = "❌"
+            row["Hata Detayı"] = f"[MS] {str(e)}"
 
-        if managed_account_id:
-            # ✅ Smart Rule oluştur → SmartRuleID alınır
-            smart_rule_id = dispatch_smart_rule(row, managed_account_id, cache)
+        # try:
+        #     # ✅ Managed Account
+        #     managed_account_id = dispatch_managed_account_create(row, cache)
+        # except Exception as e:
+        #     row["MA - Genel Durum"] = "❌"
+        #     row["Hata Detayı"] = f"[MA] {str(e)}"
 
-            if smart_rule_id:
-                # ✅ Application ataması
-                dispatch_application_assignment(row, managed_account_id, cache)
+        # try:
+        #     # ✅ Smart Rule
+        #     if managed_account_id:
+        #         smart_rule_id = dispatch_smart_rule(row, managed_account_id, cache)
+        # except Exception as e:
+        #     row["SR - Genel Durum"] = "❌"
+        #     row["Hata Detayı"] = f"[SR] {str(e)}"
 
-                # ✅ User Group oluştur ve ID al
-                user_group_id = dispatch_user_group(row, smart_rule_id, cache)
-                log_message(f"[Row {i}] 🔍 UserGroupID: {user_group_id}")  # ➕ Bunu ekle
+        # try:
+        #     # ✅ Application
+        #     if managed_account_id:
+        #         dispatch_application_assignment(row, managed_account_id, cache)
+        # except Exception as e:
+        #     row["App - Genel Durum"] = "❌"
+        #     row["Hata Detayı"] = f"[APP] {str(e)}"
 
+        # try:
+        #     # ✅ User Group
+        #     if smart_rule_id:
+        #         user_group_id = dispatch_user_group(row, smart_rule_id, cache)
+        # except Exception as e:
+        #     row["UG - Genel Durum"] = "❌"
+        #     row["Hata Detayı"] = f"[UG] {str(e)}"
 
-                # ✅ Kullanıcıları user group'a üye olarak ekle
-                if user_group_id:
-                    log_message(f"[Row {i}] 🧪 UserMember işlemi başlatılıyor... GroupID={user_group_id}")
+        # try:
+        #     # ✅ User Members
+        #     if user_group_id:
+        #         dispatch_user_members(row, user_group_id, cache)
+        # except Exception as e:
+        #     row["User - Genel Durum"] = "❌"
+        #     row["Hata Detayı"] = f"[USER] {str(e)}"
 
-                    dispatch_user_members(row, user_group_id, cache)
+        # 🔍 Genel Başarı Kontrolü
+        if all(row.get(k) == "✅" for k in [
+            "MS - Genel Durum", "MA - Genel Durum", "SR - Genel Durum",
+            "App - Genel Durum", "UG - Genel Durum", "User - Genel Durum"
+        ]):
+            row["Genel Durum"] = "✅"
+        else:
+            row["Genel Durum"] = "❌"
+
+        # 📤 Excel'e yaz
+        append_row_to_output(row)
