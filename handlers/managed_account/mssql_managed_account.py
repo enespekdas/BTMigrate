@@ -37,9 +37,17 @@ def create_mssql_managed_account(row: dict, cache: UniversalCache) -> Optional[i
             None
         )
 
+        # Ortak log kolonları
+        row["MA - Tür"] = "MSSQL"
+        row["MA - Kullanılan Account"] = username
+        row["MA - AutoChange Durumu"] = "Kapalı"
+        row["MA - Linkleme Durumu"] = "-"  # MSSQL'de linkleme yapılmıyor
+
         if matched_account:
             managed_account_id = matched_account.get("ManagedAccountID")
             log_message(f"[Row {row_number}] ✅ MSSQL managed account zaten var: {username}")
+            row["MA - Zaten Var mı?"] = "Evet"
+            row["MA - Oluşturuldu mu?"] = "Hayır"
         else:
             payload = {
                 "AccountName": username,
@@ -57,9 +65,13 @@ def create_mssql_managed_account(row: dict, cache: UniversalCache) -> Optional[i
             response = create_mssql_managed_account_api_call(managed_system_id, payload)
             managed_account_id = response.get("ManagedAccountID") if response else None
 
+            if managed_account_id:
+                row["MA - Zaten Var mı?"] = "Hayır"
+                row["MA - Oluşturuldu mu?"] = "Evet"
+
         return managed_account_id
 
     except Exception as e:
         log_error(row_number, f"💥 Hata (MSSQL managed account): {str(e)}", error_type="MSSQLManagedAccount")
+        row["MA - Genel Durum"] = "❌"
         return None
-

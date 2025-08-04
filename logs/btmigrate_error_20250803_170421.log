@@ -1,4 +1,0 @@
-2025-08-03 17:04:22,021 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller bulunamadı. Domain: quasys.com
-2025-08-03 17:04:23,751 [ERROR] [UserGroupMember] Kod: 3 Message: ❌ User group üyeleri eklenemedi: 'float' object has no attribute 'strip'
-2025-08-03 17:04:24,618 [ERROR] [UserGroupMember] Kod: 5 Message: ❌ User group üyeleri eklenemedi: 'float' object has no attribute 'strip'
-2025-08-03 17:04:24,897 [ERROR] [UserGroupMember] Kod: 5 Message: ❌ User group üyeleri eklenemedi: 'float' object has no attribute 'strip'

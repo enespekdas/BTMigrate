@@ -1,0 +1,112 @@
+2025-08-04 12:44:47,787 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250804_124447.log
+2025-08-04 12:44:47,787 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250804_124447.log
+2025-08-04 12:44:47,788 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:47,869 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 9324
+2025-08-04 12:44:47,870 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-04 12:44:47,871 [INFO] ✅ ManagedSystem cache yüklendi. (9 kayıt)
+2025-08-04 12:44:47,872 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:47,962 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-04 12:44:47,962 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-04 12:44:47,963 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-04 12:44:47,964 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,003 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/SmartRules HTTP/1.1" 200 10226
+2025-08-04 12:44:48,004 [INFO] ✅ SmartRule cache yüklendi. (35 kayıt)
+2025-08-04 12:44:48,006 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,029 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Applications HTTP/1.1" 200 1645
+2025-08-04 12:44:48,030 [INFO] 📥 Application listesi API'den alındı ve cache'e yazıldı. (4 kayıt)
+2025-08-04 12:44:48,031 [INFO] ✅ Application cache yüklendi. (4 kayıt)
+2025-08-04 12:44:48,032 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,059 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/UserGroups HTTP/1.1" 200 977
+2025-08-04 12:44:48,059 [INFO] 📥 User group listesi API'den alındı ve cache'e yazıldı. (3 kayıt)
+2025-08-04 12:44:48,060 [INFO] ✅ UserGroup cache yüklendi. (3 kayıt)
+2025-08-04 12:44:48,062 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,099 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Users HTTP/1.1" 200 2091
+2025-08-04 12:44:48,099 [INFO] 📥 User listesi API'den alındı ve cache'e yazıldı. (6 kayıt)
+2025-08-04 12:44:48,101 [INFO] ✅ User cache yüklendi. (6 kayıt)
+2025-08-04 12:44:48,101 [INFO] 🧹 Var olan output dosyası silindi: data/btmigrate_output.xlsx
+2025-08-04 12:44:48,109 [INFO] ✅ Output Excel dosyası oluşturuldu: data/btmigrate_output.xlsx
+2025-08-04 12:44:48,121 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-04 12:44:48,122 [DEBUG] [Row 1] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.com, Username: pam118064
+2025-08-04 12:44:48,122 [DEBUG] [Row 1] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-04 12:44:48,122 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller bulunamadı. Domain: quasys.com
+2025-08-04 12:44:48,132 [INFO] Row 2: ✅ Zaten mevcut → None
+2025-08-04 12:44:48,132 [DEBUG] [Row 1] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam118065
+2025-08-04 12:44:48,132 [DEBUG] [Row 1] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-04 12:44:48,133 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,203 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 4523
+2025-08-04 12:44:48,204 [DEBUG] [Row 1] 🔄 Mevcut managed account sayısı: 4
+2025-08-04 12:44:48,205 [INFO] [Row 1] ✅ AD managed account zaten var: pam118065
+2025-08-04 12:44:48,205 [INFO] [Row 1] 🔗 Linkleme işlemi başlatıldı → SystemID: 206, AccountID: 113
+2025-08-04 12:44:48,205 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,239 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/206/LinkedAccounts/113 HTTP/1.1" 200 1122
+2025-08-04 12:44:48,240 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 206, AccountID: 113
+2025-08-04 12:44:48,252 [INFO] Row 3: ✅ Zaten mevcut → None
+2025-08-04 12:44:48,252 [DEBUG] [Row 1] 🔍 MSSQL Managed Account işlemi başlatıldı. IP: 10.59.76.112, Username: pam118064
+2025-08-04 12:44:48,253 [DEBUG] [Row 1] 🆔 Bulunan managed system ID: 207
+2025-08-04 12:44:48,253 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,332 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/207/ManagedAccounts HTTP/1.1" 200 1103
+2025-08-04 12:44:48,333 [INFO] [Row 1] ✅ MSSQL managed account zaten var: pam118064
+2025-08-04 12:44:48,343 [INFO] Row 4: ✅ Zaten mevcut → None
+2025-08-04 12:44:48,344 [DEBUG] [Row 2] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam100887
+2025-08-04 12:44:48,344 [DEBUG] [Row 2] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-04 12:44:48,345 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,415 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 4523
+2025-08-04 12:44:48,417 [DEBUG] [Row 2] 🔄 Mevcut managed account sayısı: 4
+2025-08-04 12:44:48,417 [INFO] [Row 2] ✅ AD managed account zaten var: pam100887
+2025-08-04 12:44:48,417 [INFO] [Row 2] 🔗 Linkleme işlemi başlatıldı → SystemID: 208, AccountID: 115
+2025-08-04 12:44:48,418 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,456 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/208/LinkedAccounts/115 HTTP/1.1" 200 1122
+2025-08-04 12:44:48,456 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 208, AccountID: 115
+2025-08-04 12:44:48,468 [INFO] Row 5: ✅ Zaten mevcut → None
+2025-08-04 12:44:48,468 [DEBUG] [Row 2] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam100888
+2025-08-04 12:44:48,468 [DEBUG] [Row 2] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-04 12:44:48,470 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,555 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 4523
+2025-08-04 12:44:48,557 [DEBUG] [Row 2] 🔄 Mevcut managed account sayısı: 4
+2025-08-04 12:44:48,557 [INFO] [Row 2] ✅ AD managed account zaten var: pam100888
+2025-08-04 12:44:48,557 [INFO] [Row 2] 🔗 Linkleme işlemi başlatıldı → SystemID: 206, AccountID: 116
+2025-08-04 12:44:48,558 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,592 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/206/LinkedAccounts/116 HTTP/1.1" 200 1123
+2025-08-04 12:44:48,592 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 206, AccountID: 116
+2025-08-04 12:44:48,605 [INFO] Row 6: ✅ Zaten mevcut → None
+2025-08-04 12:44:48,605 [DEBUG] [Row 3] 🔍 Oracle Managed Account işlemi başlatıldı. IP: 10.59.76.111, Username: PAM100545
+2025-08-04 12:44:48,606 [DEBUG] [Row 3] 🆔 Bulunan managed system ID: 209
+2025-08-04 12:44:48,606 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,679 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/209/ManagedAccounts HTTP/1.1" 200 2205
+2025-08-04 12:44:48,681 [INFO] [Row 3] ✅ Oracle managed account zaten var: PAM100545
+2025-08-04 12:44:48,692 [INFO] Row 7: ✅ Zaten mevcut → None
+2025-08-04 12:44:48,693 [INFO] [Row 3] ℹ️ Oracle atlandı: 'pam' ile başlamayan kullanıcı → admin
+2025-08-04 12:44:48,704 [INFO] Row 8: ✅ Zaten mevcut → None
+2025-08-04 12:44:48,704 [DEBUG] [Row 4] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam100887
+2025-08-04 12:44:48,705 [DEBUG] [Row 4] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-04 12:44:48,705 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,817 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 4523
+2025-08-04 12:44:48,818 [DEBUG] [Row 4] 🔄 Mevcut managed account sayısı: 4
+2025-08-04 12:44:48,819 [INFO] [Row 4] ✅ AD managed account zaten var: pam100887
+2025-08-04 12:44:48,819 [INFO] [Row 4] 🔗 Linkleme işlemi başlatıldı → SystemID: 208, AccountID: 115
+2025-08-04 12:44:48,820 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,855 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/208/LinkedAccounts/115 HTTP/1.1" 200 1122
+2025-08-04 12:44:48,856 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 208, AccountID: 115
+2025-08-04 12:44:48,869 [INFO] Row 9: ✅ Zaten mevcut → None
+2025-08-04 12:44:48,870 [DEBUG] [Row 4] 🔍 AD Managed Account işlemi başlatıldı. Domain: quasys.local, Username: pam100888
+2025-08-04 12:44:48,870 [DEBUG] [Row 4] 💾 Cache'ten alınan managed systems: 9 kayıt
+2025-08-04 12:44:48,871 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,946 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 4523
+2025-08-04 12:44:48,947 [DEBUG] [Row 4] 🔄 Mevcut managed account sayısı: 4
+2025-08-04 12:44:48,948 [INFO] [Row 4] ✅ AD managed account zaten var: pam100888
+2025-08-04 12:44:48,948 [INFO] [Row 4] 🔗 Linkleme işlemi başlatıldı → SystemID: 206, AccountID: 116
+2025-08-04 12:44:48,949 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:48,984 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/206/LinkedAccounts/116 HTTP/1.1" 200 1123
+2025-08-04 12:44:48,985 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 206, AccountID: 116
+2025-08-04 12:44:48,999 [INFO] Row 10: ✅ Zaten mevcut → None
+2025-08-04 12:44:49,000 [DEBUG] [Row 5] 🔍 Oracle Managed Account işlemi başlatıldı. IP: 10.59.76.111, Username: PAM100545
+2025-08-04 12:44:49,000 [DEBUG] [Row 5] 🆔 Bulunan managed system ID: 209
+2025-08-04 12:44:49,001 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:49,070 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/209/ManagedAccounts HTTP/1.1" 200 2205
+2025-08-04 12:44:49,072 [INFO] [Row 5] ✅ Oracle managed account zaten var: PAM100545
+2025-08-04 12:44:49,085 [INFO] Row 11: ✅ Zaten mevcut → None
+2025-08-04 12:44:49,086 [DEBUG] [Row 5] 🔍 Oracle Managed Account işlemi başlatıldı. IP: 10.59.76.111, Username: pam100888
+2025-08-04 12:44:49,086 [DEBUG] [Row 5] 🆔 Bulunan managed system ID: 209
+2025-08-04 12:44:49,087 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-04 12:44:49,160 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/209/ManagedAccounts HTTP/1.1" 200 2205
+2025-08-04 12:44:49,161 [INFO] [Row 5] ✅ Oracle managed account zaten var: pam100888

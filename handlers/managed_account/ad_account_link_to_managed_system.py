@@ -17,18 +17,23 @@ def link_ad_account_to_managed_system(row: dict, managed_account_id: int, cache)
 
         if len(matched) == 0:
             log_error(row_number, f"🔗 Linkleme için IP eşleşmesi bulunamadı. IP: {ip_address}", error_type="AccountLinker")
+            row["MA - Linkleme Durumu"] = "❌"
             return
 
         if len(matched) > 1:
+            row["MA - Linkleme Durumu"] = "❌"
             raise Exception(f"🔴 Aynı IP ({ip_address}) ile birden fazla managed system bulundu. Tanım hatalı!")
 
         managed_system_id = matched[0].get("ManagedSystemID")
         if not managed_system_id:
             log_error(row_number, f"🔗 IP eşleşti ama ManagedSystemID alınamadı. Kayıt: {matched[0]}", error_type="AccountLinker")
+            row["MA - Linkleme Durumu"] = "❌"
             return
 
         log_message(f"[Row {row_number}] 🔗 Linkleme işlemi başlatıldı → SystemID: {managed_system_id}, AccountID: {managed_account_id}")
         link_managed_account_to_system(managed_system_id, managed_account_id)
+        row["MA - Linkleme Durumu"] = "✅"
 
     except Exception as e:
         log_error(row_number, f"💥 Linkleme hatası: {str(e)}", error_type="AccountLinker")
+        row["MA - Linkleme Durumu"] = "❌"

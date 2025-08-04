@@ -11,11 +11,12 @@ from handlers.managed_account.ad_account_link_to_managed_system import (
 )
 
 def create_ad_managed_account(row: dict, cache: UniversalCache) -> Optional[int]:
-    try:
-        row_number = row.get("PamEnvanterSatır", -1)
-        domain = (row.get("domain") or "").lower()
-        username = row.get("username")
+    row_number = row.get("PamEnvanterSatır", -1)
+    domain = (row.get("domain") or "").lower()
+    username = row.get("username")
+    managed_account_id = None
 
+    try:
         log_debug(f"[Row {row_number}] 🔍 AD Managed Account işlemi başlatıldı. Domain: {domain}, Username: {username}")
 
         all_managed_systems = cache.get_all_by_key("ManagedSystem")
@@ -24,8 +25,7 @@ def create_ad_managed_account(row: dict, cache: UniversalCache) -> Optional[int]
         domain_controller = next(
             (
                 s for s in all_managed_systems
-                if s.get("EntityTypeID") == 3
-                and (
+                if s.get("EntityTypeID") == 3 and (
                     (s.get("DnsName") or "").lower().endswith(domain)
                     or (s.get("HostName") or "").lower().endswith(domain)
                 )
@@ -34,12 +34,16 @@ def create_ad_managed_account(row: dict, cache: UniversalCache) -> Optional[int]
         )
 
         if not domain_controller:
-            log_error(row_number, f"❌ Domain controller bulunamadı. Domain: {domain}", error_type="ADManagedAccount")
+            msg = f"❌ Domain controller bulunamadı. Domain: {domain}"
+            log_error(row_number, msg, error_type="ADManagedAccount")
+            row["Hata Detayı"] = f"[MA] {msg}"
             return None
 
         domain_system_id = domain_controller.get("ManagedSystemID")
-        if domain_system_id is None:
-            log_error(row_number, f"❌ Domain controller ManagedSystemID None döndü. domain_controller: {domain_controller}", error_type="ADManagedAccount")
+        if not domain_system_id:
+            msg = f"❌ Domain controller ManagedSystemID None döndü. domain_controller: {domain_controller}"
+            log_error(row_number, msg, error_type="ADManagedAccount")
+            row["Hata Detayı"] = f"[MA] {msg}"
             return None
 
         existing_accounts = get_managed_accounts_by_system_id(domain_system_id)
@@ -50,8 +54,15 @@ def create_ad_managed_account(row: dict, cache: UniversalCache) -> Optional[int]
             None
         )
 
+        # Ortak log kolonları
+        row["MA - Tür"] = "AD"
+        row["MA - Kullanılan Account"] = username
+        row["MA - AutoChange Durumu"] = "Kapalı"
+
         if matched_account:
             managed_account_id = matched_account.get("ManagedAccountID")
+            row["MA - Zaten Var mı?"] = "Evet"
+            row["MA - Oluşturuldu mu?"] = "Hayır"
             log_message(f"[Row {row_number}] ✅ AD managed account zaten var: {username}")
         else:
             payload = {
@@ -63,7 +74,8 @@ def create_ad_managed_account(row: dict, cache: UniversalCache) -> Optional[int]
                 "WorkgroupID": WORKGROUP_ID,
                 "ObjectID": "None",
                 "UserPrincipalName": username,
-                "SAMAccountName": username
+                "SAMAccountName": username,
+                "AutoManagementFlag": False
             }
 
             log_debug(f"[Row {row_number}] 📦 Payload hazırlandı: {payload}")
@@ -72,11 +84,24 @@ def create_ad_managed_account(row: dict, cache: UniversalCache) -> Optional[int]
             response = create_ad_managed_account_api_call(domain_system_id, payload)
             managed_account_id = response.get("ManagedAccountID") if response else None
 
+            if managed_account_id:
+                row["MA - Zaten Var mı?"] = "Hayır"
+                row["MA - Oluşturuldu mu?"] = "Evet"
+
+        # 🔗 Linkleme işlemi
         if managed_account_id:
-            link_ad_account_to_managed_system(row, managed_account_id, cache)
+            try:
+                link_ad_account_to_managed_system(row, managed_account_id, cache)
+                row["MA - Linkleme Durumu"] = "✅"
+            except Exception as link_error:
+                row["MA - Linkleme Durumu"] = "❌"
+                row["Hata Detayı"] = f"[Linkleme] {str(link_error)}"
 
         return managed_account_id
 
     except Exception as e:
-        log_error(row.get("PamEnvanterSatır", -1), f"💥 Hata (AD managed account): {str(e)}", error_type="ADManagedAccount")
+        msg = f"💥 Hata (AD managed account): {str(e)}"
+        log_error(row_number, msg, error_type="ADManagedAccount")
+        row["MA - Genel Durum"] = "❌"
+        row["Hata Detayı"] = f"[MA] {msg}"
         return None

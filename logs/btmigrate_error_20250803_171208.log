@@ -1,4 +1,0 @@
-2025-08-03 17:12:08,467 [ERROR] [ADManagedAccount] Kod: 1 Message: ❌ Domain controller bulunamadı. Domain: quasys.com
-2025-08-03 17:12:17,470 [ERROR] [UserAPI] Kod: -1 Message: Kullanıcı oluşturma hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/Users/
-2025-08-03 17:12:17,471 [ERROR] [UserGroupMember] Kod: 3 Message: ❌ Kullanıcı bulunamadı veya oluşturulamadı: e_misir
-2025-08-03 17:12:17,472 [ERROR] [UserGroupMember] Kod: 3 Message: ❌ Hiçbir geçerli kullanıcı bulunamadı, user group'a üye eklenmeyecek.

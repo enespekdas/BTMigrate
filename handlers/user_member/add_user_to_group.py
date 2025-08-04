@@ -5,6 +5,7 @@ from math import isnan
 from api.user import create_user, add_user_to_group
 from utils.universal_cache import UniversalCache
 from utils.logger import log_message, log_error, log_debug_row
+from utils.object_tracker import add_created_object  # ✅ JSON takibi için eklendi
 
 
 def parse_member_field(members_field) -> List[str]:
@@ -56,10 +57,11 @@ def find_or_create_user(member_name: str, domain: str, cache: UniversalCache) ->
     return user_id
 
 
-def add_members_to_user_group(row: dict, user_group_id: int, cache: UniversalCache):
+def add_members_to_user_group(row: dict, user_group_id: int, cache: UniversalCache) -> List[int]:
     """
     Excel'den gelen bir satıra göre user group'a üye ekler.
     Kullanıcı yoksa oluşturur.
+    Dönen değer: Gruba başarıyla eklenen kullanıcıların ID'leri
     """
     row_number = row.get("PamEnvanterSatır", -1)
     raw_members = row.get("members")
@@ -71,7 +73,7 @@ def add_members_to_user_group(row: dict, user_group_id: int, cache: UniversalCac
 
     if not member_names:
         log_message(f"[Row {row_number}] ⚠️ User group'a eklenecek kullanıcı yok.")
-        return
+        return []
 
     user_ids = []
     for member in member_names:
@@ -83,12 +85,16 @@ def add_members_to_user_group(row: dict, user_group_id: int, cache: UniversalCac
 
     if not user_ids:
         log_error(row_number, "❌ Hiçbir geçerli kullanıcı bulunamadı, user group'a üye eklenmeyecek.", error_type="UserGroupMember")
-        return
+        return []
 
     for uid in user_ids:
         try:
             add_user_to_group(uid, user_group_id)
             log_message(f"[Row {row_number}] ➕ Kullanıcı (ID={uid}) gruba eklendi (GroupID={user_group_id})")
+
+            # ✅ JSON silme için User-Group eşleşmesini kaydet
+            add_created_object("UserGroupMembership", {"UserID": uid, "GroupID": user_group_id})
+
         except Exception as e:
             failed_name = member_names[user_ids.index(uid)] if user_ids.index(uid) < len(member_names) else "?"
             log_error(
@@ -96,3 +102,5 @@ def add_members_to_user_group(row: dict, user_group_id: int, cache: UniversalCac
                 f"❌ Kullanıcı (ID={uid}) gruba eklenemedi (GroupID={user_group_id}) → Kullanıcı: {failed_name} → Hata: {str(e)}",
                 error_type="UserGroupMember"
             )
+
+    return user_ids  # ✅ JSON log için gerekli olan bu
