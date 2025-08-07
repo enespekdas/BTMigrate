@@ -1,7 +1,7 @@
 from utils.validators import is_valid_ip
 from utils.logger import log_error_row
 from utils.network_utils import resolve_hostname, resolve_ip, is_ip
-from config.settings import EXCLUDED_SAFE_MEMBERS  # ✅ exclude listesi
+from config.settings import EXCLUDED_SAFE_MEMBERS
 
 def is_empty(val: str) -> bool:
     val = (val or "").strip().lower()
@@ -40,9 +40,24 @@ def process_remote_machine_row(index, pam_row, os_envanter, safe_user_list) -> t
     ])
 
     for remote in remote_list:
+        ip_address = ""
+        hostname = ""
+        os_name = ""
+        domain = ""
+        row_type = "domain"
+        application = ""
+
+        # ❌ Kullanıcı adı pam ile başlamıyorsa ignore et
+        if not username.lower().startswith("pam"):
+            reason = "pam ile başlamayan domain tipi kullanıcı"
+            log_error_row(index, -20, f"{reason} (username={username})", error_type="Validation")
+            ignored_rows.append([index, username, remote, "-", "-", reason, "-"])
+            continue
+
+        # 🔸 MSSQL özel domain → hardcoded
         if "thynet.thy.com" in remote.lower():
-            ip_address = ""
-            hostname = remote
+            os_name = "mssql"
+            row_type = "mssql"
 
             if is_ip(remote):
                 ip_address = remote
@@ -51,70 +66,84 @@ def process_remote_machine_row(index, pam_row, os_envanter, safe_user_list) -> t
                 hostname = remote
                 ip_address = resolve_ip(remote)
 
-            if is_empty(ip_address) or is_empty(hostname):
-                reason = "IP/Hostname eşleşmesi yapılamadı"
+            if is_empty(ip_address):
+                reason = "IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı."
                 log_error_row(index, -24, f"{reason} (remote={remote})", error_type="MSSQL")
-                ignored_rows.append([index, username, remote, reason, "mssql"])
+                ignored_rows.append([index, username, remote, "-", "-", reason, os_name])
                 continue
 
-            final_port = port if not is_empty(port) else "1433"
+            if is_empty(hostname):
+                hostname = ip_address
 
-            row_data = [
-                index,
-                username,
-                ip_address,
-                hostname,
-                "mssql",
-                "mssql",
-                safe_name,
-                members,
-                database,
-                final_port,
-                "mssql",
-                "quasys.local"
-            ]
-            result_rows.append(row_data)
-            continue
+            domain = "quasys.local"  # default
 
-        matched_row = next(
-            (r for r in os_envanter
-             if str(r.get("IP Address") or "").strip() == remote
-             or str(r.get("Hostname") or "").strip().lower() == remote.lower()),
-            None
-        )
+        else:
+            matched_row = next(
+                (r for r in os_envanter
+                 if str(r.get("IP Address") or "").strip() == remote
+                 or str(r.get("Hostname") or "").strip().lower() == remote.lower()),
+                None
+            )
 
-        ip_address = str(matched_row.get("IP Address") or "").strip() if matched_row else ""
-        hostname = str(matched_row.get("Hostname") or "").strip() if matched_row else ""
-        os_name = str(matched_row.get("OS") or "").strip() if matched_row else ""
-        domain = str(matched_row.get("Domain") or "").strip() if matched_row else ""
+            ip_address = str(matched_row.get("IP Address") or "").strip() if matched_row else ""
+            hostname = str(matched_row.get("Hostname") or "").strip() if matched_row else ""
+            os_name = str(matched_row.get("OS") or "").strip() if matched_row else ""
+            domain = str(matched_row.get("Domain") or "").strip() if matched_row else ""
 
-        if is_empty(ip_address) and not is_valid_ip(remote):
-            ip_address = resolve_ip(remote)
+            # Tamamlama: IP veya hostname eksikse nslookup ile bul
+            if is_empty(ip_address) and not is_valid_ip(remote):
+                ip_address = resolve_ip(remote)
 
-        if is_empty(hostname) and is_valid_ip(remote):
-            hostname = resolve_hostname(remote)
+            if is_empty(hostname) and is_valid_ip(remote):
+                hostname = resolve_hostname(remote)
 
-        if is_empty(ip_address) or is_empty(hostname):
-            reason = "IP/Hostname eşleşmesi yapılamadı"
-            log_error_row(index, -21, f"{reason} (remote={remote})", error_type="Validation")
-            ignored_rows.append([index, username, remote, reason, os_name or "-"])
-            continue
+            # Hostname hala yoksa ama IP varsa → hostname = IP
+            if is_empty(hostname) and not is_empty(ip_address):
+                hostname = ip_address
 
-        if is_empty(os_name):
-            reason = "OS bilgisi bulunamadı"
-            log_error_row(index, -22, f"{reason} (ip={ip_address}, hostname={hostname})", error_type="Validation")
-            ignored_rows.append([index, username, remote, reason, os_name or "-"])
-            continue
+            # Domain yoksa → nonDomain
+            if is_empty(domain):
+                domain = "nonDomain"
 
-        if not is_valid_ip(ip_address):
-            reason = f"Geçersiz IP adresi: {ip_address}"
-            log_error_row(index, -23, reason, error_type="Validation")
-            ignored_rows.append([index, username, remote, reason, os_name or "-"])
-            continue
+            # ❌ IP veya hostname yine de yoksa → ignore (detaylı açıklama ile)
+            if is_empty(ip_address) or is_empty(hostname):
+                if is_empty(ip_address) and not is_empty(hostname):
+                    reason = "IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı."
+                elif is_empty(hostname) and not is_empty(ip_address):
+                    reason = "Hostname tespit edilemedi. OS envanterde ve nslookup sonucunda hostname bulunamadı."
+                else:
+                    reason = "IP ve hostname tespit edilemedi. OS envanterde ve nslookup başarısız oldu."
 
-        row_type = "domain" if username.lower().startswith("pam") else ""
-        application = "winscp" if os_name.lower() == "linux" else ""
+                log_error_row(index, -21, f"{reason} (remote={remote})", error_type="Validation")
+                ignored_rows.append([
+                    index,
+                    username,
+                    remote,
+                    hostname or "-",
+                    domain or "-",
+                    reason,
+                    os_name or "-"
+                ])
+                continue
 
+            # ❌ OS yoksa → ignore (sadece remoteMachines için geçerli)
+            if is_empty(os_name):
+                reason = "OS bilgisi bulunamadı"
+                log_error_row(index, -22, f"{reason} (ip={ip_address}, hostname={hostname})", error_type="Validation")
+                ignored_rows.append([index, username, remote, hostname or "-", domain or "-", reason, "-"])
+                continue
+
+            if not is_valid_ip(ip_address):
+                reason = f"Geçersiz IP adresi: {ip_address}"
+                log_error_row(index, -23, reason, error_type="Validation")
+                ignored_rows.append([index, username, remote, hostname or "-", domain or "-", reason, os_name or "-"])
+                continue
+
+            # Application sadece Linux için atanıyor
+            if os_name.lower() == "linux":
+                application = "winscp"
+
+        # ✅ Geçerli satır
         row_data = [
             index,
             username,

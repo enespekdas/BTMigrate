@@ -48,8 +48,8 @@ USER_GROUP_DEFAULT_PERMISSIONS = [
     { "PermissionID": 77, "AccessLevelID": 1 }
 ]
 
-IGNORED_ROW_COLUMNS  = [
-    "PamEnvar", "username", "remote", "reason", "os_type"
+IGNORED_ROW_COLUMNS = [
+    "PamEnvanterSatır", "username", "remote", "hostname", "domain", "reason", "os_type"
 ]
 
 RESULT_ROW_COLUMNS = [

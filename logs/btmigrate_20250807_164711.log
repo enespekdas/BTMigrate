@@ -1,0 +1,10 @@
+2025-08-07 16:47:11,765 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250807_164711.log
+2025-08-07 16:47:11,766 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250807_164711.log
+2025-08-07 16:47:11,777 [INFO] 📘 PamEnvanter yüklendi: data/PamEnvanter.xlsx (Toplam 6 satır)
+2025-08-07 16:47:11,787 [INFO] 📘 OsEnvanter yüklendi: data/OsEnvanter.xlsx (Toplam 34 satır)
+2025-08-07 16:47:11,801 [INFO] 📘 PamSafeUser yüklendi: data/PamSafeUser.xlsx (Toplam 20 satır)
+2025-08-07 16:47:21,910 [ERROR] Row 1: [Validation] Kod: -21 Message: IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı. (remote=Server3)
+2025-08-07 16:47:21,918 [ERROR] Row 2: [Validation] Kod: -22 Message: OS bilgisi bulunamadı (ip=10.58.59.106, hostname=Server6)
+2025-08-07 16:47:31,978 [ERROR] Row 2: [MSSQL] Kod: -24 Message: IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı. (remote=server10.thynet.thy.com)
+2025-08-07 16:47:32,057 [ERROR] Row 5: [Oracle] Kod: -34 Message: IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı. (address=server13.thy.com)
+2025-08-07 16:47:32,066 [INFO] ✅ Çalışma Excel'i oluşturuldu: data/btmigrate_work.xlsx

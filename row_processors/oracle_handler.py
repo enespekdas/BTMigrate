@@ -1,12 +1,16 @@
 from utils.logger import log_error_row
 from utils.network_utils import resolve_ip, resolve_hostname, is_ip
-from config.settings import EXCLUDED_SAFE_MEMBERS  # ✅ exclude listesi
+from config.settings import EXCLUDED_SAFE_MEMBERS
+
+def is_empty(val: str) -> bool:
+    val = (val or "").strip().lower()
+    return val in ["", "nan", "none", "null"]
 
 def process_oracle_row(index, pam_row, safe_user_list) -> tuple[list[list], list[list]]:
     result_rows = []
     ignored_rows = []
 
-    platform_id = str(pam_row.get("platformId") or "").strip()
+    platform_id = str(pam_row.get("platformId") or "").strip().lower()
     database = str(pam_row.get("database") or "").strip()
     raw_port = pam_row.get("port")
     port = ""
@@ -19,25 +23,20 @@ def process_oracle_row(index, pam_row, safe_user_list) -> tuple[list[list], list
     username = str(pam_row.get("userName") or "").strip()
     safe_name = str(pam_row.get("safeName") or "").strip()
 
-    if not platform_id.lower().startswith("oracle"):
+    # Oracle değilse veya database yoksa → işleme alma
+    if not platform_id.startswith("oracle") or is_empty(database):
         return [], []
 
-    if not port or port.lower() in ["nan", "none", "null", ""]:
+    if is_empty(port):
         reason = "DB port bilgisi boş"
         log_error_row(index, -31, reason, error_type="Oracle")
-        ignored_rows.append([index, username, address or "-", reason, "oracle"])
+        ignored_rows.append([index, username, address or "-", "-", "-", reason, "oracle"])
         return [], ignored_rows
 
-    if not database or database.lower() in ["nan", "none", "null", ""]:
-        reason = "Platform tipi Oracle olarak tespit edildi fakat database alanı boş"
-        log_error_row(index, -32, reason, error_type="Oracle")
-        ignored_rows.append([index, username, address or "-", reason, "oracle"])
-        return [], ignored_rows
-
-    if not address or address.lower() in ["nan", "none", "null", ""]:
+    if is_empty(address):
         reason = "Address alanı boş"
         log_error_row(index, -33, reason, error_type="Oracle")
-        ignored_rows.append([index, username, "-", reason, "oracle"])
+        ignored_rows.append([index, username, "-", "-", "-", reason, "oracle"])
         return [], ignored_rows
 
     ip_address = ""
@@ -45,16 +44,23 @@ def process_oracle_row(index, pam_row, safe_user_list) -> tuple[list[list], list
 
     if is_ip(address):
         ip_address = address
-        hostname = resolve_hostname(ip_address) or address
+        hostname = resolve_hostname(ip_address) or ip_address
     else:
         hostname = address
         ip_address = resolve_ip(hostname)
 
-    if not ip_address or not hostname:
-        reason = "IP/Hostname eşleşmesi yapılamadı"
+    if is_empty(ip_address):
+        reason = "IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı."
         log_error_row(index, -34, f"{reason} (address={address})", error_type="Oracle")
-        ignored_rows.append([index, username, address or "-", reason, "oracle"])
+        ignored_rows.append([index, username, address or "-", "-", "-", reason, "oracle"])
         return [], ignored_rows
+
+    if is_empty(hostname):
+        hostname = ip_address
+
+    # domain ve OS için OS envanter'de arama yapılabilir
+    domain = "nonDomain"
+    os_name = "oracle"  # Oracle için dummy; zorunlu değil ama consistency için yazılabilir
 
     members = ",".join([
         str(m.get("memberName") or "").strip()
@@ -71,15 +77,15 @@ def process_oracle_row(index, pam_row, safe_user_list) -> tuple[list[list], list
         username,
         ip_address,
         hostname,
-        "oracle",
-        "oracle",
+        os_name,
+        os_name,
         safe_name,
         members,
         database,
         port,
         "oracle",
-        ""
+        domain
     ]
 
     result_rows.append(row_data)
-    return result_rows, []
+    return result_rows, ignored_rows

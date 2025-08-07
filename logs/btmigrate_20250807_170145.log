@@ -1,0 +1,12 @@
+2025-08-07 17:01:45,174 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250807_170145.log
+2025-08-07 17:01:45,174 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250807_170145.log
+2025-08-07 17:01:45,186 [INFO] 📘 PamEnvanter yüklendi: data/PamEnvanter.xlsx (Toplam 7 satır)
+2025-08-07 17:01:45,195 [INFO] 📘 OsEnvanter yüklendi: data/OsEnvanter.xlsx (Toplam 34 satır)
+2025-08-07 17:01:45,209 [INFO] 📘 PamSafeUser yüklendi: data/PamSafeUser.xlsx (Toplam 20 satır)
+2025-08-07 17:01:55,393 [ERROR] Row 1: [Validation] Kod: -21 Message: IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı. (remote=Server3)
+2025-08-07 17:01:55,402 [ERROR] Row 2: [Validation] Kod: -22 Message: OS bilgisi bulunamadı (ip=10.58.59.106, hostname=Server6)
+2025-08-07 17:02:00,554 [ERROR] Row 2: [MSSQL] Kod: -24 Message: IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı. (remote=server10.thynet.thy.com)
+2025-08-07 17:02:00,673 [ERROR] Row 5: [Oracle] Kod: -34 Message: IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı. (address=server13.thy.com)
+2025-08-07 17:02:00,673 [ERROR] [PrepareValidation] Kod: 6 Message: Satır işleme alınmadı: Domain Managed Account, Managed System, MSSQL ve Oracle filtre kurallarına uygun değil.
+2025-08-07 17:02:00,673 [ERROR] [PrepareValidation] Kod: 7 Message: Username alanı boş olduğundan dolayı ignore edilmiştir.
+2025-08-07 17:02:00,681 [INFO] ✅ Çalışma Excel'i oluşturuldu: data/btmigrate_work.xlsx
