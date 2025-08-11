@@ -1,0 +1,44 @@
+2025-08-11 11:23:23,000 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250811_112322.log
+2025-08-11 11:23:23,000 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250811_112322.log
+2025-08-11 11:23:23,001 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 11:23:23,120 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 10291
+2025-08-11 11:23:23,120 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (10 kayıt)
+2025-08-11 11:23:23,121 [INFO] ✅ ManagedSystem cache yüklendi. (10 kayıt)
+2025-08-11 11:23:23,122 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 11:23:23,217 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-11 11:23:23,217 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-11 11:23:23,218 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-11 11:23:23,219 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 11:23:23,266 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/SmartRules HTTP/1.1" 200 9681
+2025-08-11 11:23:23,268 [INFO] ✅ SmartRule cache yüklendi. (33 kayıt)
+2025-08-11 11:23:23,269 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 11:23:23,296 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Applications HTTP/1.1" 200 1645
+2025-08-11 11:23:23,297 [INFO] 📥 Application listesi API'den alındı ve cache'e yazıldı. (4 kayıt)
+2025-08-11 11:23:23,298 [INFO] ✅ Application cache yüklendi. (4 kayıt)
+2025-08-11 11:23:23,299 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 11:23:23,325 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/UserGroups HTTP/1.1" 200 1939
+2025-08-11 11:23:23,325 [INFO] 📥 User group listesi API'den alındı ve cache'e yazıldı. (6 kayıt)
+2025-08-11 11:23:23,326 [INFO] ✅ UserGroup cache yüklendi. (6 kayıt)
+2025-08-11 11:23:23,327 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 11:23:23,369 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Users HTTP/1.1" 200 2449
+2025-08-11 11:23:23,370 [INFO] 📥 User listesi API'den alındı ve cache'e yazıldı. (7 kayıt)
+2025-08-11 11:23:23,370 [INFO] ✅ User cache yüklendi. (7 kayıt)
+2025-08-11 11:23:23,371 [INFO] 🧹 Var olan output dosyası silindi: data/btmigrate_output.xlsx
+2025-08-11 11:23:23,377 [INFO] ✅ Output Excel dosyası oluşturuldu: data/btmigrate_output.xlsx
+2025-08-11 11:23:23,390 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-11 11:23:23,393 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 11:23:23,473 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 2248
+2025-08-11 11:23:23,474 [INFO] Row 1: AD managed account zaten var: pam118064
+2025-08-11 11:23:23,475 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 11:23:23,515 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/263/LinkedAccounts/153 HTTP/1.1" 200 1122
+2025-08-11 11:23:23,515 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 263, AccountID: 153
+2025-08-11 11:23:23,516 [INFO] Row 1: AD managed account oluşturuldu: pam118064
+2025-08-11 11:23:23,518 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 11:23:23,570 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10083/ManagedAccounts HTTP/1.1" 200 1124
+2025-08-11 11:23:23,571 [INFO] Row 1: Smart Rule zaten mevcut ve hesap bağlı: THY_MA_S_OZCAN
+2025-08-11 11:23:23,572 [INFO] 🚀 Application atama başlatıldı. (AccountID: 153)
+2025-08-11 11:23:23,573 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 11:23:23,602 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedAccounts/153/Applications HTTP/1.1" 200 453
+2025-08-11 11:23:23,603 [INFO] ℹ️ Application 'winscp' zaten atanmış, atlama yapıldı.
+2025-08-11 11:23:23,604 [INFO] 📦 App atama özeti (AccountID:153) → İstenen:1, Atanan:0, Zaten:1, Bulunamadı:0, Başarısız:0
+2025-08-11 11:23:23,604 [INFO] Row 1: Tüm uygulamalar başarıyla atandı veya önceden atanmış.

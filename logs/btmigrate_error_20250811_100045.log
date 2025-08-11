@@ -1,0 +1,3 @@
+2025-08-11 10:00:46,833 [ERROR] Row 5: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-11 10:00:46,843 [ERROR] Row 6: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 10:00:46,855 [ERROR] Row 7: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan

@@ -1,0 +1,17 @@
+2025-08-11 08:38:08,737 [ERROR] Row 1: [Validation] Kod: -21 Message: IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı. (remote=Server3)
+2025-08-11 08:38:08,786 [ERROR] Row 2: [Validation] Kod: -22 Message: OS bilgisi bulunamadı (ip=10.58.59.106, hostname=Server6)
+2025-08-11 08:38:18,872 [ERROR] Row 2: [MSSQL] Kod: -24 Message: IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı. (remote=server10.thynet.thy.com)
+2025-08-11 08:38:23,983 [ERROR] Row 5: [Oracle] Kod: -34 Message: IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı. (address=server13.thy.com)
+2025-08-11 08:38:23,984 [ERROR] [PrepareValidation] Kod: 6 Message: Satır işleme alınmadı: Domain Managed Account, Managed System, MSSQL ve Oracle filtre kurallarına uygun değil.
+2025-08-11 08:38:23,984 [ERROR] [PrepareValidation] Kod: 7 Message: Username alanı boş olduğundan dolayı ignore edilmiştir.
+2025-08-11 08:38:23,984 [ERROR] Row 8: [Oracle] Kod: -31 Message: DB port bilgisi boş
+2025-08-11 08:38:23,984 [ERROR] [PrepareValidation] Kod: 9 Message: Satır işleme alınmadı: Domain Managed Account, Managed System, MSSQL ve Oracle filtre kurallarına uygun değil.
+2025-08-11 08:38:25,587 [ERROR] [UserGroupRole] Kod: 2 Message: ❌ SmartRule Role atama hatası: HTTP 400 "Must set UserGroup-SmartRule AccessLevel before setting Roles"
+2025-08-11 08:38:25,600 [ERROR] Row 5: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-11 08:38:25,600 [ERROR] [ADManagedAccount] Kod: 2 Message: ❌ Domain controller bulunamadı. Domain: nondomain
+2025-08-11 08:38:25,612 [ERROR] Row 6: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 08:38:25,612 [ERROR] [MSSQLManagedAccount] Kod: 2 Message: 💥 Hata (MSSQL managed account): cannot convert float NaN to integer
+2025-08-11 08:38:25,623 [ERROR] Row 7: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 08:38:25,623 [ERROR] [MSSQLManagedAccount] Kod: 2 Message: 💥 Hata (MSSQL managed account): cannot convert float NaN to integer
+2025-08-11 08:38:25,818 [ERROR] [UserGroupRole] Kod: 3 Message: ❌ SmartRule Role atama hatası: HTTP 400 "Must set UserGroup-SmartRule AccessLevel before setting Roles"
+2025-08-11 08:38:26,056 [ERROR] [UserGroupRole] Kod: 4 Message: ❌ SmartRule Role atama hatası: HTTP 400 "Must set UserGroup-SmartRule AccessLevel before setting Roles"

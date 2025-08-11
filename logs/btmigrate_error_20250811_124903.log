@@ -1,0 +1,6 @@
+2025-08-11 12:49:06,878 [ERROR] [LinuxHandler] Kod: 5 Message: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-11 12:49:06,878 [ERROR] [Dispatcher] Kod: 5 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 12:49:06,878 [ERROR] [ADManagedAccount] Kod: 2 Message: [ADManagedAccount] Kod: -300 Message: Domain controller bulunamadı. Domain: nondomain
+2025-08-11 12:49:06,879 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -101 Message: AD managed account oluşturulamadı (ID yok).
+2025-08-11 12:49:06,890 [ERROR] [MssqlHandler] Kod: 6 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz, default 1433 kullanılacak: nan
+2025-08-11 12:49:07,312 [ERROR] [MssqlHandler] Kod: 7 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz, default 1433 kullanılacak: nan

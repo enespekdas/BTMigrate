@@ -1,0 +1,12 @@
+2025-08-11 11:02:12,580 [ERROR] [LinuxHandler] Kod: 5 Message: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-11 11:02:12,580 [ERROR] [Dispatcher] Kod: 5 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 11:02:12,580 [ERROR] [ADManagedAccount] Kod: 2 Message: [ADManagedAccount] Kod: -300 Message: Domain controller bulunamadı. Domain: nondomain
+2025-08-11 11:02:12,580 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -101 Message: AD managed account oluşturulamadı (ID yok).
+2025-08-11 11:02:12,590 [ERROR] [MssqlHandler] Kod: 6 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 11:02:12,590 [ERROR] [Dispatcher] Kod: 6 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 11:02:12,591 [ERROR] [MSSQLManagedAccount] Kod: 2 Message: [MSSQLManagedAccount] Kod: -410 Message: Port değeri geçersiz: nan
+2025-08-11 11:02:12,591 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).
+2025-08-11 11:02:12,601 [ERROR] [MssqlHandler] Kod: 7 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 11:02:12,601 [ERROR] [Dispatcher] Kod: 7 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 11:02:12,602 [ERROR] [MSSQLManagedAccount] Kod: 2 Message: [MSSQLManagedAccount] Kod: -410 Message: Port değeri geçersiz: nan
+2025-08-11 11:02:12,602 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).

@@ -3,34 +3,29 @@
 from copy import deepcopy
 from config.settings import ORACLE_MANAGED_SYSTEM_TEMPLATE, WORKGROUP_ID
 from row_processors.utils import resolve_functional_account_id
-from utils.logger import log_message_row, log_error_row
 from api.managed_system import create_managed_system, add_managed_system_to_cache
+from utils.report import ms_success, ms_error  # ✅
 
 def process_oracle_managed_system(row: dict, cache, row_number: int):
     payload = deepcopy(ORACLE_MANAGED_SYSTEM_TEMPLATE)
 
-    # Functional Account bul (oracle description şart!).
     fa_id = resolve_functional_account_id(cache, row)
     if not fa_id:
-        log_error_row(row_number, -200, "Functional Account (oracle) bulunamadı.", "OracleHandler")
-        return
+        ms_error(row_number, row, -200, "Functional Account (oracle) bulunamadı.", "OracleHandler")
+        return None
 
-    # Excel'den temel bilgiler
-    hostname = row.get("hostname", "").strip()
-    ip = row.get("ip address", "").strip()
-    database = row.get("database", "").strip()
+    hostname = (row.get("hostname", "") or "").strip()
+    ip = (row.get("ip address", "") or "").strip()
+    database = (row.get("database", "") or "").strip()
 
-    # Port sayısal dönüşüm (güvenli)
     try:
         port = int(float(row.get("port", 0)))
     except Exception:
-        log_error_row(row_number, -202, f"Port değeri geçersiz: {row.get('port')}", "OracleHandler")
-        return
+        ms_error(row_number, row, -202, f"Port değeri geçersiz: {row.get('port')}", "OracleHandler")
+        return None
 
-    # SystemName formatı
     system_name = f"{hostname} (Db Instance: {database}, Port:{port})"
 
-    # Payload doldurma
     payload["HostName"] = hostname
     payload["DnsName"] = hostname
     payload["IPAddress"] = ip
@@ -38,13 +33,14 @@ def process_oracle_managed_system(row: dict, cache, row_number: int):
     payload["Port"] = port
     payload["SystemName"] = system_name
     payload["FunctionalAccountID"] = fa_id
-    payload["AutoManagementFlag"] = False  # bool olacak
+    payload["AutoManagementFlag"] = False
 
-    # Oluşturma çağrısı
     success, response = create_managed_system(payload, WORKGROUP_ID)
     if success:
         add_managed_system_to_cache(cache, response)
-        row["MS - Oluşturuldu mu?"] = "Evet"  # 🔍 Output için log
-        log_message_row(row_number, f"✅ Oracle Managed System oluşturuldu: {response.get('Name')}")
+        ms_success(row_number, row, created=True,
+                   message=f"Oracle Managed System oluşturuldu: {response.get('Name')}")
+        return response.get("ManagedSystemID") or response.get("ID")
     else:
-        log_error_row(row_number, -201, f"Oluşturma hatası: {response}", "OracleHandler")
+        ms_error(row_number, row, -201, f"Oluşturma hatası: {response}", "OracleHandler")
+        return None

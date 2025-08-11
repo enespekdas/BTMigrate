@@ -1,0 +1,18 @@
+2025-08-11 10:55:45,446 [ERROR] [LinuxHandler] Kod: 5 Message: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-11 10:55:45,446 [ERROR] [Dispatcher] Kod: 5 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 10:55:45,446 [ERROR] [Orchestrator] Kod: 5 Message: [Orchestrator] Kod: -100 Message: Managed System ID boş
+2025-08-11 10:55:45,446 [ERROR] [ADManagedAccount] Kod: 2 Message: [ADManagedAccount] Kod: -300 Message: Domain controller bulunamadı. Domain: nondomain
+2025-08-11 10:55:45,446 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -101 Message: AD managed account oluşturulamadı (ID yok).
+2025-08-11 10:55:45,447 [ERROR] [Orchestrator] Kod: 5 Message: [Orchestrator] Kod: -101 Message: Managed Account ID boş
+2025-08-11 10:55:45,457 [ERROR] [MssqlHandler] Kod: 6 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 10:55:45,457 [ERROR] [Dispatcher] Kod: 6 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 10:55:45,457 [ERROR] [Orchestrator] Kod: 6 Message: [Orchestrator] Kod: -100 Message: Managed System ID boş
+2025-08-11 10:55:45,458 [ERROR] [MSSQLManagedAccount] Kod: 2 Message: [MSSQLManagedAccount] Kod: -410 Message: Port değeri geçersiz: nan
+2025-08-11 10:55:45,458 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).
+2025-08-11 10:55:45,458 [ERROR] [Orchestrator] Kod: 6 Message: [Orchestrator] Kod: -101 Message: Managed Account ID boş
+2025-08-11 10:55:45,468 [ERROR] [MssqlHandler] Kod: 7 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 10:55:45,468 [ERROR] [Dispatcher] Kod: 7 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 10:55:45,469 [ERROR] [Orchestrator] Kod: 7 Message: [Orchestrator] Kod: -100 Message: Managed System ID boş
+2025-08-11 10:55:45,469 [ERROR] [MSSQLManagedAccount] Kod: 2 Message: [MSSQLManagedAccount] Kod: -410 Message: Port değeri geçersiz: nan
+2025-08-11 10:55:45,469 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).
+2025-08-11 10:55:45,469 [ERROR] [Orchestrator] Kod: 7 Message: [Orchestrator] Kod: -101 Message: Managed Account ID boş

@@ -1,0 +1,52 @@
+2025-08-11 10:34:10,548 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250811_103410.log
+2025-08-11 10:34:10,548 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250811_103410.log
+2025-08-11 10:34:10,549 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:34:10,638 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 10291
+2025-08-11 10:34:10,638 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (10 kayıt)
+2025-08-11 10:34:10,639 [INFO] ✅ ManagedSystem cache yüklendi. (10 kayıt)
+2025-08-11 10:34:10,641 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:34:10,727 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-11 10:34:10,728 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-11 10:34:10,729 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-11 10:34:10,730 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:34:10,770 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/SmartRules HTTP/1.1" 200 8874
+2025-08-11 10:34:10,772 [INFO] ✅ SmartRule cache yüklendi. (30 kayıt)
+2025-08-11 10:34:10,773 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:34:10,798 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Applications HTTP/1.1" 200 1645
+2025-08-11 10:34:10,799 [INFO] 📥 Application listesi API'den alındı ve cache'e yazıldı. (4 kayıt)
+2025-08-11 10:34:10,801 [INFO] ✅ Application cache yüklendi. (4 kayıt)
+2025-08-11 10:34:10,802 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:34:10,828 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/UserGroups HTTP/1.1" 200 1939
+2025-08-11 10:34:10,829 [INFO] 📥 User group listesi API'den alındı ve cache'e yazıldı. (6 kayıt)
+2025-08-11 10:34:10,830 [INFO] ✅ UserGroup cache yüklendi. (6 kayıt)
+2025-08-11 10:34:10,831 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:34:10,867 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Users HTTP/1.1" 200 2450
+2025-08-11 10:34:10,868 [INFO] 📥 User listesi API'den alındı ve cache'e yazıldı. (7 kayıt)
+2025-08-11 10:34:10,869 [INFO] ✅ User cache yüklendi. (7 kayıt)
+2025-08-11 10:34:10,876 [INFO] ✅ Output Excel dosyası oluşturuldu: data/btmigrate_output.xlsx
+2025-08-11 10:34:10,877 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:34:10,916 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/SmartRules HTTP/1.1" 200 8874
+2025-08-11 10:34:10,917 [INFO] 📥 Smart Rule listesi API'den alındı ve cache'e yazıldı. (30 kayıt)
+2025-08-11 10:34:10,918 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:34:10,942 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Applications HTTP/1.1" 200 1645
+2025-08-11 10:34:10,943 [INFO] 📥 Application listesi API'den alındı ve cache'e yazıldı. (4 kayıt)
+2025-08-11 10:34:10,944 [INFO] 📥 Application listesi API'den alındı ve cache'e yazıldı. (4 kayıt)
+2025-08-11 10:34:10,954 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-11 10:34:10,964 [INFO] Row 2: ✅ Zaten mevcut → None
+2025-08-11 10:34:10,975 [INFO] Row 3: ✅ Zaten mevcut → None
+2025-08-11 10:34:10,985 [INFO] Row 4: ✅ Zaten mevcut → None
+2025-08-11 10:34:10,997 [DEBUG] [FA Lookup] Aranan → Domain: 'nondomain', OS: 'linux'
+2025-08-11 10:34:10,997 [DEBUG] [FA Lookup] Domain eşleşmedi. Sadece OS ('linux') ile fallback denenecek.
+2025-08-11 10:34:10,997 [DEBUG] [FA Lookup] (Fallback) Eşleşme bulunamadı. Domain: 'nondomain', OS: 'linux'
+2025-08-11 10:34:10,997 [ERROR] [LinuxHandler] Kod: 5 Message: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-11 10:34:10,998 [ERROR] [Dispatcher] Kod: 5 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 10:34:11,008 [DEBUG] [FA Lookup] Aranan → Domain: 'quasys.local', OS: 'mssql'
+2025-08-11 10:34:11,008 [DEBUG] [FA Lookup] Eşleşen FA bulundu → ID: 9
+2025-08-11 10:34:11,008 [ERROR] [MssqlHandler] Kod: 6 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 10:34:11,009 [ERROR] [Dispatcher] Kod: 6 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 10:34:11,020 [DEBUG] [FA Lookup] Aranan → Domain: 'quasys.local', OS: 'mssql'
+2025-08-11 10:34:11,020 [DEBUG] [FA Lookup] Eşleşen FA bulundu → ID: 9
+2025-08-11 10:34:11,020 [ERROR] [MssqlHandler] Kod: 7 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 10:34:11,020 [ERROR] [Dispatcher] Kod: 7 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 10:34:11,030 [INFO] Row 8: ✅ Zaten mevcut → None
+2025-08-11 10:34:11,041 [INFO] Row 9: ✅ Zaten mevcut → None

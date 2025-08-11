@@ -1,0 +1,20 @@
+2025-08-11 12:31:01,188 [ERROR] [UserGroupRole] Kod: 4 Message: ❌ SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/108/SmartRules/10093/Roles
+2025-08-11 12:31:01,189 [ERROR] [UserGroup] Kod: 4 Message: [UserGroup] Kod: -861 Message: SmartRule/Role ataması başarısız: SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/108/SmartRules/10093/Roles
+2025-08-11 12:31:01,339 [ERROR] [LinuxHandler] Kod: 5 Message: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-11 12:31:01,339 [ERROR] [Dispatcher] Kod: 5 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 12:31:01,339 [ERROR] [ADManagedAccount] Kod: 2 Message: [ADManagedAccount] Kod: -300 Message: Domain controller bulunamadı. Domain: nondomain
+2025-08-11 12:31:01,339 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -101 Message: AD managed account oluşturulamadı (ID yok).
+2025-08-11 12:31:01,554 [ERROR] [UserGroupRole] Kod: 6 Message: ❌ SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/108/SmartRules/10093/Roles
+2025-08-11 12:31:01,555 [ERROR] [UserGroup] Kod: 6 Message: [UserGroup] Kod: -861 Message: SmartRule/Role ataması başarısız: SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/108/SmartRules/10093/Roles
+2025-08-11 12:31:01,804 [ERROR] [UserGroupRole] Kod: 7 Message: ❌ SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/108/SmartRules/10093/Roles
+2025-08-11 12:31:01,805 [ERROR] [UserGroup] Kod: 7 Message: [UserGroup] Kod: -861 Message: SmartRule/Role ataması başarısız: SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/108/SmartRules/10093/Roles
+2025-08-11 12:31:02,055 [ERROR] [UserGroupRole] Kod: 8 Message: ❌ SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/109/SmartRules/10094/Roles
+2025-08-11 12:31:02,056 [ERROR] [UserGroup] Kod: 8 Message: [UserGroup] Kod: -861 Message: SmartRule/Role ataması başarısız: SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/109/SmartRules/10094/Roles
+2025-08-11 12:31:09,426 [ERROR] [UserAPI] Kod: -1 Message: Kullanıcı oluşturma hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/Users/
+2025-08-11 12:31:09,426 [ERROR] [UserGroupMember] Kod: 8 Message: [USER] Kullanıcı bulunamadı/oluşturulamadı: e_misir
+2025-08-11 12:31:09,427 [ERROR] [UserGroupMember] Kod: 8 Message: [UserGroupMember] Kod: -7901 Message: Hiçbir geçerli kullanıcı bulunamadı; üyelik yapılmadı.
+2025-08-11 12:31:09,660 [ERROR] [UserGroupRole] Kod: 9 Message: ❌ SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/109/SmartRules/10094/Roles
+2025-08-11 12:31:09,661 [ERROR] [UserGroup] Kod: 9 Message: [UserGroup] Kod: -861 Message: SmartRule/Role ataması başarısız: SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/109/SmartRules/10094/Roles
+2025-08-11 12:31:16,980 [ERROR] [UserAPI] Kod: -1 Message: Kullanıcı oluşturma hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/Users/
+2025-08-11 12:31:16,981 [ERROR] [UserGroupMember] Kod: 9 Message: [USER] Kullanıcı bulunamadı/oluşturulamadı: e_misir
+2025-08-11 12:31:16,981 [ERROR] [UserGroupMember] Kod: 9 Message: [UserGroupMember] Kod: -7901 Message: Hiçbir geçerli kullanıcı bulunamadı; üyelik yapılmadı.

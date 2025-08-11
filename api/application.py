@@ -50,7 +50,6 @@ def assign_application_to_account(account_id: int, application_id: int):
         log_error(account_id, f"Application ataması başarısız: {str(e)}", error_type="ApplicationAPI")
         return False
 
-# ✅ Bu fonksiyonu yeni ekle:
 def is_application_already_assigned(account_id: int, application_id: int) -> bool:
     session_id = os.getenv("ASP_NET_SESSION_ID")
     if not session_id:
@@ -70,3 +69,21 @@ def is_application_already_assigned(account_id: int, application_id: int) -> boo
     except Exception as e:
         log_error(account_id, f"Application kontrolü başarısız: {e}", error_type="ApplicationAPI")
         return False
+
+# ✅ yeni: mevcut atamaları tek seferde al
+def get_assigned_applications(account_id: int):
+    session_id = os.getenv("ASP_NET_SESSION_ID")
+    if not session_id:
+        log_error(account_id, "Session ID bulunamadı. Mevcut application'lar alınamadı.", error_type="ApplicationAPI")
+        return []
+
+    url = f"{API_BASE_URL}/ManagedAccounts/{account_id}/Applications"
+    headers = {"Cookie": f"ASP.NET_SessionId={session_id}"}
+
+    try:
+        response = requests.get(url, headers=headers, verify=VERIFY_SSL)
+        response.raise_for_status()
+        return response.json() or []
+    except Exception as e:
+        log_error(account_id, f"Mevcut atamalar alınamadı: {e}", error_type="ApplicationAPI")
+        return []

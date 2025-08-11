@@ -17,16 +17,16 @@ def main():
     setup_logging()  # ✅ Artık sadece burada loglama başlatılıyor
 
     # 🧪 Hazırlık aşaması (normalize Excel üretimi)
-    prepare_workbook()
+    #prepare_workbook()
 
     # 🧠 Cache başlat
-    #cache = initialize_cache()
+    cache = initialize_cache()
 
     # 📄 Output Excel'i başlat
-    #initialize_output_workbook()  # ✅ Eklendi
+    initialize_output_workbook()  # ✅ Eklendi
 
     # 🚀 Orkestrasyonu başlat
-    #start_orchestration(cache)
+    start_orchestration(cache)
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,118 @@
+2025-08-11 10:47:44,344 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250811_104744.log
+2025-08-11 10:47:44,344 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250811_104744.log
+2025-08-11 10:47:44,345 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:44,435 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 10291
+2025-08-11 10:47:44,436 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (10 kayıt)
+2025-08-11 10:47:44,437 [INFO] ✅ ManagedSystem cache yüklendi. (10 kayıt)
+2025-08-11 10:47:44,438 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:44,523 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-11 10:47:44,524 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-11 10:47:44,525 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-11 10:47:44,526 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:44,565 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/SmartRules HTTP/1.1" 200 8874
+2025-08-11 10:47:44,566 [INFO] ✅ SmartRule cache yüklendi. (30 kayıt)
+2025-08-11 10:47:44,567 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:44,591 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Applications HTTP/1.1" 200 1645
+2025-08-11 10:47:44,592 [INFO] 📥 Application listesi API'den alındı ve cache'e yazıldı. (4 kayıt)
+2025-08-11 10:47:44,592 [INFO] ✅ Application cache yüklendi. (4 kayıt)
+2025-08-11 10:47:44,593 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:44,621 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/UserGroups HTTP/1.1" 200 1939
+2025-08-11 10:47:44,621 [INFO] 📥 User group listesi API'den alındı ve cache'e yazıldı. (6 kayıt)
+2025-08-11 10:47:44,622 [INFO] ✅ UserGroup cache yüklendi. (6 kayıt)
+2025-08-11 10:47:44,623 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:44,662 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Users HTTP/1.1" 200 2450
+2025-08-11 10:47:44,662 [INFO] 📥 User listesi API'den alındı ve cache'e yazıldı. (7 kayıt)
+2025-08-11 10:47:44,663 [INFO] ✅ User cache yüklendi. (7 kayıt)
+2025-08-11 10:47:44,664 [INFO] 🧹 Var olan output dosyası silindi: data/btmigrate_output.xlsx
+2025-08-11 10:47:44,672 [INFO] ✅ Output Excel dosyası oluşturuldu: data/btmigrate_output.xlsx
+2025-08-11 10:47:44,682 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-11 10:47:44,683 [INFO] Row 1: Managed System başarıyla işlendi.
+2025-08-11 10:47:44,684 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:44,751 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 2
+2025-08-11 10:47:44,753 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:44,889 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 201 1123
+2025-08-11 10:47:44,889 [INFO] [ManagedAccountAPI] ✅ AD Managed Account oluşturuldu: pam118064
+2025-08-11 10:47:44,890 [INFO] Row 1: AD managed account oluşturuldu: pam118064
+2025-08-11 10:47:44,891 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:44,943 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/245/LinkedAccounts/141 HTTP/1.1" 201 1123
+2025-08-11 10:47:44,943 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 245, AccountID: 141
+2025-08-11 10:47:44,944 [INFO] Row 1: AD managed account oluşturuldu: pam118064
+2025-08-11 10:47:44,945 [INFO] Row 1: Managed Account başarıyla işlendi.
+2025-08-11 10:47:44,953 [INFO] Row 2: ✅ Zaten mevcut → None
+2025-08-11 10:47:44,954 [INFO] Row 2: Managed System başarıyla işlendi.
+2025-08-11 10:47:44,954 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,023 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 1125
+2025-08-11 10:47:45,024 [INFO] Row 1: AD managed account zaten var: pam118064
+2025-08-11 10:47:45,025 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,068 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/246/LinkedAccounts/141 HTTP/1.1" 201 1123
+2025-08-11 10:47:45,068 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 246, AccountID: 141
+2025-08-11 10:47:45,069 [INFO] Row 1: AD managed account oluşturuldu: pam118064
+2025-08-11 10:47:45,070 [INFO] Row 2: Managed Account başarıyla işlendi.
+2025-08-11 10:47:45,080 [INFO] Row 3: ✅ Zaten mevcut → None
+2025-08-11 10:47:45,081 [INFO] Row 3: Managed System başarıyla işlendi.
+2025-08-11 10:47:45,082 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,148 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 1125
+2025-08-11 10:47:45,150 [INFO] Row 1: AD managed account zaten var: pam118064
+2025-08-11 10:47:45,151 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,192 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/247/LinkedAccounts/141 HTTP/1.1" 201 1123
+2025-08-11 10:47:45,193 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 247, AccountID: 141
+2025-08-11 10:47:45,194 [INFO] Row 1: AD managed account oluşturuldu: pam118064
+2025-08-11 10:47:45,194 [INFO] Row 3: Managed Account başarıyla işlendi.
+2025-08-11 10:47:45,203 [INFO] Row 4: ✅ Zaten mevcut → None
+2025-08-11 10:47:45,204 [INFO] Row 4: Managed System başarıyla işlendi.
+2025-08-11 10:47:45,204 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,272 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 1125
+2025-08-11 10:47:45,274 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,402 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 201 1123
+2025-08-11 10:47:45,402 [INFO] [ManagedAccountAPI] ✅ AD Managed Account oluşturuldu: pam100887
+2025-08-11 10:47:45,403 [INFO] Row 2: AD managed account oluşturuldu: pam100887
+2025-08-11 10:47:45,404 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,447 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/248/LinkedAccounts/142 HTTP/1.1" 201 1123
+2025-08-11 10:47:45,448 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 248, AccountID: 142
+2025-08-11 10:47:45,449 [INFO] Row 2: AD managed account oluşturuldu: pam100887
+2025-08-11 10:47:45,449 [INFO] Row 4: Managed Account başarıyla işlendi.
+2025-08-11 10:47:45,459 [DEBUG] [FA Lookup] Aranan → Domain: 'nondomain', OS: 'linux'
+2025-08-11 10:47:45,459 [DEBUG] [FA Lookup] Domain eşleşmedi. Sadece OS ('linux') ile fallback denenecek.
+2025-08-11 10:47:45,459 [DEBUG] [FA Lookup] (Fallback) Eşleşme bulunamadı. Domain: 'nondomain', OS: 'linux'
+2025-08-11 10:47:45,459 [ERROR] [LinuxHandler] Kod: 5 Message: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-11 10:47:45,460 [ERROR] [Dispatcher] Kod: 5 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 10:47:45,460 [ERROR] [Orchestrator] Kod: 5 Message: [Orchestrator] Kod: -100 Message: Managed System ID boş
+2025-08-11 10:47:45,460 [ERROR] [ADManagedAccount] Kod: 2 Message: [ADManagedAccount] Kod: -300 Message: Domain controller bulunamadı. Domain: nondomain
+2025-08-11 10:47:45,460 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -101 Message: AD managed account oluşturulamadı (ID yok).
+2025-08-11 10:47:45,460 [ERROR] [Orchestrator] Kod: 5 Message: [Orchestrator] Kod: -101 Message: Managed Account ID boş
+2025-08-11 10:47:45,470 [DEBUG] [FA Lookup] Aranan → Domain: 'quasys.local', OS: 'mssql'
+2025-08-11 10:47:45,471 [DEBUG] [FA Lookup] Eşleşen FA bulundu → ID: 9
+2025-08-11 10:47:45,471 [ERROR] [MssqlHandler] Kod: 6 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 10:47:45,471 [ERROR] [Dispatcher] Kod: 6 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 10:47:45,471 [ERROR] [Orchestrator] Kod: 6 Message: [Orchestrator] Kod: -100 Message: Managed System ID boş
+2025-08-11 10:47:45,471 [ERROR] [MSSQLManagedAccount] Kod: 2 Message: [MSSQLManagedAccount] Kod: -410 Message: Port değeri geçersiz: nan
+2025-08-11 10:47:45,471 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).
+2025-08-11 10:47:45,471 [ERROR] [Orchestrator] Kod: 6 Message: [Orchestrator] Kod: -101 Message: Managed Account ID boş
+2025-08-11 10:47:45,483 [DEBUG] [FA Lookup] Aranan → Domain: 'quasys.local', OS: 'mssql'
+2025-08-11 10:47:45,483 [DEBUG] [FA Lookup] Eşleşen FA bulundu → ID: 9
+2025-08-11 10:47:45,483 [ERROR] [MssqlHandler] Kod: 7 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz: nan
+2025-08-11 10:47:45,483 [ERROR] [Dispatcher] Kod: 7 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 10:47:45,483 [ERROR] [Orchestrator] Kod: 7 Message: [Orchestrator] Kod: -100 Message: Managed System ID boş
+2025-08-11 10:47:45,483 [ERROR] [MSSQLManagedAccount] Kod: 2 Message: [MSSQLManagedAccount] Kod: -410 Message: Port değeri geçersiz: nan
+2025-08-11 10:47:45,483 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).
+2025-08-11 10:47:45,483 [ERROR] [Orchestrator] Kod: 7 Message: [Orchestrator] Kod: -101 Message: Managed Account ID boş
+2025-08-11 10:47:45,496 [INFO] Row 8: ✅ Zaten mevcut → None
+2025-08-11 10:47:45,497 [INFO] Row 8: Managed System başarıyla işlendi.
+2025-08-11 10:47:45,498 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,598 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/249/ManagedAccounts HTTP/1.1" 200 2
+2025-08-11 10:47:45,601 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,721 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/249/ManagedAccounts HTTP/1.1" 201 1100
+2025-08-11 10:47:45,722 [INFO] ✅ Oracle Managed Account oluşturuldu: PAM100545
+2025-08-11 10:47:45,723 [INFO] Row 3: Oracle managed account oluşturuldu: PAM100545
+2025-08-11 10:47:45,723 [INFO] Row 3: Oracle managed account oluşturuldu: PAM100545
+2025-08-11 10:47:45,723 [INFO] Row 8: Managed Account başarıyla işlendi.
+2025-08-11 10:47:45,737 [INFO] Row 9: ✅ Zaten mevcut → None
+2025-08-11 10:47:45,737 [INFO] Row 9: Managed System başarıyla işlendi.
+2025-08-11 10:47:45,739 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,873 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/250/ManagedAccounts HTTP/1.1" 200 2
+2025-08-11 10:47:45,875 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 10:47:45,997 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/250/ManagedAccounts HTTP/1.1" 201 1100
+2025-08-11 10:47:45,998 [INFO] ✅ Oracle Managed Account oluşturuldu: PAM100546
+2025-08-11 10:47:45,999 [INFO] Row 4: Oracle managed account oluşturuldu: PAM100546
+2025-08-11 10:47:45,999 [INFO] Row 4: Oracle managed account oluşturuldu: PAM100546
+2025-08-11 10:47:46,000 [INFO] Row 9: Managed Account başarıyla işlendi.

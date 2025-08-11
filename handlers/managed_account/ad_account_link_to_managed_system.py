@@ -1,39 +1,30 @@
 # handlers/managed_account/ad_account_link_to_managed_system.py
 
-from utils.logger import log_error, log_debug, log_message
 from api.managed_account import link_managed_account_to_system
+from utils.report import ma_set_link_status, ma_error
 
 def link_ad_account_to_managed_system(row: dict, managed_account_id: int, cache):
     row_number = row.get("PamEnvanterSatır", -1)
     ip_address = row.get("ip address")
 
+    all_managed_systems = cache.get_all_by_key("ManagedSystem")
+    matched = [s for s in all_managed_systems if (s.get("IPAddress") or "").strip() == ip_address]
+
+    if len(matched) == 0:
+        ma_set_link_status(row, False, f"IP eşleşmesi bulunamadı. IP: {ip_address}")
+        return
+    if len(matched) > 1:
+        ma_set_link_status(row, False, f"Aynı IP ({ip_address}) ile birden fazla managed system bulundu.")
+        return
+
+    managed_system_id = matched[0].get("ManagedSystemID")
+    if not managed_system_id:
+        ma_set_link_status(row, False, f"ManagedSystemID yok. Kayıt: {matched[0]}")
+        return
+
     try:
-        all_managed_systems = cache.get_all_by_key("ManagedSystem")
-
-        matched = [
-            s for s in all_managed_systems
-            if (s.get("IPAddress") or "").strip() == ip_address
-        ]
-
-        if len(matched) == 0:
-            log_error(row_number, f"🔗 Linkleme için IP eşleşmesi bulunamadı. IP: {ip_address}", error_type="AccountLinker")
-            row["MA - Linkleme Durumu"] = "❌"
-            return
-
-        if len(matched) > 1:
-            row["MA - Linkleme Durumu"] = "❌"
-            raise Exception(f"🔴 Aynı IP ({ip_address}) ile birden fazla managed system bulundu. Tanım hatalı!")
-
-        managed_system_id = matched[0].get("ManagedSystemID")
-        if not managed_system_id:
-            log_error(row_number, f"🔗 IP eşleşti ama ManagedSystemID alınamadı. Kayıt: {matched[0]}", error_type="AccountLinker")
-            row["MA - Linkleme Durumu"] = "❌"
-            return
-
-        log_message(f"[Row {row_number}] 🔗 Linkleme işlemi başlatıldı → SystemID: {managed_system_id}, AccountID: {managed_account_id}")
         link_managed_account_to_system(managed_system_id, managed_account_id)
-        row["MA - Linkleme Durumu"] = "✅"
-
+        ma_set_link_status(row, True)
     except Exception as e:
-        log_error(row_number, f"💥 Linkleme hatası: {str(e)}", error_type="AccountLinker")
-        row["MA - Linkleme Durumu"] = "❌"
+        # API wrapper zaten logluyor olabilir; yine de hata detayı verelim
+        ma_set_link_status(row, False, f"Linkleme API hatası: {str(e)}")

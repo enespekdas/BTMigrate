@@ -1,0 +1,207 @@
+2025-08-11 12:16:28,730 [INFO] 🚀 Loglama başlatıldı: logs/btmigrate_20250811_121628.log
+2025-08-11 12:16:28,730 [INFO] 🚨 Hatalar ayrıca burada: logs/btmigrate_error_20250811_121628.log
+2025-08-11 12:16:28,732 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:28,832 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems HTTP/1.1" 200 10291
+2025-08-11 12:16:28,833 [INFO] 📥 Managed System listesi API'den alındı ve cache'e yazıldı. (10 kayıt)
+2025-08-11 12:16:28,834 [INFO] ✅ ManagedSystem cache yüklendi. (10 kayıt)
+2025-08-11 12:16:28,836 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:28,951 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/FunctionalAccounts HTTP/1.1" 200 2315
+2025-08-11 12:16:28,952 [INFO] 📥 FunctionalAccount listesi API'den alındı ve cache'e yazıldı. (9 kayıt)
+2025-08-11 12:16:28,953 [INFO] ✅ FunctionalAccount cache yüklendi. (9 kayıt)
+2025-08-11 12:16:28,954 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:28,994 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/SmartRules HTTP/1.1" 200 9680
+2025-08-11 12:16:28,996 [INFO] ✅ SmartRule cache yüklendi. (33 kayıt)
+2025-08-11 12:16:28,997 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,022 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Applications HTTP/1.1" 200 1645
+2025-08-11 12:16:29,022 [INFO] 📥 Application listesi API'den alındı ve cache'e yazıldı. (4 kayıt)
+2025-08-11 12:16:29,023 [INFO] ✅ Application cache yüklendi. (4 kayıt)
+2025-08-11 12:16:29,025 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,053 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/UserGroups HTTP/1.1" 200 2258
+2025-08-11 12:16:29,054 [INFO] 📥 User group listesi API'den alındı ve cache'e yazıldı. (7 kayıt)
+2025-08-11 12:16:29,055 [INFO] ✅ UserGroup cache yüklendi. (7 kayıt)
+2025-08-11 12:16:29,056 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,097 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/Users HTTP/1.1" 200 2775
+2025-08-11 12:16:29,097 [INFO] 📥 User listesi API'den alındı ve cache'e yazıldı. (8 kayıt)
+2025-08-11 12:16:29,098 [INFO] ✅ User cache yüklendi. (8 kayıt)
+2025-08-11 12:16:29,099 [INFO] 🧹 Var olan output dosyası silindi: data/btmigrate_output.xlsx
+2025-08-11 12:16:29,106 [INFO] ✅ Output Excel dosyası oluşturuldu: data/btmigrate_output.xlsx
+2025-08-11 12:16:29,117 [INFO] Row 1: ✅ Zaten mevcut → None
+2025-08-11 12:16:29,119 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,194 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 2249
+2025-08-11 12:16:29,196 [INFO] Row 1: AD managed account zaten var: pam118064
+2025-08-11 12:16:29,197 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,240 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/275/LinkedAccounts/161 HTTP/1.1" 200 1123
+2025-08-11 12:16:29,241 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 275, AccountID: 161
+2025-08-11 12:16:29,242 [INFO] Row 1: AD managed account oluşturuldu: pam118064
+2025-08-11 12:16:29,244 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,295 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10089/ManagedAccounts HTTP/1.1" 200 1125
+2025-08-11 12:16:29,297 [INFO] Row 1: Smart Rule zaten mevcut ve hesap bağlı: THY_MA_S_OZCAN
+2025-08-11 12:16:29,298 [INFO] 🚀 Application atama başlatıldı. (AccountID: 161)
+2025-08-11 12:16:29,298 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,334 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedAccounts/161/Applications HTTP/1.1" 200 453
+2025-08-11 12:16:29,335 [INFO] ℹ️ Application 'winscp' zaten atanmış, atlama yapıldı.
+2025-08-11 12:16:29,336 [INFO] 📦 App atama özeti (AccountID:161) → İstenen:1, Atanan:0, Zaten:1, Bulunamadı:0, Başarısız:0
+2025-08-11 12:16:29,336 [INFO] Row 1: Tüm uygulamalar başarıyla atandı veya önceden atanmış.
+2025-08-11 12:16:29,336 [INFO] [Row 1] ✅ User group zaten mevcut: S_OZCAN (ID: 114)
+2025-08-11 12:16:29,337 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,405 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/UserGroups/114/SmartRules/10089/Roles HTTP/1.1" 204 0
+2025-08-11 12:16:29,405 [INFO] [Row 1] ✅ SmartRule Role ataması başarılı → GroupID=114, RuleID=10089
+2025-08-11 12:16:29,407 [INFO] Row 1: User group mevcut ve SR/Role ataması yapıldı: S_OZCAN
+2025-08-11 12:16:29,407 [DEBUG] [DEBUG] Row 1: ➡️ Girdi üyeleri: S_OZCAN (Tip: <class 'str'>) → GroupID=114
+2025-08-11 12:16:29,407 [DEBUG] [DEBUG] Row -1: 🧪 parse_member_field() → Tip: <class 'str'>, Değer: S_OZCAN
+2025-08-11 12:16:29,407 [DEBUG] [DEBUG] Row 1: 🧪 Normalize üyeler: ['s_ozcan']
+2025-08-11 12:16:29,407 [DEBUG] [DEBUG] Row -1: 🧪 Cache'te bulundu: s_ozcan → ID: 64
+2025-08-11 12:16:29,408 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,438 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Users/64/UserGroups/114 HTTP/1.1" 201 271
+2025-08-11 12:16:29,438 [INFO] ✅ Kullanıcı (ID: 64) gruba (ID: 114) başarıyla eklendi.
+2025-08-11 12:16:29,439 [INFO] [Row 1] ➕ Kullanıcı (ID=64) gruba eklendi (GroupID=114)
+2025-08-11 12:16:29,440 [INFO] Row 1: 1 kullanıcı işlendi, tamamı gruba eklendi.
+2025-08-11 12:16:29,450 [INFO] Row 2: ✅ Zaten mevcut → None
+2025-08-11 12:16:29,451 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,522 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 2249
+2025-08-11 12:16:29,523 [INFO] Row 1: AD managed account zaten var: pam118064
+2025-08-11 12:16:29,525 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,559 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/276/LinkedAccounts/161 HTTP/1.1" 200 1123
+2025-08-11 12:16:29,559 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 276, AccountID: 161
+2025-08-11 12:16:29,560 [INFO] Row 1: AD managed account oluşturuldu: pam118064
+2025-08-11 12:16:29,562 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,608 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10089/ManagedAccounts HTTP/1.1" 200 1125
+2025-08-11 12:16:29,609 [INFO] Row 2: Smart Rule zaten mevcut ve hesap bağlı: THY_MA_S_OZCAN
+2025-08-11 12:16:29,610 [INFO] Row 2: Application alanı boş/uygunsuz; atama yapılmayacak (AccountID:161).
+2025-08-11 12:16:29,611 [INFO] [Row 2] ✅ User group zaten mevcut: S_OZCAN (ID: 114)
+2025-08-11 12:16:29,611 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,666 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/UserGroups/114/SmartRules/10089/Roles HTTP/1.1" 204 0
+2025-08-11 12:16:29,666 [INFO] [Row 2] ✅ SmartRule Role ataması başarılı → GroupID=114, RuleID=10089
+2025-08-11 12:16:29,667 [INFO] Row 2: User group mevcut ve SR/Role ataması yapıldı: S_OZCAN
+2025-08-11 12:16:29,668 [DEBUG] [DEBUG] Row 2: ➡️ Girdi üyeleri: S_OZCAN (Tip: <class 'str'>) → GroupID=114
+2025-08-11 12:16:29,668 [DEBUG] [DEBUG] Row -1: 🧪 parse_member_field() → Tip: <class 'str'>, Değer: S_OZCAN
+2025-08-11 12:16:29,668 [DEBUG] [DEBUG] Row 2: 🧪 Normalize üyeler: ['s_ozcan']
+2025-08-11 12:16:29,668 [DEBUG] [DEBUG] Row -1: 🧪 Cache'te bulundu: s_ozcan → ID: 64
+2025-08-11 12:16:29,669 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,695 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Users/64/UserGroups/114 HTTP/1.1" 201 271
+2025-08-11 12:16:29,696 [INFO] ✅ Kullanıcı (ID: 64) gruba (ID: 114) başarıyla eklendi.
+2025-08-11 12:16:29,697 [INFO] [Row 2] ➕ Kullanıcı (ID=64) gruba eklendi (GroupID=114)
+2025-08-11 12:16:29,698 [INFO] Row 2: 1 kullanıcı işlendi, tamamı gruba eklendi.
+2025-08-11 12:16:29,756 [INFO] Row 3: ✅ Zaten mevcut → None
+2025-08-11 12:16:29,757 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,849 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 2249
+2025-08-11 12:16:29,852 [INFO] Row 1: AD managed account zaten var: pam118064
+2025-08-11 12:16:29,854 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:29,920 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/277/LinkedAccounts/161 HTTP/1.1" 200 1123
+2025-08-11 12:16:29,921 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 277, AccountID: 161
+2025-08-11 12:16:29,922 [INFO] Row 1: AD managed account oluşturuldu: pam118064
+2025-08-11 12:16:29,924 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:30,002 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10089/ManagedAccounts HTTP/1.1" 200 1125
+2025-08-11 12:16:30,004 [INFO] Row 3: Smart Rule zaten mevcut ve hesap bağlı: THY_MA_S_OZCAN
+2025-08-11 12:16:30,006 [INFO] 🚀 Application atama başlatıldı. (AccountID: 161)
+2025-08-11 12:16:30,008 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:30,101 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedAccounts/161/Applications HTTP/1.1" 200 453
+2025-08-11 12:16:30,102 [INFO] ℹ️ Application 'winscp' zaten atanmış, atlama yapıldı.
+2025-08-11 12:16:30,103 [INFO] 📦 App atama özeti (AccountID:161) → İstenen:1, Atanan:0, Zaten:1, Bulunamadı:0, Başarısız:0
+2025-08-11 12:16:30,103 [INFO] Row 3: Tüm uygulamalar başarıyla atandı veya önceden atanmış.
+2025-08-11 12:16:30,103 [INFO] [Row 3] ✅ User group zaten mevcut: S_OZCAN (ID: 114)
+2025-08-11 12:16:30,104 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:30,182 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/UserGroups/114/SmartRules/10089/Roles HTTP/1.1" 204 0
+2025-08-11 12:16:30,182 [INFO] [Row 3] ✅ SmartRule Role ataması başarılı → GroupID=114, RuleID=10089
+2025-08-11 12:16:30,183 [INFO] Row 3: User group mevcut ve SR/Role ataması yapıldı: S_OZCAN
+2025-08-11 12:16:30,184 [DEBUG] [DEBUG] Row 3: ➡️ Girdi üyeleri: S_OZCAN (Tip: <class 'str'>) → GroupID=114
+2025-08-11 12:16:30,184 [DEBUG] [DEBUG] Row -1: 🧪 parse_member_field() → Tip: <class 'str'>, Değer: S_OZCAN
+2025-08-11 12:16:30,184 [DEBUG] [DEBUG] Row 3: 🧪 Normalize üyeler: ['s_ozcan']
+2025-08-11 12:16:30,185 [DEBUG] [DEBUG] Row -1: 🧪 Cache'te bulundu: s_ozcan → ID: 64
+2025-08-11 12:16:30,185 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:30,232 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Users/64/UserGroups/114 HTTP/1.1" 201 271
+2025-08-11 12:16:30,232 [INFO] ✅ Kullanıcı (ID: 64) gruba (ID: 114) başarıyla eklendi.
+2025-08-11 12:16:30,233 [INFO] [Row 3] ➕ Kullanıcı (ID=64) gruba eklendi (GroupID=114)
+2025-08-11 12:16:30,234 [INFO] Row 3: 1 kullanıcı işlendi, tamamı gruba eklendi.
+2025-08-11 12:16:30,246 [INFO] Row 4: ✅ Zaten mevcut → None
+2025-08-11 12:16:30,248 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:30,339 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/2/ManagedAccounts HTTP/1.1" 200 2249
+2025-08-11 12:16:30,341 [INFO] Row 2: AD managed account zaten var: pam100887
+2025-08-11 12:16:30,343 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:30,393 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/ManagedSystems/278/LinkedAccounts/162 HTTP/1.1" 200 1123
+2025-08-11 12:16:30,394 [INFO] [ManagedAccountAPI] 🔗 Linkleme başarılı → SystemID: 278, AccountID: 162
+2025-08-11 12:16:30,395 [INFO] Row 2: AD managed account oluşturuldu: pam100887
+2025-08-11 12:16:30,397 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:30,498 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10090/ManagedAccounts HTTP/1.1" 200 1125
+2025-08-11 12:16:30,500 [INFO] Row 4: Smart Rule zaten mevcut ve hesap bağlı: THY_MA_Y_UCUNCUOGLU
+2025-08-11 12:16:30,501 [INFO] Row 4: Application alanı boş/uygunsuz; atama yapılmayacak (AccountID:162).
+2025-08-11 12:16:30,501 [INFO] [Row 4] ✅ User group zaten mevcut: Y_UCUNCUOGLU (ID: 108)
+2025-08-11 12:16:30,501 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:30,546 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/UserGroups/108/SmartRules/10090/Roles HTTP/1.1" 400 63
+2025-08-11 12:16:30,546 [ERROR] [UserGroupRole] Kod: 4 Message: ❌ SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/108/SmartRules/10090/Roles
+2025-08-11 12:16:30,547 [ERROR] [UserGroup] Kod: 4 Message: [UserGroup] Kod: -861 Message: SmartRule/Role ataması başarısız: SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/108/SmartRules/10090/Roles
+2025-08-11 12:16:30,548 [DEBUG] [DEBUG] Row 4: ➡️ Girdi üyeleri: nan (Tip: <class 'float'>) → GroupID=108
+2025-08-11 12:16:30,548 [DEBUG] [DEBUG] Row -1: 🧪 parse_member_field() → Tip: <class 'float'>, Değer: nan
+2025-08-11 12:16:30,548 [DEBUG] [DEBUG] Row 4: 🧪 Normalize üyeler: []
+2025-08-11 12:16:30,548 [INFO] [Row 4] ℹ️ User group'a eklenecek kullanıcı yok.
+2025-08-11 12:16:30,559 [DEBUG] [FA Lookup] Aranan → Domain: 'nondomain', OS: 'linux'
+2025-08-11 12:16:30,559 [DEBUG] [FA Lookup] Domain eşleşmedi. Sadece OS ('linux') ile fallback denenecek.
+2025-08-11 12:16:30,559 [DEBUG] [FA Lookup] (Fallback) Eşleşme bulunamadı. Domain: 'nondomain', OS: 'linux'
+2025-08-11 12:16:30,559 [ERROR] [LinuxHandler] Kod: 5 Message: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-11 12:16:30,559 [ERROR] [Dispatcher] Kod: 5 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-11 12:16:30,559 [ERROR] [ADManagedAccount] Kod: 2 Message: [ADManagedAccount] Kod: -300 Message: Domain controller bulunamadı. Domain: nondomain
+2025-08-11 12:16:30,559 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -101 Message: AD managed account oluşturulamadı (ID yok).
+2025-08-11 12:16:30,570 [DEBUG] [FA Lookup] Aranan → Domain: 'quasys.local', OS: 'mssql'
+2025-08-11 12:16:30,570 [DEBUG] [FA Lookup] Eşleşen FA bulundu → ID: 9
+2025-08-11 12:16:30,570 [ERROR] [MssqlHandler] Kod: 6 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz, default 1433 kullanılacak: nan
+2025-08-11 12:16:30,572 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:30,797 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Workgroups/2/ManagedSystems HTTP/1.1" 201 1128
+2025-08-11 12:16:30,799 [INFO] Row 6: MSSQL Managed System oluşturuldu: None
+2025-08-11 12:16:30,799 [INFO] Row 6: Managed System oluşturuldu.
+2025-08-11 12:16:30,800 [ERROR] [MSSQLManagedAccount] Kod: 2 Message: [MSSQLManagedAccount] Kod: -410 Message: Port değeri geçersiz: nan
+2025-08-11 12:16:30,800 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).
+2025-08-11 12:16:30,816 [DEBUG] [FA Lookup] Aranan → Domain: 'quasys.local', OS: 'mssql'
+2025-08-11 12:16:30,816 [DEBUG] [FA Lookup] Eşleşen FA bulundu → ID: 9
+2025-08-11 12:16:30,816 [ERROR] [MssqlHandler] Kod: 7 Message: [MssqlHandler] Kod: -202 Message: Port değeri geçersiz, default 1433 kullanılacak: nan
+2025-08-11 12:16:30,817 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:30,979 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/Workgroups/2/ManagedSystems HTTP/1.1" 201 1128
+2025-08-11 12:16:30,981 [INFO] Row 7: MSSQL Managed System oluşturuldu: None
+2025-08-11 12:16:30,981 [INFO] Row 7: Managed System oluşturuldu.
+2025-08-11 12:16:30,982 [ERROR] [MSSQLManagedAccount] Kod: 2 Message: [MSSQLManagedAccount] Kod: -410 Message: Port değeri geçersiz: nan
+2025-08-11 12:16:30,982 [ERROR] [Dispatcher] Kod: 2 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).
+2025-08-11 12:16:30,995 [INFO] Row 8: ✅ Zaten mevcut → None
+2025-08-11 12:16:30,997 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:31,207 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/279/ManagedAccounts HTTP/1.1" 200 1103
+2025-08-11 12:16:31,209 [INFO] Row 3: Oracle managed account zaten var: PAM100545
+2025-08-11 12:16:31,209 [INFO] Row 3: Oracle managed account oluşturuldu: PAM100545
+2025-08-11 12:16:31,211 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:31,260 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10091/ManagedAccounts HTTP/1.1" 200 2205
+2025-08-11 12:16:31,261 [INFO] Row 8: Smart Rule zaten mevcut ve hesap bağlı: THY_MA_E_MISIR
+2025-08-11 12:16:31,262 [INFO] 🚀 Application atama başlatıldı. (AccountID: 163)
+2025-08-11 12:16:31,263 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:31,293 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedAccounts/163/Applications HTTP/1.1" 200 287
+2025-08-11 12:16:31,294 [INFO] ℹ️ Application 'oracle' zaten atanmış, atlama yapıldı.
+2025-08-11 12:16:31,295 [INFO] 📦 App atama özeti (AccountID:163) → İstenen:1, Atanan:0, Zaten:1, Bulunamadı:0, Başarısız:0
+2025-08-11 12:16:31,295 [INFO] Row 8: Tüm uygulamalar başarıyla atandı veya önceden atanmış.
+2025-08-11 12:16:31,295 [INFO] [Row 8] ✅ User group zaten mevcut: E_MISIR (ID: 109)
+2025-08-11 12:16:31,296 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:31,325 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/UserGroups/109/SmartRules/10091/Roles HTTP/1.1" 400 63
+2025-08-11 12:16:31,326 [ERROR] [UserGroupRole] Kod: 8 Message: ❌ SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/109/SmartRules/10091/Roles
+2025-08-11 12:16:31,327 [ERROR] [UserGroup] Kod: 8 Message: [UserGroup] Kod: -861 Message: SmartRule/Role ataması başarısız: SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/109/SmartRules/10091/Roles
+2025-08-11 12:16:31,328 [DEBUG] [DEBUG] Row 8: ➡️ Girdi üyeleri: nan (Tip: <class 'float'>) → GroupID=109
+2025-08-11 12:16:31,328 [DEBUG] [DEBUG] Row -1: 🧪 parse_member_field() → Tip: <class 'float'>, Değer: nan
+2025-08-11 12:16:31,328 [DEBUG] [DEBUG] Row 8: 🧪 Normalize üyeler: []
+2025-08-11 12:16:31,328 [INFO] [Row 8] ℹ️ User group'a eklenecek kullanıcı yok.
+2025-08-11 12:16:31,342 [INFO] Row 9: ✅ Zaten mevcut → None
+2025-08-11 12:16:31,344 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:31,414 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedSystems/280/ManagedAccounts HTTP/1.1" 200 1103
+2025-08-11 12:16:31,416 [INFO] Row 4: Oracle managed account zaten var: PAM100546
+2025-08-11 12:16:31,416 [INFO] Row 4: Oracle managed account oluşturuldu: PAM100546
+2025-08-11 12:16:31,417 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:31,462 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/QuickRules/10091/ManagedAccounts HTTP/1.1" 200 2205
+2025-08-11 12:16:31,464 [INFO] Row 9: Smart Rule zaten mevcut ve hesap bağlı: THY_MA_E_MISIR
+2025-08-11 12:16:31,465 [INFO] 🚀 Application atama başlatıldı. (AccountID: 164)
+2025-08-11 12:16:31,466 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:31,498 [DEBUG] https://bt.quasys.local:443 "GET /BeyondTrust/api/public/v3/ManagedAccounts/164/Applications HTTP/1.1" 200 287
+2025-08-11 12:16:31,499 [INFO] ℹ️ Application 'oracle' zaten atanmış, atlama yapıldı.
+2025-08-11 12:16:31,499 [INFO] 📦 App atama özeti (AccountID:164) → İstenen:1, Atanan:0, Zaten:1, Bulunamadı:0, Başarısız:0
+2025-08-11 12:16:31,499 [INFO] Row 9: Tüm uygulamalar başarıyla atandı veya önceden atanmış.
+2025-08-11 12:16:31,500 [INFO] [Row 9] ✅ User group zaten mevcut: E_MISIR (ID: 109)
+2025-08-11 12:16:31,500 [DEBUG] Starting new HTTPS connection (1): bt.quasys.local:443
+2025-08-11 12:16:31,529 [DEBUG] https://bt.quasys.local:443 "POST /BeyondTrust/api/public/v3/UserGroups/109/SmartRules/10091/Roles HTTP/1.1" 400 63
+2025-08-11 12:16:31,530 [ERROR] [UserGroupRole] Kod: 9 Message: ❌ SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/109/SmartRules/10091/Roles
+2025-08-11 12:16:31,531 [ERROR] [UserGroup] Kod: 9 Message: [UserGroup] Kod: -861 Message: SmartRule/Role ataması başarısız: SmartRule Role atama hatası: 400 Client Error: Bad Request for url: https://bt.quasys.local/BeyondTrust/api/public/v3/UserGroups/109/SmartRules/10091/Roles
+2025-08-11 12:16:31,532 [DEBUG] [DEBUG] Row 9: ➡️ Girdi üyeleri: nan (Tip: <class 'float'>) → GroupID=109
+2025-08-11 12:16:31,532 [DEBUG] [DEBUG] Row -1: 🧪 parse_member_field() → Tip: <class 'float'>, Değer: nan
+2025-08-11 12:16:31,533 [DEBUG] [DEBUG] Row 9: 🧪 Normalize üyeler: []
+2025-08-11 12:16:31,533 [INFO] [Row 9] ℹ️ User group'a eklenecek kullanıcı yok.
