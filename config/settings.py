@@ -26,6 +26,27 @@ AUTH_HEADERS = {
     "Authorization": "PS-Auth key=043f1686e106b3f64c0fcb07b1a66168f09675aa74d7f6999c6109e2628ffe734cc0e26a7c476d6ee217713ff168beabb9f8438bd31637a75f96fd7bd0350ce1; runas=btadmin;"
 }
 
+EXCLUDED_SAFE_MEMBERS = [
+    "SGOM",
+    "PasswordManager",
+    "Y_UCUNCUOGLU",
+    "Uploader",
+    "PSMAppUsers",
+    "OZCAN",
+    "API_USR",
+    "E_YILDIZ41",
+    "S_OZCAN"
+    # 👆 exclude etmek istediğin kullanıcıları buraya ekle
+]
+
+
+# MSSQL tespitinde kullanılacak domain suffix (ör. thynet.thy.com)
+MSSQL_DOMAIN_SUFFIX = "thynet.thy.com"
+
+# Domain bilgisi hiç bulunamazsa ve yine de bir default yazmak istiyorsan bunu doldur.
+# Otomatik türetme istemiyorsan None bırak; bu durumda "nonDomain" yazılır.
+DEFAULT_DOMAIN_IF_MISSING = None 
+
 AUTH_BODY = {}  # Eğer JSON body gerekiyorsa
 WORKGROUP_ID = 2 
 
@@ -57,18 +78,6 @@ RESULT_ROW_COLUMNS = [
     "safe name", "members", "database", "port", "type", "domain"
 ]
 
-EXCLUDED_SAFE_MEMBERS = [
-    "SGOM",
-    "PasswordManager",
-    "Y_UCUNCUOGLU",
-    "Uploader",
-    "PSMAppUsers",
-    "OZCAN",
-    "API_USR",
-    "E_YILDIZ41",
-    "S_OZCAN"
-    # 👆 exclude etmek istediğin kullanıcıları buraya ekle
-]
 
 OUTPUT_HEADERS = [
     "Satır No", "Genel Durum", "Kullanıcı Adı", "IP Adresi", "Hostname", "İşletim Sistemi", "Domain",

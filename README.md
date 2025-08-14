@@ -89,3 +89,47 @@ Kullanılacak sütunlar
 -> safeName -> Smart group yaratalım eğer smart group zaten yaratıldıysa sadece içerisine ekleyelim
  
 NOT: userName, address boş olanları ignore et ve logla
+
+
+
+----------------
+
+Otomasyon Notlar : 
+- THY De default autoapprove ataması yapmamış. 
+- IP adresi bulup hostname bulamamasına ragmen ekleme yapmamış . 
+- MSSQL Tespiti için IP ve host bulma işlemi tamamlandıktan sonra thynet.thy.com kontrolü yapılacak. 
+- pam ile başlamayan ve address kolonunda thynet.thy.com olmayan hesapların tamamı lokal hesaptır. 
+- username alanında pam içermiyorsa fakat address alanında thynet.thy.com var ise bunu domain hesap olarak alacağız. 
+- PlatformID kısmında web30 geçiyorsa eğer bu thyweb30.crop  domaininde demektir. 
+- PlatformID kısmında TCI geçiyorza -> tci.aero.local demektir. 
+- Eğer OS bilgisi device envanterde bulunamadıysa bunu platformID kolonundan bulucaz. 
+	- Eğer unix geçiyorsa Linux demektir. 
+	- Eğer windows geçiyorsa windows demektir. 
+
+---------------
+
+
+pam ile başlamayan herşey local hesaptır. local olması için address kolonunda thynet.thy.com olmayacak . username alanı da pam ile başlamayacak . 
+
+
+username alanında pam içermeyen , address kolonunda thynet.thy.com varsa domain hesap olarak alacağız. 
+
+
+
+Address kolonunda bulunan ip adres veya hostname  bilgisini al device envanterden os bilgisini ve domain bilgisini bul. 
+Eğer domain bilgisi bulunamadıysa bu makinenin ? 
+
+E platform id kolonunda eğer web30 geçiyorsa web30 demektir. 
+
+TCI geçiyorsa -> tci.aero.local
+
+TEKNIK geçiyorsa -> teknik.thynet.thy.com -> thynet.thy.com dakini kullanabiliriz. 
+
+WEB30 -> thyweb30.corp gibi bir 
+
+
+OS bilgisini Devise envanterde bulamazsak PlatformID kolonundan bulucaz. 
+
+unix geçiyorsa bu Linux makinedir. -> configden al , parametrik yap. 
+
+windows geçiyorsa platform id de bu da windowstur. 
