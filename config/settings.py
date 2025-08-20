@@ -60,6 +60,8 @@ OS_ENVANTER_FILE_PATH = "data/OsEnvanter.xlsx"
 SAFE_USER_FILE_PATH = "data/PamSafeUser.xlsx"
 BTMIGRATE_WORK_FILE_PATH = "data/btmigrate_work.xlsx"
 OUTPUT_EXCEL_PATH = "data/btmigrate_output.xlsx"
+MSSQL_ENVANTER_FILE_PATH = "data/MsSQLEnvanter.xlsx"
+
 
 SMART_GROUP_PREFIX="THY_MA_"
 

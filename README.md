@@ -97,8 +97,8 @@ NOT: userName, address boş olanları ignore et ve logla
 Otomasyon Notlar : 
 - THY De default autoapprove ataması yapmamış. 
 - IP adresi bulup hostname bulamamasına ragmen ekleme yapmamış . 
-- MSSQL Tespiti için IP ve host bulma işlemi tamamlandıktan sonra thynet.thy.com kontrolü yapılacak. 
-- pam ile başlamayan ve address kolonunda thynet.thy.com olmayan hesapların tamamı lokal hesaptır. 
++ MSSQL Tespiti için IP ve host bulma işlemi tamamlandıktan sonra thynet.thy.com kontrolü yapılacak. 
++ pam ile başlamayan ve address kolonunda thynet.thy.com olmayan hesapların tamamı lokal hesaptır. 
 - username alanında pam içermiyorsa fakat address alanında thynet.thy.com var ise bunu domain hesap olarak alacağız. 
 - PlatformID kısmında web30 geçiyorsa eğer bu thyweb30.crop  domaininde demektir. 
 - PlatformID kısmında TCI geçiyorza -> tci.aero.local demektir. 

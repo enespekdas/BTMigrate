@@ -1,0 +1,10 @@
+2025-08-14 14:02:11,032 [ERROR] Row 1: [Validation] Kod: -21 Message: IP adresi tespit edilemedi. OS envanter ve nslookup başarısız. (remote=Server3)
+2025-08-14 14:02:11,043 [ERROR] Row 2: [Validation] Kod: -22 Message: OS bilgisi bulunamadı (ip=10.58.59.106, hostname=Server6)
+2025-08-14 14:02:11,043 [ERROR] Row 2: [Validation] Kod: -21 Message: IP adresi tespit edilemedi. OS envanter ve nslookup başarısız. (remote=10.58.59.108)
+2025-08-14 14:02:11,043 [ERROR] Row 2: [Validation] Kod: -22 Message: OS bilgisi bulunamadı (ip=10.58.59.109, hostname=server9.thynet.thy.com)
+2025-08-14 14:02:21,099 [ERROR] Row 2: [Validation] Kod: -21 Message: IP ve hostname tespit edilemedi. OS envanter ve nslookup başarısız. (remote=server10.thynet.thy.com)
+2025-08-14 14:02:31,189 [ERROR] Row 5: [Oracle] Kod: -34 Message: IP adresi tespit edilemedi. OS envanterde ve nslookup sonucunda IP bulunamadı. (address=server13.thy.com)
+2025-08-14 14:02:31,190 [ERROR] [PrepareValidation] Kod: 6 Message: Satır işleme alınmadı: Domain Managed Account, Managed System, MSSQL ve Oracle filtre kurallarına uygun değil.
+2025-08-14 14:02:31,190 [ERROR] [PrepareValidation] Kod: 7 Message: Username alanı boş olduğundan dolayı ignore edilmiştir.
+2025-08-14 14:02:31,190 [ERROR] Row 8: [Oracle] Kod: -31 Message: DB port bilgisi boş
+2025-08-14 14:02:31,191 [ERROR] [PrepareValidation] Kod: 9 Message: Satır işleme alınmadı: Domain Managed Account, Managed System, MSSQL ve Oracle filtre kurallarına uygun değil.
