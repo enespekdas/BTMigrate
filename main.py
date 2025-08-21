@@ -17,7 +17,8 @@ def main():
     setup_logging()  # ✅ Artık sadece burada loglama başlatılıyor
 
     # 🧪 Hazırlık aşaması (normalize Excel üretimi)
-    #prepare_workbook()
+    
+    prepare_workbook()
 
     # 🧠 Cache başlat
     cache = initialize_cache()

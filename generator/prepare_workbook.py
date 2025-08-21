@@ -13,7 +13,7 @@ from row_processors.mssql_machines_handler import process_mssql_machines
 
 def is_empty(val: str) -> bool:
     val = (val or "").strip().lower()
-    return val in ["", "nan", "none", "null"]
+    return val in ["", "nan", "none", "null", "-"]
 
 def _append_rows(ws, rows: List[List]):
     for r in rows:
@@ -29,7 +29,7 @@ def _extract_mssql_hosts_set(mssql_raw: str) -> set[str]:
     hosts = set()
     for item in (mssql_raw or "").split(";"):
         s = item.strip()
-        if not s or s.lower() in ["nan", "none", "null"]:
+        if not s or s.lower() in ["nan", "none", "null", "-"]:
             continue
         # host\instance[:port] veya host[:port]
         if "\\" in s:
@@ -64,6 +64,32 @@ def _remote_is_in_mssql(remote_item: str, mssql_hosts: set[str]) -> bool:
             return True
     return False
 
+# 🆕 Domain'i boş olan valid satırlara PAM satırındaki address'i yaz
+def _fill_missing_domain_with_address(valid_rows: List[List], fallback_domain: str) -> List[List]:
+    """
+    headers_main yapısı:
+    [0] PamEnvanterSatır, [1] username, [2] ip address, [3] hostname,
+    [4] application, [5] OS, [6] safe name, [7] members,
+    [8] database, [9] port, [10] type, [11] domain
+    """
+    if is_empty(fallback_domain):
+        return valid_rows
+
+    DOMAIN_COL_IDX = 11
+    out = []
+    for row in valid_rows:
+        if len(row) <= DOMAIN_COL_IDX:
+            # Beklenen uzunlukta değilse olduğu gibi geçir
+            out.append(row)
+            continue
+
+        current_domain = str(row[DOMAIN_COL_IDX] if row[DOMAIN_COL_IDX] is not None else "").strip()
+        if is_empty(current_domain):
+            row = list(row)  # defensif kopya
+            row[DOMAIN_COL_IDX] = fallback_domain
+        out.append(row)
+    return out
+
 def prepare_workbook():
     pam_data = read_pam_envanter()
     os_data = read_os_envanter()
@@ -97,6 +123,9 @@ def prepare_workbook():
         remote_raw = str(row.get("RemoteMachines") or row.get("remoteMachines") or "").strip()
         mssql_raw = str(row.get("MsSQL") or "").strip()
 
+        # 🆕 Fallback domain olarak PAM satırındaki "address" alınır
+        fallback_domain_from_address = str(row.get("address") or row.get("Address") or "").strip()
+
         if is_empty(username):
             reason = "Username alanı boş."
             log_error(-11, f"{reason} (row={i})", error_type="PrepareValidation")
@@ -119,7 +148,7 @@ def prepare_workbook():
         if not is_empty(remote_raw):
             remotes = [
                 r.strip() for r in remote_raw.split(";")
-                if r.strip().lower() not in ["", "nan", "none", "null"]
+                if r.strip().lower() not in ["", "nan", "none", "null", "-"]
             ]
             remotes_filtered = [
                 r for r in remotes
@@ -139,12 +168,15 @@ def prepare_workbook():
                         os_envanter=os_data,
                         safe_user_list=safe_user_data
                     )
+                    # 🆕 Domain boşsa address ile doldur
+                    v_rows = _fill_missing_domain_with_address(v_rows, fallback_domain_from_address)
+
                     valid_rows += v_rows
                     ignored_rows += i_rows
                 except Exception as e:
                     reason = f"remote_machines_handler hatası: {str(e)}"
                     log_error(-20, reason, error_type="RemoteMachineHandler")
-                    ignored_rows.append([i, username, remote_raw or "-", "-", "-", reason, "-"])
+                    ws_ignored.append([i, username, remote_raw or "-", "-", "-", reason, "-"])
             # else: tüm remotes MSSQL ile çakıştığı için remote handler'ı atla
 
         # MsSQL akışı (envanter sadece liste — handler içinde lineer arama yapacak)
@@ -157,17 +189,20 @@ def prepare_workbook():
                     safe_user_list=safe_user_data,
                     mssql_envanter=mssql_envanter_records,  # ✅ listeyi geçir
                 )
+                # 🆕 Domain boşsa address ile doldur
+                v_rows = _fill_missing_domain_with_address(v_rows, fallback_domain_from_address)
+
                 valid_rows += v_rows
                 ignored_rows += i_rows
             except Exception as e:
                 reason = f"mssql_machines_handler hatası: {str(e)}"
                 log_error(-30, reason, error_type="MsSQLHandler")
-                ignored_rows.append([i, username, mssql_raw or "-", "-", "-", reason, "mssql"])
+                ws_ignored.append([i, username, mssql_raw or "-", "-", "-", reason, "mssql"])
 
         if is_empty(remote_raw) and is_empty(mssql_raw):
             reason = "RemoteMachines ve MsSQL alanları boş."
             log_error(-13, f"{reason} (row={i})", error_type="PrepareValidation")
-            ignored_rows.append([i, username, "-", "-", "-", reason, "-"])
+            ws_ignored.append([i, username, "-", "-", "-", reason, "-"])
 
         _append_rows(ws_main, valid_rows)
         _append_rows(ws_ignored, ignored_rows)
