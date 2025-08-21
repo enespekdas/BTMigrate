@@ -1,0 +1,5 @@
+2025-08-20 20:57:54,768 [ERROR] [MSSQLManagedAccount] Kod: 1 Message: [MSSQLManagedAccount] Kod: -423 Message: Domain controller bulunamadı. Domain: thynet.thy.com
+2025-08-20 20:57:54,768 [ERROR] [Dispatcher] Kod: 1 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).
+2025-08-20 20:57:55,486 [ERROR] [LinuxHandler] Kod: 7 Message: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-20 20:57:55,486 [ERROR] [Dispatcher] Kod: 7 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-20 20:57:55,486 [ERROR] [ManagedAccountDispatcher] Kod: 2 Message: [ManagedAccountDispatcher] Kod: -199 Message: Dispatcher exception: 'float' object has no attribute 'lower'

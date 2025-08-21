@@ -1,0 +1,17 @@
+2025-08-20 20:50:53,137 [ERROR] Row 1: [Validation] Kod: -21 Message: IP adresi tespit edilemedi (OS envanter + nslookup başarısız). (remote=Server3)
+2025-08-20 20:50:53,145 [ERROR] Row 2: [Validation] Kod: -22 Message: OS bilgisi bulunamadı. (ip=10.58.59.106, hostname=Server6)
+2025-08-20 20:51:03,189 [ERROR] Row 2: [Validation] Kod: -21 Message: IP ve hostname tespit edilemedi (OS envanter + nslookup başarısız). (remote=server10.thynet.thy.com)
+2025-08-20 20:51:03,189 [ERROR] [PrepareValidation] Kod: -13 Message: RemoteMachines ve MsSQL alanları boş. (row=3)
+2025-08-20 20:51:03,189 [ERROR] [PrepareValidation] Kod: -13 Message: RemoteMachines ve MsSQL alanları boş. (row=4)
+2025-08-20 20:51:03,189 [ERROR] [PrepareValidation] Kod: -13 Message: RemoteMachines ve MsSQL alanları boş. (row=5)
+2025-08-20 20:51:03,189 [ERROR] Row 6: [Validation] Kod: -20 Message: pam ile başlamayan domain tipi kullanıcı (username=dam118065)
+2025-08-20 20:51:03,190 [ERROR] [PrepareValidation] Kod: -11 Message: Username alanı boş. (row=7)
+2025-08-20 20:51:03,190 [ERROR] [PrepareValidation] Kod: -13 Message: RemoteMachines ve MsSQL alanları boş. (row=8)
+2025-08-20 20:51:03,190 [ERROR] [PrepareValidation] Kod: -13 Message: RemoteMachines ve MsSQL alanları boş. (row=9)
+2025-08-20 20:51:25,815 [ERROR] [MSSQLManagedAccount] Kod: 1 Message: [MSSQLManagedAccount] Kod: -423 Message: Domain controller bulunamadı. Domain: thynet.thy.com
+2025-08-20 20:51:25,816 [ERROR] [Dispatcher] Kod: 1 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).
+2025-08-20 20:51:26,040 [ERROR] [MSSQLManagedAccount] Kod: 1 Message: [MSSQLManagedAccount] Kod: -423 Message: Domain controller bulunamadı. Domain: thynet.thy.com
+2025-08-20 20:51:26,040 [ERROR] [Dispatcher] Kod: 1 Message: [Dispatcher] Kod: -103 Message: MSSQL managed account oluşturulamadı (ID yok).
+2025-08-20 20:51:26,830 [ERROR] [LinuxHandler] Kod: 7 Message: [LinuxHandler] Kod: -200 Message: Functional Account ID bulunamadı.
+2025-08-20 20:51:26,830 [ERROR] [Dispatcher] Kod: 7 Message: [Dispatcher] Kod: -101 Message: Oluşturma başarısız (ID dönmedi).
+2025-08-20 20:51:26,830 [ERROR] [ManagedAccountDispatcher] Kod: 2 Message: [ManagedAccountDispatcher] Kod: -199 Message: Dispatcher exception: 'float' object has no attribute 'lower'

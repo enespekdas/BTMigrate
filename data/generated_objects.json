@@ -1,0 +1,31 @@
+{
+  "ManagedSystem": [
+    349,
+    350,
+    351,
+    352,
+    353,
+    354
+  ],
+  "ManagedAccount": [
+    191,
+    192
+  ],
+  "SmartRule": [
+    10115,
+    10116
+  ],
+  "UserGroup": [
+    132,
+    128
+  ],
+  "UserGroupMembership": [
+    {
+      "UserID": 81,
+      "GroupID": 132
+    }
+  ],
+  "User": [
+    81
+  ]
+}

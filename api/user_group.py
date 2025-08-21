@@ -127,9 +127,9 @@ def assign_role_to_user_group_for_smart_rule(group_id: int, smart_rule_id: int, 
         return {"ok": False, "error": msg}
 
     # ✅ Precheck – zaten bağlıysa başarı
-    if _is_rule_already_assigned(group_id, smart_rule_id):
-        log_message(f"[Row {row_number}] ✅ SR/Role zaten atanmış → GroupID={group_id}, RuleID={smart_rule_id}")
-        return {"ok": True, "already": True}
+    # if _is_rule_already_assigned(group_id, smart_rule_id):
+    #     log_message(f"[Row {row_number}] ✅ SR/Role zaten atanmış → GroupID={group_id}, RuleID={smart_rule_id}")
+    #     return {"ok": True, "already": True}
 
     url = f"{API_BASE_URL}/UserGroups/{group_id}/SmartRules/{smart_rule_id}/Roles"
     headers = {

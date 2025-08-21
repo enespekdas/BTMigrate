@@ -36,6 +36,7 @@ def _ensure_role(group_id: int, smart_rule_id: int, row_number: int) -> dict:
     """
     # 1) Precheck
     if _is_rule_already_assigned_to_group(group_id, smart_rule_id):
+        assign_role_to_user_group_for_smart_rule(group_id, smart_rule_id, row_number)
         return {"ok": True, "already": True, "message": "SR/Role zaten atanmış"}
 
     # 2) Atama
